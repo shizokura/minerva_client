@@ -1,0 +1,598 @@
+.titleHead {
+  position: absolute;
+  top: 50px;
+  left: 405px;
+  font-family: 'poppins', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  .icon{
+     padding-right: 10px;
+  }
+
+  @media screen and (max-width: 1920px) {
+    position: absolute;
+    margin-top: -15px;
+  
+}
+
+@media screen and (max-width: 1536px) {
+  position: absolute;
+  margin-top: -15px;
+  display: flex;
+  font-size: 23px;
+  position: absolute;
+  top: 50px;
+  left: 400px;
+  
+    .icon{
+
+    width: 20px;
+   margin-right: 50px;
+   margin-top: -5px;
+}
+
+}  
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    font-size: 23px;
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    }
+      .icon{
+
+      width: 20px;
+     margin-right: 50px;
+     margin-top: -5px;
+  }
+
+
+  
+}
+
+
+.container {
+  width: 1470px;
+  height: 1100px;
+  position: absolute;
+  top: 130px;
+  left: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+
+  @media screen and (max-width: 1920px) {
+    width: 78%;
+    }
+
+    @media screen and (max-width: 1536px) {
+      width: 95%;
+      }
+
+  @media screen and (max-width: 1200px) {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    }
+}
+
+.chatContainer {
+  width: 1470px;
+  height: 1010px;
+  position: absolute;
+  top: 130px;
+  left: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+
+.greenBackground{
+  background: rgb(66, 172, 34);
+  padding: 5 5 5 5;
+  
+}
+
+.archiveContainer {
+  width: 1470px;
+  height: 935px;
+  position: absolute;
+  top: 130px;
+  left: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+.title {
+  font-family: 'poppins', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 20px 20px 20px;
+}
+
+.divider {
+  width: 98%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 8px 0px #ccc;
+  height: 5px;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+.divider1 {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 8px 0px #ccc;
+  height: 5px;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+.responsiveTable {
+  width: 98%;
+  margin-left: 1%;
+  
+  li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .tableHeader {
+    font-weight: bold;
+    background-color: #FFBD59;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+      @media screen and (max-width: 1920px) {
+
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+  
+}
+    @media screen and (max-width: 1537px) {
+      display: flex;
+      gap: 20px;
+      font-size: 11x;
+    }
+  }
+  .tableRow {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+          @media screen and (max-width: 1920px) {
+
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+  
+}
+    @media screen and (max-width: 1537px) {
+      display: flex;
+      gap: 20px;
+      font-size: 11x;
+    }
+  }
+  .col1O {
+    margin-left: 20px;
+    flex-basis: 15%;
+  }
+  .col2O {
+    flex-basis: 25%;
+  }
+  .col3O {
+    flex-basis: 15%;
+  }
+  .col4O {
+    flex-basis: 15%;
+  }
+  .col5O {
+    flex-basis: 15%;
+  }
+  .col6O {
+      
+    flex-basis: 18%;
+  }
+  .col7O {
+    flex-basis: 10%;
+  }
+
+  .col1A {
+    margin-left: 50px;
+    flex-basis: 20%;
+  }
+  .col2A {
+    margin-left: 50px;
+    flex-basis: 20%;
+  }
+  .col3A {
+    margin-left: 50px;
+    flex-basis: 20%;
+  }
+  .col4A {
+    margin-left: 50px;
+    margin-right: 40px;
+    flex-basis: 20%;
+  }
+  .col5A {
+    margin-left: 50px;
+    flex-basis: 20%;
+  }
+  .col6A {
+    margin-left: 50px;
+    flex-basis: 20%;
+  }
+  .col7A {
+    flex-basis: 20%;
+  }
+
+   .col1I {
+   margin-left: 50px;
+    flex-basis: 15%;
+  }
+  .col2I {
+    flex-basis: 25%;
+  }
+  .col3I {
+   margin-left: 20px;
+    flex-basis: 20%;
+    @media screen and (max-width: 1920px) {
+      margin-left: 10px;
+      width: 100%;
+      padding-right: 10px;
+      }
+    @media screen and (max-width: 1200px) {
+      margin-left: 10px;
+      width: 100%;
+      padding-right: 20px;
+      }
+  }
+  .col4I {
+    flex-basis: 20%;
+  }
+  .col5I {
+    flex-basis: 20%;
+  }
+  .col6I {
+    flex-basis: 15%;
+  }
+  .col7I {
+  margin-left: 20px;
+    flex-basis: 15%;
+  }
+
+  .col1 {
+    margin-left: 20px;
+    flex-basis: 15%;
+  }
+  .col2 {
+    flex-basis: 15%;
+  }
+  .col3 {
+    margin-left: -60px;
+    margin-right: 80px;
+    flex-basis: 15%;
+    @media screen and (max-width: 1200px) {
+      margin-left: 15px;
+      width: 100%;
+      }
+  }
+  .col4 {
+    flex-basis: 15%;
+  }
+  .col5 {
+    flex-basis: 15%;
+  }
+  .col6 {
+      
+    flex-basis: 15%;
+  }
+  .col7 {
+    flex-basis: 10%;
+  }
+  
+  .colInvName{
+    margin-left: -20px;
+    @media screen and (max-width: 1200px) {
+      margin-left: 35px;
+      width: 100%;
+      }
+  }
+
+  .colInvCat{
+    padding-left: 70px;
+        @media screen and (max-width: 1200px) {
+    position: relative;
+    left: -20px;
+      width: 100%;
+      padding-right: 20px;
+      }
+  }
+
+    .colInvStock{
+    margin-right: 20px;
+    padding-left: 20px;
+    @media screen and (max-width: 1920px) {
+      position: relative;
+      left: 40px;
+      width: 100%;
+      }
+    @media screen and (max-width: 1200px) {
+      margin-left: 50px;
+      width: 100%;
+      padding-right: 20px;
+      }
+  }
+
+  .colInvQ{
+    margin-left: 10px;
+    @media screen and (max-width: 1920px) {
+      position: relative;
+      left: -10px;
+      width: 100%;
+      }
+  }
+
+    .colInvDate{
+    margin-left: 10px;
+
+  }
+
+      .colInvPrice{
+    padding-left: 40px;
+    @media screen and (max-width: 1200px) {
+      position: relative;
+      left: -20px;
+        width: 100%;
+        padding-right: 20px;
+        }
+  }
+
+      .colInv{
+    padding-left: 10px;
+  }
+        .colInvAction{
+    padding-left: 30px;
+  }
+
+    .table-header {
+      display: none;
+    }
+    .table-row{
+      
+    }
+    li {
+      display: block;
+    }
+    .col {
+      
+      flex-basis: 100%;
+      
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  }
+
+
+.pagination {
+  position: absolute;
+  bottom: 25px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+.pagination ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: 0 0;
+}
+.pagination li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.pagination li a {
+  border: 1px solid #c9c9c9;
+  color: #242424;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .8s ease 0s;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 10px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 40px;
+  margin-top: 10px;
+}
+.pagination li a:hover {
+  background-color: #FFBD59;
+  color: white;
+}
+.pagination li a.active {
+  background-color: #FFBD59;
+  color: white;
+}
+
+.badgeSuccessLogs {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 10px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: green; // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 50px;
+  max-width: 300px;
+}
+
+.badgeSuccess {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 10px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: green; // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  max-width: 100px;
+}
+
+.badgeSuccessArchive {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 20px 20px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: green; // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  max-width: 250px;
+}
+
+.badgePending {
+  -webkit-text-fill-color: white;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: #FFBD59; // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.badgeCancelLogs {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 10px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: rgb(235, 32, 49); // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  max-width: 150px;
+}
+
+.badgeCancelArchive {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 10px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: rgb(235, 32, 49); // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  max-width: 150px;
+}
+
+.badgeCancel {
+  justify-content: center;
+  margin-left: -70px;
+  margin-right: 50px;
+  -webkit-text-fill-color: white;
+  display: inline-flex; /* Use flex display */
+  align-items: center; /* Center the content vertically */
+  padding: 10px 10px;
+  border-radius: 12px; // Equivalent to rounded-pill
+  background-color: rgb(235, 32, 49); // Assuming $primary is defined elsewhere
+  color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+  font-weight: bold;
+  font-size: 14px;
+  height: 30px;
+  max-width: 100px;
+}
+
+.generateReportContainer {
+  width: 800px;
+  height: 780px;
+  position: absolute;
+  top: 230px;
+  left: 1050px;
+  background-color: #FFBD59;
+  border-radius: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+  overflow-x: auto;
+
+  @media screen and (max-width: 1920px) {
+    position: absolute;
+    top: 300px;
+    left: 900px;
+    }
+    @media screen and (max-width: 1536px) {
+      position: absolute;
+      margin-left: 30px;
+      top: 300px;
+      left: 950px;
+      }
+    @media screen and (max-width: 1200px) {
+      position: absolute;
+      margin-left: 120px;
+      left: 250px;
+        padding-right: 20px;
+        }
+
+  .dividerPreview {
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 8px 0px #727272;
+    height: 5px;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+  }
+  .titlePreview {
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    flex-direction: flex;
+  }
+}
+

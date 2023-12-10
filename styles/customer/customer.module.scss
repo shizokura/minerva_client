@@ -1,0 +1,945 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.bodyHome{
+    background-image: url('/frontbg.jpg');
+    background: cover; // Adjust as needed
+    background-repeat: repeat;
+    @media screen and (max-width: 1920px) {
+      width: 100%;
+      position: absolute;
+      top: -150px;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      margin-top: 240px;
+        }
+        @media screen and (max-width: 1024px) {
+          width: 1010px;
+          margin-top: 240px;
+            }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          
+      }
+      @media screen and (max-width: 390px) {
+        width: 430px;
+        
+      }
+      @media screen and (max-width: 375px) {
+        width: 430px;
+        
+      }
+
+}
+
+.bodyAbout{
+    width: 1900px;
+    height: 1500px;
+    background-image: url('/frontbg.jpg');
+    background-size: cover;
+}
+
+.bodyContact{
+  width: 1900px;
+  height: 1500px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+}
+
+.bodyCart{
+  width: 100%;
+  height: 1300px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+}
+
+.bodyServices{
+    width: 100%;
+    height: 1300px;
+    background-image: url('/frontbg.jpg');
+    background-size: cover;
+}
+
+.bodyServicesD{
+  width: 100%;
+  height: 1350px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+}
+
+.bodyProductPage{
+    width: 100%;
+    height: 1200px;
+    background-image: url('/frontbg.jpg');
+    background-size: cover;
+}
+
+.bodyProducts{
+    width: 100%;
+    height: 1000px;
+    background-image: url('/frontbg.jpg');
+    background-size: cover;
+}
+
+.header{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 100px;
+}
+
+.heading{
+    font-size: 50px;
+}
+
+.paragraph{
+    font-size: 50px;
+}
+
+.containerEdit {
+    width: 1470px;
+    height: 750px;
+    position: absolute;
+    top: 130px;
+    left: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-left: 10px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+    opacity: 0.85;
+  }
+
+  .titleHead {
+    position: absolute;
+    top: 10px;
+    left: 405px;
+    font-family: 'poppins', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    .icon{
+       padding-right: 10px;
+    }
+    
+  }
+
+  .titleEdit {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    margin: 20px 20px 20px 20px;
+    display: flex;
+  }
+  
+  .dividerEdit {
+    width: 98%;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 16px 0px #161616;
+    height: 5px;
+    margin-left: 1%;
+    margin-bottom: 1%;
+  }
+
+.container{
+    position: absolute;
+    top: 130px;
+    width: 1000px;
+    height: 850px;
+    position: absolute;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin-left: 200px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+}
+
+.containerVO{
+  position: absolute;
+  top: 130px;
+  width: 1550px;
+  height: 850px;
+  position: absolute;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-left: 200px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+
+.containerV{
+  position: absolute;
+  top: 130px;
+  width: 1000px;
+  height: 850px;
+  position: absolute;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-left: 200px;
+  box-shadow: 0px 0px 10px 0px #ccc;
+}
+
+.pagination {
+    position: absolute;
+    bottom: -100px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .pagination ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+  }
+  .pagination li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  .pagination li a {
+    border: 1px solid #c9c9c9;
+    color: #242424;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .8s ease 0s;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+    margin-top: 10px;
+  }
+  .pagination li a:hover {
+    background-color: #FFBD59;
+    color: white;
+  }
+  .pagination li a.active {
+    background-color: #FFBD59;
+    color: white;
+  }
+
+  .badgeSuccess {
+    -webkit-text-fill-color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px; // Equivalent to rounded-pill
+    background-color: green; // Assuming $primary is defined elsewhere
+    color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .badgePending {
+    -webkit-text-fill-color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px; // Equivalent to rounded-pill
+    background-color: #FFBD59; // Assuming $primary is defined elsewhere
+    color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .badgeCancel {
+    -webkit-text-fill-color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px; // Equivalent to rounded-pill
+    background-color: rgb(235, 32, 49); // Assuming $primary is defined elsewhere
+    color: green($color: #000000); // Assuming $primary-contrast is defined elsewhere
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+.responsiveTable {
+    width: 98%;
+    margin-left: 1%;
+    
+    li {
+      border-radius: 3px;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .tableHeader {
+        margin-top: 10px;
+      font-weight: bold;
+      background-color: #FFBD59;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .tableRow {
+      background-color: #ccc;
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+    .col1 {
+      padding-left: 50px;
+      flex-basis: 20%;
+    }
+    .col2 {
+      flex-basis: 15%;
+    }
+    .col3 {
+        
+      flex-basis: 15%;
+    }
+    .col4 {
+      flex-basis: 15%;
+    }
+    .col5 {
+      flex-basis: 15%;
+    }
+    .col6 {
+        
+      flex-basis: 15%;
+    }
+    .col7 {
+      flex-basis: 10%;
+    }
+    
+    @media all and (max-width: 767px) {
+      .table-header {
+        display: none;
+      }
+      li {
+        display: block;
+      }
+      .col {
+        
+        flex-basis: 100%;
+        
+      }
+      .col {
+        display: flex;
+        padding: 10px 0;
+        &:before {
+          color: #6C7A89;
+          padding-right: 10px;
+          content: attr(data-label);
+          flex-basis: 50%;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .videoDocker video {
+    height: 200px;
+    top: 150px;
+    left: 0%;
+    @media (max-width: 375px) {
+      position: absolute;
+      top: 10px;
+      max-height: 250px;
+    }
+}
+
+.videoDocker::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 117%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 5;
+    @media (max-width: 375px) {
+      position: absolute;
+      top: 10px;
+      height: 670px;
+    }
+}
+
+.videoDocker1 video {
+    height: 310px;
+    top: 0px;
+    left: 0%;
+    @media screen and (max-width: 1920px) {
+      width: 100%;
+      position: absolute;
+      top: -150px;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      margin-top: 240px;
+        }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          
+      }
+      @media (max-width: 375px) {
+        position: relative;
+        max-height: 250px;
+      }
+}
+
+.videoDocker1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 310px;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+    @media screen and (max-width: 1920px) {
+      width: 100%;
+      position: absolute;
+      top: -151px;
+      height: 242px;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      margin-top: 240px;
+        }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          
+      }
+      @media (max-width: 375px) {
+        z-index: 10px;
+        position: absolute;
+        top: -280px;
+        height: 260px;
+      }
+}
+
+.videoDocker2 video {
+    height: 310px;
+    top: 0px;
+    left: 0%;
+    @media screen and (max-width: 1920px) {
+      width: 100%;
+      position: absolute;
+      top: -150px;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      margin-top: 240px;
+        }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          
+      }
+      @media screen and (max-width: 375px) {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: -800px;
+      }
+}
+
+.videoDocker2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 310px;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+    @media screen and (max-width: 1920px) {
+      width: 100%;
+      height: 242px;
+      position: absolute;
+      top: -151px;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      height: 20px;
+      margin-top: 240px;
+        }
+        @media screen and (max-width: 600px) {
+          width: 100%;
+          height: 240px;
+          
+      }
+      @media screen and (max-width: 375px) {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: -800px;
+      }
+}
+
+.videoDockerS video {
+    width: 10%;
+    height: 10%;
+    top: 0px;
+    left: 0%;
+}
+
+.videoDockerS::after {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+}
+
+.welcome{
+    -webkit-text-stroke: 1px #000;
+    color: #FFBD59;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 300px;
+    margin-bottom: 10px;
+    @media screen and (max-width: 715px) {
+      padding: 20 20 20 20;
+
+      font-size: 30px;
+      
+  }
+
+  @media screen and (max-width: 600px) {
+    line-height: 35px;
+    font-size: 40px;
+}
+@media screen and (max-width: 375px) {
+  font-size: 25px;
+  -webkit-text-stroke: 0px #000;
+}
+
+}
+
+
+.tagline{
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 100px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 715px) {
+      padding: 20 20 20 20;
+
+      font-size: 80px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    line-height: 35px;
+    font-size: 40px;
+    
+}
+
+@media screen and (max-width: 390px) {
+  padding: 20 20 20 20;
+
+  font-size: 40px;
+  
+}
+@media screen and (max-width: 375px) {
+  padding: 20 20 20 20;
+
+  font-size: 40px;
+  
+}
+}
+
+.comment{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 715px) {
+      padding: 20 20 20 20;
+
+      font-size: 15px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    padding: 20 20 20 20;
+
+    font-size: 14px;
+    
+}
+@media screen and (max-width: 375px) {
+  padding: 20 20 20 20;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 11px;
+  
+}
+}
+
+.section2{
+    position: absolute;
+    top: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleText{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    @media screen and (max-width: 715px) {
+      font-size: 27px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    line-height: 35px;
+    font-size: 25px;
+    
+}
+@media screen and (max-width: 375px) {
+  position: absolute;
+  top: -150px;
+  line-height: 40px;
+  font-size: 20px;
+  width: 400px;
+  
+}
+}
+.contentText{
+    padding-top: 55px;
+    width: 1200px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+
+    @media screen and (max-width: 715px) {
+      max-width: 80%;
+      font-size: 17px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+    
+}
+@media screen and (max-width: 375px) {
+
+  position: absolute;
+  max-width: 350px;
+  top: -100px;
+  font-size: 15px;
+  
+}
+}
+.color{
+    color: #FFBD59;
+}
+
+.section3{
+    width: 100%;
+    height: 90%;
+    @media screen and (max-width: 1920px) {
+      max-width: 100%;
+      position: absolute;
+      top: 10px;
+      
+  }
+    @media screen and (max-width: 715px) {
+      max-width: 100%;
+      position: absolute;
+      top: 0px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    max-width: 100%;
+    position: absolute;
+    top: -20px;
+    
+}
+@media screen and (max-width: 375px) {
+  max-width: 100%;
+  position: absolute;
+  top: -100px;
+  
+}
+
+    padding-top: 100px;
+}
+
+.section5{
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 50%;
+}
+
+.map{
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    border-radius: 40px;
+
+    @media screen and (max-width: 1200px) {
+      width: 93%;
+      height: 30%;
+      margin-top: -230px;
+      
+  }
+  @media screen and (max-width: 600px) {
+    width: 85%;
+      height: 60%;
+      position: absolute;
+      top: -175px;
+}
+@media screen and (max-width: 375px) {
+  width: 85%;
+  height: 50%;
+  position: absolute;
+  top: -295px;
+  left: 30px;
+  
+}
+
+    
+    
+}
+
+.contactCards{
+    position: absolute;
+    top: -20px;
+    left: 690px;
+    margin: 0 0 0 0;
+
+    @media screen and (max-width: 1200px) {
+display: none;
+  }
+  @media screen and (max-width: 600px) {
+    display: none;
+    
+}
+@media screen and (max-width: 375px) {
+  display: none;
+  
+}
+}
+
+.productSection{
+  position: relative;
+  top: -100px;
+  width: 1200px;
+  height: 720px;
+   border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
+   background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
+   box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
+  @media (min-width: 1280) {
+    padding: 0 1rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 1024) {
+    padding: 0 1.5rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 640px) {
+    padding: 0 2rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 768px) {
+    padding: 0 4rem; // Equivalent to md:px-16 in Tailwind
+  }
+  @media (max-width: 375px) {
+    position: relative;
+    top: -320px;
+    width: 380px;
+    height: 1425px;
+  }
+}
+
+.headerP {
+  position: absolute;
+  top: 50px;
+  left: 530px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+     @media (max-width: 375px) {
+        position: absolute;
+        top: 30px;
+        left: 130px;
+        font-size: 25px;
+
+  }
+}
+
+.h2 {
+  position: absolute;
+  top: 110px;
+  left: 430px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px; /* Equivalent to text-2xl in Tailwind CSS */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 375px) {
+    width: 240px;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    font-size: 18px;
+  }
+}
+
+.pCard {
+  position: relative;
+  top: 140px;
+  left: 10px;
+  width: 300px;
+  height: 420px;
+  transform: scale(1.05);
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #FFBD59; // Adjust as needed
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width: 375px) {
+    height: 270px;
+    position: relative;
+    top: 120px;
+    left: 40px;
+    }
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+}
+
+.pName{
+  margin-bottom: 0.5rem; // Equivalent to mb-2
+  font-size: 16px; // Equivalent to text-lg
+  font-weight: 600; // Equivalent to font-medium
+  color: #1a202c; // Equivalent to text-gray-900 in light mode
+}
+
+.pButton{
+  position: absolute;
+  top: 560px;
+  left: 440px;
+
+  @media (max-width: 375px) {
+    position: relative;
+    font-size: .8rem;
+    top: 100px;
+    left: -50px;
+    }
+}
+
+.servicesSection{
+  position: relative;
+  top: 80px;
+  max-width: 1380px;
+  max-height: 800px;
+   border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
+   background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
+   box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
+  @media (min-width: 1280) {
+    padding: 0 1rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 1024) {
+    padding: 0 1.5rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 640px) {
+    padding: 0 2rem; // Equivalent to sm:px-8 in Tailwind
+  }
+  @media (min-width: 768px) {
+    padding: 0 4rem; // Equivalent to md:px-16 in Tailwind
+  }
+  @media (max-width: 375px) {
+    position: relative;
+    top: -200px;
+    min-width: 180px;
+    max-height: 1425px;
+  }
+}
+
+.h1S {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem; /* Equivalent to text-2xl in Tailwind CSS */
+  margin-top: 200px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (min-width: 375px) {
+  position: relative;
+  top: -160px;
+  }
+}
+
+.h2S {
+  position: relative;
+  top: -150px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px; /* Equivalent to text-2xl in Tailwind CSS */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 375px) {
+  position: relative;
+  top: -170px;
+  width: 11px;
+  padding: 10px 15px 10px 15px;
+  }
+}
+
+.sCard {
+  position: relative;
+  left: 0px;
+  max-width: 1200px;
+  height: 100%;
+  transform: scale(1);
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #FFBD59; // Adjust as needed
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  @media (min-width: 375px) {
+    position: relative;
+    top: -140px;
+    }
+}
+
+.pName{
+  margin-bottom: 0.5rem; // Equivalent to mb-2
+  font-size: 16px; // Equivalent to text-lg
+  font-weight: 600; // Equivalent to font-medium
+  color: #1a202c; // Equivalent to text-gray-900 in light mode
+}
+
+.sButton{
+  position: relative;
+  @media (min-width: 375px) {
+    position: relative;
+    font-size: .8rem;
+    top: -170px;
+    left: -30px;
+    }
+}
+
+.category{
+    height: 200px;
+}
+
+.categoryIcons{
+    width: 100px;
+    height: 100px;
+}

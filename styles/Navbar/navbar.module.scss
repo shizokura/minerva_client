@@ -1,0 +1,235 @@
+.container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    background-color: #000;
+    transition: 0.3s ease-in-out;
+    .containerLogo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        span {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+
+            @media screen and (max-width: 600px) {
+                font-size: 18px;
+            }
+        }
+    }
+    .mobileContainer {
+        width: 100%;
+        height: 100dvh;
+        position: absolute;
+        inset: 0;
+        background-color:#000;
+        .mobileHeader {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: flex-end;
+            border-bottom: 1px solid #ccc;
+            button {
+                svg {
+                    stroke: #fff;
+                }
+            }
+           
+        }
+
+        .mobNavbar {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            a {
+                width: 100%;
+                height: 60px;
+                text-align: center;
+                color: #fff;
+                font-size: 18px;
+                line-height: 120px;
+            }
+            .active {
+                color:#FFBD59;
+            }
+
+        }
+      
+        .mobileBtns {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            button {
+                width: 120px;
+                height: 45px;
+                color: #fff;
+                font-size: 19px;
+                border: none;
+            }
+            .loginBtn {
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+            .cartBtn {
+                background-color: #ffbd59; 
+                border-radius: 3px;
+            }
+        }
+       
+    }
+    .mobileNavbar{ 
+        width: 100%;
+        display: none;
+        @media screen and (max-width: 1200px) {
+            display: flex;
+            justify-content: flex-end;
+            svg {
+                stroke: #fff;
+            }
+        }
+       
+    }
+    .webNavBar {
+        position: sticky;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
+        .navbar {
+            display: flex;
+            gap: 25px;
+         
+            a {
+                font-size: 19px;
+                color: #fff;
+            }
+            .active {
+                color: #ffbd59;
+            }
+        }
+        button {
+            width: 120px;
+            height: 45px;
+            color: #fff;
+            font-size: 19px;
+        }
+        .loginBtn {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .cartBtn {
+            background-color: #ffbd59; 
+            border-radius: 5px;
+        }
+    }
+}
+
+  
+  .dropdownMenu {
+    border-radius: 5px;
+    width: 150px;
+    background-color: #FFBD59;
+    height: 40px;
+    position: relative;
+    z-index: 1000;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        background: #ddd;
+        border-radius: 5px;
+        > li {
+          float: left;
+          width: 150px;
+          height: 65px;
+          line-height: 65px;
+          position: relative;
+          text-transform: uppercase;
+          font-size: 14px;
+          color: rgba(0,0,0,0.7);
+          cursor: pointer;
+          &:hover {
+            background: #d5d5d5;
+            border-radius: 5px;
+          }
+        }
+      }
+    }        
+    
+    ul.dropMenu {
+      position: absolute;
+      top: 100%;
+      left: 0%;
+      width: 100%;
+      padding: 0;
+      li {
+        background: #666;
+        color: rgba(255,255,255,0.7);
+        &:hover {
+          background: #606060;
+        }
+        &:last-child {
+          border-radius: 0px 0px 5px 5px;
+        }
+      }
+    }
+    
+    // Default Trigger    
+    
+    ul.dropMenu li {
+      display: none // HIDE
+    }
+    li:hover > ul.dropMenu li {
+      display: block // SHOW
+    }
+    
+    
+    // MENU-1 -------------------------------------
+    
+    li:hover > ul.dropMenu.menu1 {
+      perspective: 1000px;
+      li {
+        opacity: 0;
+        @for $i from 1 through 6 {
+          &:nth-child(#{$i}) {
+            animation-name: menu1;
+            animation-duration: 300ms;
+            animation-delay: (150ms * $i) - 300ms;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+    
+    @keyframes menu1 {
+      0% {
+        opacity: 0;
+        transform: rotateY(-90deg) translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: rotateY(0deg) translateY(0px);
+      }
+    }
+  
