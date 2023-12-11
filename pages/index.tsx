@@ -371,6 +371,7 @@ const Home: FC = () => {
         <div
           className={styles.servicesSection}>
 
+
           <h1 className={styles.h1S}>Services</h1>
 
           <small className={styles.h2S}>Try our service and maintenance.</small>
