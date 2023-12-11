@@ -94,7 +94,7 @@ const Products: FC = () => {
       setProductCategory(result)
     }
     fetchData()
-  }, [ category, filterProducts, page, productCategory ])
+  }, [ productCategory ])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,12 +107,6 @@ const Products: FC = () => {
     }
     fetchData()
   }, [ productSearch, search ])
-
-  useEffect(() => {
-    const cookies = Cookies.get("ecom_token") as any
-    const { userID }: any = jwtDecode(cookies) as any
-    setUserId(userID)
-  }, [ userId ])
 
   //filter data w/ pagination 
 

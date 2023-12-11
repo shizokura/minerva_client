@@ -20,12 +20,6 @@ const Services: FC = () => {
     router.push(`/services/servicedetail/${servicesID}`);
   };
 
-  useEffect(() => {
-    const cookies = Cookies.get("ecom_token") as any
-    const { userID }: any = jwtDecode(cookies) as any
-    setUserId(userID)
-  }, [ userId ])
-
   const [ services, setServices ] = useState<[]>()
 
   useEffect(() => {
