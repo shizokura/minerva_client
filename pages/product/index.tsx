@@ -112,6 +112,7 @@ const Products: FC = () => {
 
 
 
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/product/getAllProduct/?skip=${page}&orderby=${filterProducts}`, {

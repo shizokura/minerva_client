@@ -36,8 +36,6 @@ const Services: FC = () => {
     fetchData()
   }, [ services ])
 
-  console.log(page);
-
   return (
     <>
       <div className={styles.bodyServices}>
