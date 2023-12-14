@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Document, Page, View, Text, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
 import { FormattedDate, FormattedPrice, dateFunctions} from '@/helpers/index'
 import { format } from 'date-fns'
-import Image from 'next/image';
 
 Font.register({
   family: 'Franklin Gothic Book',
@@ -27,7 +26,7 @@ const ArchivePDF = ({ generate }: any) => {
     <Document>
     <Page style={styles.body}>
       <View style={{ position: 'absolute', top: '20px', left: '270px', width: '50px', paddingBottom: '20px'}}>
-        <Image src="/logo.png" alt={''}/>
+        <Image src="/logo.png"/>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', fontFamily: 'Franklin Gothic Book', fontSize: '11px'}}>
       <Text
@@ -132,7 +131,7 @@ const ArchivePDF = ({ generate }: any) => {
 
     {generate?.Orders.map(({ orderID, archieveID, id, orders, Orders, startDate, endDate, Product, User, payment, quantity, status, createdAt, total } : any, index: number) => (
          <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '35px', padding: '5px' }} >
-         <Text style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '35px', padding: '5px' }}>{orders}</Text>
+         <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '35px', padding: '5px' }}>{orders}</Text>
        </Text>
     ))}
 
@@ -146,18 +145,21 @@ const ArchivePDF = ({ generate }: any) => {
      
     {generate?.Orders.map(({ orderID, User, payment, Product, quantity, status, createdAt, total, } : any, index: number) => (
         <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '300px', padding: '5px', marginRight: '10px' }} >
-        <Text style={{ position: 'absolute', top: '163px', left: '300px', padding: '5px' }}>{User[0].profile.firstname} {User[0].profile.lastname}</Text>         </Text>
+        {User?.map(({ profile}: any) => (
+        <Text key={orderID} style={{ position: 'absolute', top: '163px', left: '300px', padding: '5px' }}>{User[0].profile.firstname} {User[0].profile.lastname}</Text>         
+        ))}</Text>
+    
     ))} 
     
     {generate?.Orders.map(({ orderID, User, payment, Product, quantity, status, createdAt, total, } : any, index: number) => (
         <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '400px', padding: '5px', marginRight: '10px' }} >
-        <Text style={{ position: 'absolute', top: '163px', left: '400px', padding: '5px' }}>{FormattedDate(createdAt)}</Text>
+        <Text key={orderID} style={{ position: 'absolute', top: '163px', left: '400px', padding: '5px' }}>{FormattedDate(createdAt)}</Text>
         </Text>
     ))}
     
     {generate?.Orders.map(({ orderID, User, payment, Product, quantity, status, createdAt, total, } : any, index: number) => (
         <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '475px', padding: '5px', marginRight: '10px' }} >
-        <Text style={{ position: 'absolute', top: '163px', left: '475px', padding: '5px' }}>{FormattedPrice(total)}</Text>
+        <Text key={orderID} style={{ position: 'absolute', top: '163px', left: '475px', padding: '5px' }}>{FormattedPrice(total)}</Text>
         </Text>
     ))}  
 
@@ -185,7 +187,7 @@ const PDFView = ({ generate }: any) => {
 
   return(
   client ?  
-  <PDFViewer style={{width: '100%', height: '850px'}}>
+  <PDFViewer style={{width: '200%', height: '850px'}}>
     <ArchivePDF  generate={generate} />
   </PDFViewer>: null
   )

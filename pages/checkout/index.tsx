@@ -106,6 +106,8 @@ const Checkout: FC = () => {
         });
     }
 
+
+
     return (
 
         <div className='mt-20 lg:mt-36'>
@@ -142,7 +144,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Maya. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <Image src="/mayapayment.jpg" alt=""/>
+                            <Image src="/mayapayment.jpg" width={20} height={20}  alt=""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         
@@ -153,7 +155,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Gcash. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <Image src="/gcashpayment.jpg" alt = ""/>
+                            <Image src="/gcashpayment.jpg" width={20} height={20} alt = ""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         
@@ -283,7 +285,7 @@ const Checkout: FC = () => {
         
         <div className="flex justify-center space-x-5">
             <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=""/>
+                <Image src="/fblogo.webp" width={20} height={20} alt=""/>
            </Link>
           
         </div>

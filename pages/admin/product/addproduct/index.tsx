@@ -81,7 +81,7 @@ const AddProductPage = () => {
   
       if(!response.ok) 
       {
-        alert("Please complete all fields")
+        toast.warning("Please complete all fields")
       }
      else {
             toast.promise(promise, {
@@ -106,13 +106,24 @@ const AddProductPage = () => {
   
     })
 
+    const handleProductStatusChange = (e: any) => {
+      setProductStatus(e.currentTarget.value);
+      setIsOpen(false);
+   };
+
+   const handleProductCategoryChange = (e: any) => {
+    setProductCateg(e.currentTarget.value);
+    setIsOpen(false);
+ };
+
+ 
   return (
 
     <>
 <SideNavDash/>
-
+<Toaster richColors/>
     <div className="h-screen bg-gray-200">
-    <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
+    <div className="flex w-full h-[1080px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="pt-10 md:pl-96 md:pt-[46px]">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Add New Product</h1>
@@ -165,7 +176,7 @@ const AddProductPage = () => {
                                            
                                             </div>
 
-                                            <div className="my-4 flex flex-row xs:gap-[10px] md:gap-[600px]">
+                                            <div className="my-4 flex flex-row xs:gap-[10px] md:gap-[590px]">
                                                 
 
                                             <div>
@@ -180,22 +191,22 @@ const AddProductPage = () => {
                         </svg>
                       </button>
                     </div>
-                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[184px] absolute z-20' : 'hidden'}`}>
-  {isOpen ? (
-    productsAvailability.map((name) => (
-      <button
-      name="stock"
-        className='text-left'
-        type="button"
-        key={name}
-        value={name}
-        onClick={(e) => setProductStatus(e.currentTarget.value)}
-      >
-        {name}
-      </button>
-    ))
-  ) : null}
-</div>
+                    <div className={`w-full mt-[80px] ml-2 flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[190px] absolute z-20' : 'hidden'}`}>
+        {isOpen ? (
+          productsAvailability.map((name) => (
+            <button
+              name="stock"
+              className='text-left'
+              type="button"
+              key={name}
+              value={name}
+              onClick={handleProductStatusChange}
+            >
+              {name}
+            </button>
+          ))
+        ) : null}
+      </div>
 
 <div>
                       <label htmlFor="lastName" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">Product Category</label>
@@ -210,17 +221,19 @@ const AddProductPage = () => {
                       </button>
                     </div>
 
-                    <div className={`w-full xl:ml-[800px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'w-[184px] absolute z-20' : 'hidden'}`}>
-                    {isOpen1 ? productsCategory.map((name) => (
-                      <button name="category" className='text-left' 
-                      type="button"
-                      key={name} 
-                      value={name} 
-                      onClick={(e) => setProductCateg(e.currentTarget.value)}
-                      >
+                    <div className={`w-full lg:ml-[840px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'xl:w-[190px] absolute z-20' : 'hidden'}`}>
+                    {isOpen1 ? (productsCategory.map((name) => (
+                    <button 
+                    name="category" 
+                    className='text-left' 
+                    type="button"
+                    key={name} 
+                    value={name} 
+                    onClick={handleProductCategoryChange}
+                    >
                         {name} 
-                        </button>
-                    )) : null}
+    </button>
+)) ): null}
                   </div>
 
                                            

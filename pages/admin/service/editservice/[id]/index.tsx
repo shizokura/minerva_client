@@ -8,6 +8,7 @@ import { Cookie } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import Cookies from 'js-cookie'
 
 const EditServicesPage: FC = () => {
 
@@ -32,13 +33,13 @@ const EditServicesPage: FC = () => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const cookies = Cookies.get("ecom_token");
-  //   if (cookies) {
-  //     const { userID }: any = jwtDecode(cookies)
-  //     setUserId(userID)
-  //   }
-  // }, [ userId ])
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token");
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [ userId ])
 
   const [ services, setServices ] = useState({
     services: "",
@@ -169,7 +170,7 @@ const EditServicesPage: FC = () => {
                                                       </svg>
                                                     </button>
                                                   </div>
-                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[175px] absolute z-20' : 'hidden'}`}>
+                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] absolute z-20' : 'hidden'}`}>
                                 {isOpen ? (
                                   serviceAvailability.map((name) => (
                                     <button
@@ -195,8 +196,8 @@ const EditServicesPage: FC = () => {
                                             className="mt-10 py-2 px-4 rounded-md bg-gray-900 text-gray-300 w-full h-[150px] outline-none focus:ring-2 focus:ring-blue-600" name='description'
                                             onChange={(e) => setServices({...services, description: e.target.value})} defaultValue={services.description} placeholder="Input your service description here" required/>
                                     </div>
-                                <button
-                                    className="border-2 text-md font-bold mt-5 rounded-md py-2 px-4 bg-[#FFBD59] shadow-md shadow-black hover:bg-yellow-500 text-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900" onClick={handleGoBack}>
+                                <button onClick={handleGoBack}
+                                    className="border-2 text-md font-bold mt-5 rounded-md py-2 px-4 bg-[#FFBD59] shadow-md shadow-black hover:bg-yellow-500 text-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900">
                                     Update Service Details
                                 </button>
                             </form>

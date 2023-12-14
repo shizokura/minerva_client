@@ -10,7 +10,6 @@ import Cookies from 'js-cookie'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
-
 const EditProductPage = () => {
 
     const router = useRouter();
@@ -40,13 +39,13 @@ const EditProductPage = () => {
 
   const [ userId, setUserId ] = useState("")
 
-//   useEffect(() => {
-//     const cookies = Cookie.get("ecom_token");
-//     if (cookies) {
-//       const { userID }: any = jwtDecode(cookies)
-//       setUserId(userID)
-//     }
-//   }, [])
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token");
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [])
 
   const [products, setProducts] = useState({
     name: '',
@@ -128,7 +127,7 @@ const EditProductPage = () => {
 
       if(!response.ok) 
     {
-      alert("Please complete all fields")
+      toast.warning("Please complete all fields.")
     }
 
 
@@ -159,6 +158,11 @@ const EditProductPage = () => {
         })
     })
   }, [productsD])
+
+  const handleProductStatusChange = (e: any) => {
+    setProductStock(e.currentTarget.value);
+    setIsOpen(false);
+ };
 
   return (
 
@@ -204,7 +208,7 @@ const EditProductPage = () => {
                                            
                                             </div>
 
-                                            <div className="my-4 flex flex-row md:gap-[620px]">
+                                            <div className="my-4 flex flex-row md:gap-[730px]">
                                                 
 
                                             <div>
@@ -219,21 +223,21 @@ const EditProductPage = () => {
                         </svg>
                       </button>
                     </div>
-                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[175px] absolute z-20' : 'hidden'}`}>
-  {isOpen ? (
-    productsAvailability.map((name) => (
-      <button
-      name="stock"
-        className='text-left'
-        type="button"
-        key={name}
-        value={name}
-        onClick={(e) => setProductStock(e.currentTarget.value)}
-      >
-        {name}
-      </button>
-    ))
-  ) : null}
+                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] absolute z-10' : 'hidden'}`}>
+                    {isOpen ? (
+          productsAvailability.map((name) => (
+            <button
+              name="stock"
+              className='text-left'
+              type="button"
+              key={name}
+              value={name}
+              onClick={handleProductStatusChange}
+            >
+              {name}
+            </button>
+          ))
+        ) : null}
 </div>
 
 <div>
@@ -249,7 +253,7 @@ const EditProductPage = () => {
                       </button>
                     </div>
 
-                    <div className={`w-full xl:ml-[895px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'w-[175px] absolute z-20' : 'hidden'}`}>
+                    <div className={`w-full xl:ml-[895px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'w-[190px] absolute z-10' : 'hidden'}`}>
                     {isOpen1 ? productsCateg.map((name) => (
                       <button name="category" className='text-left' 
                       type="button"
@@ -293,7 +297,7 @@ const EditProductPage = () => {
                                             value={products.description} onChange={(e) => setProducts({...products, description: e.target.value})}
                                             name="description"/>
                                     </div>
-                                <button
+                                <button onClick={handleGoBack}
                                     className="border-2 text-md font-bold mt-5 rounded-md py-2 px-4 bg-[#FFBD59] shadow-md shadow-black hover:bg-yellow-500 text-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900">
                                     Update Product Details
                                 </button>
@@ -302,6 +306,7 @@ const EditProductPage = () => {
                     </div>
                     </div>    
                     </div>
+                    <Toaster richColors/>
 </div>
 </>
 

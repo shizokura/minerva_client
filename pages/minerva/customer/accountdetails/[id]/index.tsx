@@ -222,7 +222,7 @@ const AccountDetails: FC = () => {
    
    <div className="flex justify-center space-x-5">
        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-           <Image src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt = ""/>
+           <Image src="/fblogo.webp" width={20} height={20} alt = ""/>
       </Link>
      
    </div>

@@ -35,6 +35,15 @@ const ServiceDetails: FC = () => {
   const [ userid, setUserId] = useState("")
   const [ servicesD, setServicesD ] = useState<[]>()
 
+
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token");
+    if(cookies) {
+      const { userID } = jwtDecode(cookies) as any
+      setUserId(userID)
+    }
+  }, [ ])
+
   const [ appointment, setAppointment ] = useState({
     date: "",
     service: "",
@@ -82,12 +91,12 @@ const ServiceDetails: FC = () => {
         const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/services/getAllServices/${router.query.id}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
-          cache: 'no-cache',
+          cache: 'default',
         });
 
         if (!res.ok) {
           throw new Error(`Failed to fetch product data: ${res.status}`);
-        }
+        } 
 
         const result = await res.json();
         setServicesD(result);
@@ -118,6 +127,7 @@ const ServiceDetails: FC = () => {
 
   return (
     <>
+    <Toaster richColors/>
     <div className="max-w-screen-xl ml-8 lg:ml-80 mx-auto px-6 14:-px-6 md:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 lg:pb-12">
         <div className="bg-yellow-100  14:-ml-12 py-8 lg:py-12 px-6 relative text-center">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
@@ -203,7 +213,7 @@ const ServiceDetails: FC = () => {
     
     <div className="flex justify-center space-x-5">
         <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=''/>
+        <Image src="/fblogo.webp" width={20} height={20} alt=""/>
        </Link>
       
     </div>

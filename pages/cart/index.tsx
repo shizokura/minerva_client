@@ -143,8 +143,8 @@ const Cart: FC = () => {
 </nav>
 
 <div className="flex justify-center space-x-5">
-    <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt="" />
+    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
+    <Image src="/fblogo.webp" width={20} height={20} alt=""/>
    </Link>
   
 </div>

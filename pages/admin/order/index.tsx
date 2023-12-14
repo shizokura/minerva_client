@@ -36,7 +36,7 @@ const OrderPage = () => {
       const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/?skip=${page}&orderby=desc`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
-        cache: "no-cache"
+        cache: "default"
       })
 
       if (!response.ok) throw new Error("There is something wrong while fethcing")
@@ -47,7 +47,7 @@ const OrderPage = () => {
     }
 
     fetchData()
-  }, [])
+  }, [ orders ])
 
   const [ userid, setUserID ] = useState();
   const router = useRouter();
@@ -80,7 +80,7 @@ const OrderPage = () => {
 
     return res.json();
   }
-  console.log(orders)
+  console.log(page)
 
   return (
     <>

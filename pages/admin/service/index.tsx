@@ -85,7 +85,7 @@ const ServicePage = () => {
     return res.json();
   }
 
-
+console.log(servicesId)
   return (
 
 <>
@@ -192,7 +192,7 @@ const ServicePage = () => {
 
                                     <button onClick={() => {
                           handleOpenModal();
-                          // setUserId(userID)
+                          setServicesId(servicesID)
                         }} > <TbTrash size={25} /> </button>
                                 </span>
                             </td>

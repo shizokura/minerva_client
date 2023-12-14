@@ -29,8 +29,7 @@ const EditOrdersPage: FC = ({}) => {
 
   const [ ordersD, setOrdersD ] = useState<[]>()
   
-  const [ status, setStatus ] = useState("")
-  const orderStatus =["Preparing Order", "Order Cancelled", "Ready for Pick-Up"];
+  
 
   useEffect(() => {
     const cookies = Cookies.get("ecom_token")
@@ -42,12 +41,14 @@ const EditOrdersPage: FC = ({}) => {
 
   const [ orders, setOrders ] = useState({
     orders: "",
-    status: "",
     payment: "",
     total: "",
     createdAt: "",
     name: ""
   })
+
+  const [ status, setStatus ] = useState("")
+  const orderStatus =["Preparing Order", "Order Cancelled", "Ready for Pick-Up"];
 
   const [ selectedImage, setSelectedImage ] = useState<any>([])
 
@@ -65,34 +66,32 @@ const EditOrdersPage: FC = ({}) => {
 
       const result = await res.json();
       setOrdersD(result)
-
-      if (result && result.length > 0) {
-        setStatus(result[0].status);
-    }
   }
 
     fetchData()
   }, [router, orders.total, ordersD])
 
-  const [ users, setUsers ] = useState<[]>()
-  const [ productStatus, setProductStatus ] = useState('');
-  const [ orderID, setOrderID ] = useState('');
-
   useEffect(() => {
-    console.log(ordersD)
-    ordersD?.map(({ orderID, name, orders, status, payment, total, createdAt, User}: any) => {
+    ordersD?.map(({ orderID, name, orders, payment, total, createdAt, User}: any) => {
 
+      name === null ?
+      
       User.map(({ profile }: any) => (
         setOrders({
           orders: orders,
-          status: status,
           payment: payment,
           createdAt: createdAt,
           total,
           name: `${profile.firstname} ${profile.lastname}`
         })
 
-      ))
+      )) : setOrders({
+          orders: orders,
+          payment: payment,
+          createdAt: createdAt,
+          total,
+          name: name
+      })
   })}, [ordersD])
 
 
@@ -129,6 +128,7 @@ const EditOrdersPage: FC = ({}) => {
     });
   }
 
+
   return (
 
     <>
@@ -138,7 +138,7 @@ const EditOrdersPage: FC = ({}) => {
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="pt-10 md:pl-96 md:pt-[46px]">
                     <div className="p-4 md:p-8">
-                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Product Details</h1>
+                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Order</h1>
                             <form encType='multipart/form-data' onSubmit={orderEditForm} className="flex flex-col items-center">
                                     <div className="md:w-4/5 lg:w-3/4 xl:w-2/3">
                                             
@@ -154,7 +154,7 @@ const EditOrdersPage: FC = ({}) => {
                                                     placeholder="Input product name"
                                                     defaultValue={orders.orders} name="orders" disabled/>
 
-                                                <label htmlFor="price" className="text-lg absolute md:ml-[490px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
+                                                <label htmlFor="price" className="text-lg absolute md:ml-[560px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
                                                    Customer Name
                                                 </label>
                                                 
@@ -179,22 +179,7 @@ const EditOrdersPage: FC = ({}) => {
                                                     defaultValue={orders.createdAt ? format(new Date(orders.createdAt), 'dd MMM yyyy') : ''}
                                                     disabled/>
 
-                                                <label htmlFor="price" className="text-lg absolute mt-[110px] md:ml-[490px] xl:mt-2 text-black font-bold px-1 rounded">
-                                                Payment Method
-                                                </label>
-                                                
-                                                <input id="price" type="text" name="price"
-                                                    className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
-                                                    placeholder="ex. 1000"
-                                                    defaultValue={orders.payment} disabled/>
-
-                                           
-                                            </div>
-
-                                            <div className="flex flex-col md:flex-row gap-4">
-                                                
-
-                                                <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                <label htmlFor="price" className="text-lg absolute mt-1.5 md:ml-[560px]  text-black font-bold px-1 rounded">
                                                 Payment Method
                                                 </label>
                                                 
@@ -203,7 +188,15 @@ const EditOrdersPage: FC = ({}) => {
                                                     placeholder="ex. 1000"
                                                     defaultValue={orders.payment} disabled />
 
-                                                <label htmlFor="price" className="text-lg absolute mt-[110px] md:ml-[490px] xl:mt-0 text-black font-bold px-1 rounded">
+                                           
+                                            </div>
+
+                                            <div className="flex flex-col md:flex-row gap-4">
+                                                
+
+                                                
+
+                                                <label htmlFor="price" className="text-lg absolute mt-[100px] xl:mt-2 text-black font-bold px-1 rounded">
                                                 Amount
                                                 </label>
                                                 
@@ -211,42 +204,44 @@ const EditOrdersPage: FC = ({}) => {
                                                     className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
                                                     placeholder="ex. 1000"
                                                     defaultValue={isFinite(parseFloat((orders.total))) ? FormattedPrice(parseFloat(orders.total)) : ''} disabled/>
-                                            </div>
-
-                                            <div className="my-4 flex flex-row md:gap-[620px]">
-                                                
-
-                                            <div>
+                                                                                        <div>
                       <label htmlFor="lastName" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">Order Status </label>
-                      <button name="status"type="button" className="inline-flex justify-center w-[180px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                      <button name="status"type="button" className="inline-flex justify-center mr-[365px] w-[180px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                         onClick={toggleDropdown}
                       >
-                       {status === "" ? "Select Product Status" : status}
-
+                       {status === "" ? "Set Order Status" : status}
+                       
                         <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 011.414 0 1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                       </button>
                     </div>
-                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[175px] absolute z-20' : 'hidden'}`}>
-  {isOpen ? (
-    orderStatus.map((name) => (
-      <button
-      name="stock"
-        className='text-left'
-        type="button"
-        key={name}
-        value={name}
-        onClick={(e) => setStatus(e.currentTarget.value)}
-      >
-        {name}
-      </button>
-    ))
-  ) : null}
+                    
+                    <div className={`w-full mt-[80px] ml-[555px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[190px] absolute z-20' : 'hidden'}`}>
+                    {isOpen ? (
+ orderStatus.map((name) => (
+    <button
+      name="status"
+      className='text-left'
+      type="button"
+      key={name}
+      value={name}
+      onClick={(e) => setStatus(e.currentTarget.value)}
+    >
+      {name}
+    </button>
+  ))
+) : null}
 </div>
 
 
 </div>
+                                            </div>
+
+                                            <div className="my-4 flex flex-row md:gap-[620px]">
+                                                
+
+
                                             
 </div>
                                 <button

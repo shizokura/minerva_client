@@ -10,14 +10,12 @@ import SideNavDash from '@/components/sideNavDash'
 const AuditLog: FC = () => {
 
     const [ page, setPage] = useState(0)
+      
 
     const [ isOpen, setIsOpen ] = useState(false);
     const [ archive, setArchive ] = useState<[]>()
     const [ archiveId, setArchiveId ] = useState("")
-  
-  
-    console.log(archive)
-  
+
   
     const [ dateFilters, setDateFilters ] = useState("Daily")
     const filters =["Daily", "Weekly", "Monthly"];
@@ -36,10 +34,10 @@ const AuditLog: FC = () => {
   
     useEffect(() => {
       const fetchData = async () => {
-        const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/archive/getAllArchive?skip=${page}&filter=${dateFilters}`, {
+        const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/archive/getAllArchive/?filter=${dateFilters}&skip=${page}`, {
           method: "GET",
           headers: { 'Content-Type': 'application/json' },
-          cache: "no-cache"
+          cache: "default"
         })
   
         const result = await res.json();
@@ -126,15 +124,13 @@ const AuditLog: FC = () => {
                         </thead>
                         <tbody>
 
-          {archive?.map(({ archieveID, id, startDate, firstname, lastname, endDate, createdAt, User }: any) => (
-
-                          
+          {archive?.map(({ archieveID, id, startDate, firstname, lastname, endDate, createdAt, User, updatedAt}: any) => (
                             <tr key={archieveID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {id}
+                                            {archieveID}
                                             </p>
                                         </div>
                                     </div>
@@ -154,17 +150,18 @@ const AuditLog: FC = () => {
                                 <button onClick={() => router.push(`/admin/report/reportarchive/viewreportarchive/${archieveID}`)}> <TbEye className='ml-5' size={25} /> </button>
                                 </td>
                             </tr>
-                             ))}
+                             ))
+                        }
                              <tr>
                               <td className="px-5 bg-white text-sm"></td>
-                              </tr> 
+                            </tr> 
                              
                                 
                         </tbody>
                     </table>
                     
                     <div
-                        className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center          ">
                         <div className="inline-flex mt-2 xs:mt-0 gap-4">
                             <button disabled={page === 0 }
                                 className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onClick={() => setPage(()=> page - 1)}>

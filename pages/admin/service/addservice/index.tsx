@@ -8,6 +8,7 @@ import { Cookie } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import Cookies from 'js-cookie'
 
 const AddServicePage: FC = () => {
 
@@ -28,13 +29,13 @@ const AddServicePage: FC = () => {
   
   const [ userid, setUserId ] = useState("")
 
-  // useEffect(() => {
-  //   const cookies = Cookies.get("ecom_token");
-  //   if (cookies) {
-  //     const { userID }: any = jwtDecode(cookies)
-  //     setUserId(userID)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token");
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [])
 
   const [ selectedImage, setSelectedImage ] = useState<any>([])
 
@@ -171,7 +172,7 @@ const AddServicePage: FC = () => {
                                                       </svg>
                                                     </button>
                                                   </div>
-                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[183px] absolute z-20' : 'hidden'}`}>
+                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] absolute z-20' : 'hidden'}`}>
                                 {isOpen ? (
                                   serviceAvailability.map((name) => (
                                     <button

@@ -34,13 +34,13 @@ const EditAppointmentPage: FC = () => {
   const appointmentStatusB =["Pending", "Completed", "Cancelled"];
 
 
-  // useEffect(() => {
-  //   const cookies = Cookies.get("ecom_token")
-  //   if (cookies) {
-  //     const { userID }: any = jwtDecode(cookies)
-  //     setUserId(userID)
-  //   }
-  // }, [ userid ])
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token")
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [ userid ])
   
   const router = useRouter();
 
@@ -82,10 +82,10 @@ const EditAppointmentPage: FC = () => {
           userID: userid
         })
     })
-    if(!response.ok) 
-    {
-      alert("Please complete all fields")
-    }
+    // if(!response.ok) 
+    // {
+    //   alert("Please complete all fields")
+    // }
   }
 
   const toggleDropdown = () => {
@@ -232,7 +232,7 @@ const EditAppointmentPage: FC = () => {
                             </svg>
                           </button>
                         </div>
-                        <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[182px] absolute z-20' : 'hidden'}`}>
+                        <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[182px] absolute z-20' : 'hidden'}`}>
       {isOpen ? (
         appointmentStatusB.map((name) => (
           <button

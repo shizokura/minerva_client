@@ -44,7 +44,7 @@ const AddAppointmentsPage: FC = () => {
 
     e.preventDefault();
     
-    const response = await fetch("http://localhost:3001/schedule/createManualSchedule", {
+    const response = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/schedule/createManualSchedule", {
       method: "POST",  
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
