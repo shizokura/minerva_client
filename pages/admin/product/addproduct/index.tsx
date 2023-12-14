@@ -149,6 +149,22 @@ const AddProductPage = () => {
                                            
                                             </div>
 
+                                            <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                   Product Quantity
+                                                </label>
+                                                
+                                                <input id="quantity" type="text" name="quantity"
+                                                    className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="ex. 99"
+                                                    onChange={(e) => setProducts({...products, quantity: e.target.value})} 
+                                                    />
+
+                                           
+                                            </div>
+
                                             <div className="my-4 flex flex-row xs:gap-[10px] md:gap-[600px]">
                                                 
 
