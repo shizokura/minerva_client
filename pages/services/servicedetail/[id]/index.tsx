@@ -17,8 +17,8 @@ const ServiceDetails: FC = () => {
 
   const router = useRouter();
 
-  const [ selectedDate, setSelectedDate ] = useState<Date | null>(null);
-  const [ selectedTime, setSelectedTime ] = useState<string>('');
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string>('');
 
   const handleTimeButtonClick = (time: string) => {
     // Handle the click event for time buttons
@@ -32,7 +32,7 @@ const ServiceDetails: FC = () => {
   };
 
 
-  const [ userid, setUserId ] = useState("")
+  const [ userid, setUserId] = useState("")
   const [ servicesD, setServicesD ] = useState<[]>()
 
   const [ appointment, setAppointment ] = useState({
@@ -41,7 +41,7 @@ const ServiceDetails: FC = () => {
     time: "",
   })
 
-  const [ services, setServices ] = useState({
+  const [services, setServices] = useState({
     services: '',
     status: '',
     price: '',
@@ -54,7 +54,7 @@ const ServiceDetails: FC = () => {
 
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3001/schedule/createSchedule", {
+    const response = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/schedule/createSchedule", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -79,7 +79,7 @@ const ServiceDetails: FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3001/services/getAllServices/${router.query.id}`, {
+        const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/services/getAllServices/${router.query.id}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
           cache: 'no-cache',
@@ -117,150 +117,180 @@ const ServiceDetails: FC = () => {
   }, [ servicesD ])
 
   return (
-    <div className={styles.bodyServicesD}>
-
-      <div className="w-full relative top-20">
-        <div className="relative mx-auto mt-20 mb-20 max-w-screen-lg overflow-hidden rounded-t-xl bg-yellow-100/60 py-32 text-center shadow-xl shadow-gray-300">
-          <h1 className="mt-2 px-8 text-3xl font-bold text-white md:text-5xl">Book a Service</h1>
-          <p className="mt-6 text-lg text-white">Set up your Appointment</p>
-          <img className="absolute top-0 -z-10 h-full w-full object-cover" src="https://images.unsplash.com/photo-1504672281656-e4981d70414b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
-        </div>
-        <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
-
-          <div className='absolute left-[500px] flex flex-col'>
-            <div className="flex flex-row items-center justify-center mx-auto max-w-screen-[2000px] px-4 pb-20 gap-60">
-              <div className="w-full lg:max-w-sm bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
-                <div>
-                  <Image src={services.image} alt={""} height={350} width={450} />
-                </div>
-                <div className="p-4">
-                  <h4 className="text-xl font-semibold text-black-600 text-center">
-                    {services.services}
-                  </h4>
-                  <p className="mb-2 leading-normal text-center">
-                    {services.status}
-                  </p>
-                  <p className="mr-2 text-lg font-bold text-black dark:text-black">
-                    {FormattedPrice(services.price as any)}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-
-                <div className="mb-6">
-                  <label htmlFor="customerName" className="w-60 text-sm font-medium text-white block mb-2">Select Date</label>
-                  <input
-                    id="date"
-                    type="date"
-                    name="date"
-                    min="2023-12-9"
-                    max="2030-01-31"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    onChange={(e) => setAppointment({ ...appointment, date: e.target.value })}
-                  />
-
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor="customerName" className="text-sm font-medium text-white block mb-2 w-60">Select Time</label>
-                  <select
-                    id="time"
-                    name="time"
-                    value={appointment.time}
-                    onChange={(e) => setAppointment({ ...appointment, time: e.target.value })}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  >
-                    {[ '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00' ].map((time) => (
-                      <option key={time} value={time}>
-                        {time}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <Toaster richColors />
-                <button
-                  type="submit"
-                  className="mt-8 w-56 rounded-full border-6 border-yellow-100 bg-[#FFBD59] px-16 py-4 text-base font-bold text-white transition hover:translate-y-1"
-                >
-                  Schedule
-                </button>
-
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <Script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></Script>
-
-      <section className="absolute w-full top-[1160px] flex flex-col items-center justify-center text-center text-white ">
-        <footer className="h-62 bg-gradient-to-r w-full from-gray-100 via-[#FFBD59] to-gray-100">
-          <div className="max-w-screen-xl mt-2 px-2 py-8 mx-auto sm:px-6 lg:px-8">
-            <div className="relative top-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div>
-                <img src="/logo.png" className=" h-6 sm:h-6" alt="logo" />
-                <p className="max-w-xs mt-4 text-sm text-gray-600">
-                  Let us make your trips more comfortable and safe. Leave the worries behind and let{"'"}s begin our journey!
-                </p>
-                <div className="flex mt-8 space-x-6 text-gray-600">
-                  <Link href="https://www.facebook.com/MinervaSalesCorp" className="hover:opacity-75" target="_blank" rel="noreferrer">
-                    <span className="sr-only"> Facebook </span>
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-1 lg:grid-cols-4">
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/products" className="hover:opacity-75">Products</Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Tires </Link>
-                    <Link href="" className="hover:opacity-75"> Car Battery </Link>
-                    <Link href="" className="hover:opacity-75"> Oils </Link>
-                    <Link href="" className="hover:opacity-75"> Tire Mags </Link>
-                    <Link href="" className="hover:opacity-75"> Car Filters </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/services" className="hover:opacity-75 "> Services </Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Oil Change </Link>
-                    <Link href="" className="hover:opacity-75"> Change Tire </Link>
-                    <Link href="" className="hover:opacity-75"> Alignment </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Helpful Links
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Contact </Link>
-                    <Link href="" className="hover:opacity-75"> About </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Legal
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75" > Terms &amp; Conditions </Link>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <p className="mt-9 text-xs text-gray-800">
-              © 2023 Minerva Sales Corporation
+    <>
+    <div className="max-w-screen-xl ml-8 lg:ml-80 mx-auto px-6 14:-px-6 md:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 lg:pb-12">
+        <div className="bg-yellow-100  14:-ml-12 py-8 lg:py-12 px-6 relative text-center">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                Book A Service
             </p>
-          </div>
-        </footer>
-      </section>
+            <p className="prose lg:prose-lg xl:prose-2xl mx-auto">Setup your Appointment Now</p>
+            <div className="h-12 w-12 bg-yellow-100 left-1/2 -ml-6 -bottom-6 absolute transform rotate-45">&nbsp;</div>
+        </div>
     </div>
+    <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
+    
+    <div className=" w-96 ml-4 lg:ml-[770px] bg-white border mt-4 border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
+    
+                <div className="w-96  bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
+    
+                          <Image src={services.image} alt={""} height={250} width={550} />
+                       
+                        <div className="p-4">
+                                  <h4 className="text-xl font-semibold text-black-600 text-center">
+                                    {services.services}
+                                  </h4>
+                                  <p className="mb-2 leading-normal text-center">
+                                  {services.status}
+                                  </p>
+                                  <p className="mr-2 text-lg font-bold text-black dark:text-black">
+                                  {FormattedPrice(services.price as any) }
+                                  </p>
+                          </div>
+                  </div>
+                  <div className="mb-6 w-60 ml-16 lg:ml-[75px]">
+                        <label htmlFor="customerName" className="w-60 text-sm font-medium text-white block mb-2">Select Date</label>                        
+                        <input
+                              id="date"
+                              type="date"
+                              name="date"
+                              min="2023-12-9"
+                              max="2030-01-31"
+                              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                              onChange={(e) => setAppointment({...appointment, date: e.target.value})}
+                            />
+                          
+    
+    
+    
+                          <label htmlFor="customerName" className="text-sm font-medium text-white block mb-2 w-60">Select Time</label>
+                          <select
+                            id="time"
+                            name="time"
+                            value={appointment.time} 
+                            onChange={(e) => setAppointment({...appointment, time: e.target.value})}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                          >
+                            {['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].map((time) => (
+                              <option key={time} value={time}>
+                                {time}
+                              </option>
+                            ))}
+                            </select>
+              
+            <button
+            type="submit"
+              className="mt-8 mb-8 ml-2 w-56 rounded-full border-6 border-yellow-100 bg-[#FFBD59] px-16 py-4 text-base font-bold text-white transition hover:translate-y-1"
+            >
+              Schedule
+            </button>
+            
+      </div>
+              </div>
+    
+              </form>
+    
+    
+      
+            <footer className="py-10 w-[420px] lg:w-[1920px] lg:ml-[0px] lg:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
+    
+    <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+        <Link className="text-black hover:text-gray-500" href="#">Home</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Products</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Services</Link>
+        <Link className="text-black hover:text-gray-500" href="#">About</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+    </nav>
+    
+    <div className="flex justify-center space-x-5">
+        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+       </Link>
+      
+    </div>
+    <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+    </footer>
+    {/* <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
+    
+    <div className='flex flex-row items-center justify-center ml-[500px] lg:ml-[1000px]'>
+        <div className="flex flex-row items-center justify-center px-4 pb-20 gap-40">
+          <div className="w-[400px] bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
+         
+    
+    
+    
+            
+                        
+          <Toaster richColors  />
+         
+            
+          </div>
+    
+          <div className="mb-6">
+                        <label htmlFor="customerName" className="w-60 text-sm font-medium text-white block mb-2">Select Date</label>                        
+                        <input
+                              id="date"
+                              type="date"
+                              name="date"
+                              min="2023-12-9"
+                              max="2030-01-31"
+                              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                              onChange={(e) => setAppointment({...appointment, date: e.target.value})}
+                            />
+                          
+    
+    
+    
+                          <label htmlFor="customerName" className="text-sm font-medium text-white block mb-2 w-60">Select Time</label>
+                          <select
+                            id="time"
+                            name="time"
+                            value={appointment.time} 
+                            onChange={(e) => setAppointment({...appointment, time: e.target.value})}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                          >
+                            {['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].map((time) => (
+                              <option key={time} value={time}>
+                                {time}
+                              </option>
+                            ))}
+                            </select>
+              
+            <button
+            type="submit"
+              className="mt-8 w-56 rounded-full border-6 border-yellow-100 bg-[#FFBD59] px-16 py-4 text-base font-bold text-white transition hover:translate-y-1"
+            >
+              Schedule
+            </button>
+            </div>
+        </div>
+        
+      </div>
+      
+      </form> */}
+    
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+    
+    {/* <section className="absolute w-full top-[1200px] flex flex-col items-center justify-center text-center text-white ">
+    <footer className="py-10 w-[1800px] ml-[500px] lg:ml-0 flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
+    
+    <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+        <Link className="text-black hover:text-gray-500" href="#">Home</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Products</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Services</Link>
+        <Link className="text-black hover:text-gray-500" href="#">About</Link>
+        <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+    </nav>
+    
+    <div className="flex justify-center space-x-5">
+        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+       </Link>
+      
+    </div>
+    <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+    </footer>
+    </section> */}
+    </>
   )
 }
 

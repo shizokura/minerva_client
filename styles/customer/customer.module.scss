@@ -4,29 +4,37 @@
     background-image: url('/frontbg.jpg');
     background: cover; // Adjust as needed
     background-repeat: repeat;
+
     @media screen and (max-width: 1920px) {
       width: 100%;
       position: absolute;
       top: -150px;
+      height: 620%;
         }
-    @media screen and (max-width: 1200px) {
-      width: 100%;
-      margin-top: 240px;
-        }
-        @media screen and (max-width: 1024px) {
-          width: 1010px;
-          margin-top: 240px;
-            }
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 430px) {
           width: 100%;
-          
+          height: 685%;
       }
+
+      @media screen and (max-width: 414px) {
+        width: 100%;
+        height: 650%;
+      }
+
       @media screen and (max-width: 390px) {
-        width: 430px;
+        width: 100%;
+        height: 670%;
         
       }
+
       @media screen and (max-width: 375px) {
-        width: 430px;
+        width: 100%;
+        height: 800%;
+        
+      }
+      @media screen and (max-width: 360px) {
+        width: 100%;
+        height: 750%;
         
       }
 
@@ -48,9 +56,36 @@
 
 .bodyCart{
   width: 100%;
-  height: 1300px;
+  height: 1200px;
   background-image: url('/frontbg.jpg');
   background-size: cover;
+  @media screen and (max-width: 1920px) {
+    width: 100%;
+    position: absolute;
+    top: -150px;
+    height: 150%;
+      }
+      @media screen and (max-width: 430px) {
+        // width: 1560px;
+        // height: 1350%;
+    }
+
+    @media screen and (max-width: 414px) {
+      width: 100%;
+      height: 150%;
+    }
+    @media screen and (max-width: 390px) {
+      width: 100%;
+      height: 150%;
+      
+    }
+    @media screen and (max-width: 375px) {
+      width: 100%;
+      height: 150%;
+      
+    }
+
+
 }
 
 .bodyServices{
@@ -72,13 +107,223 @@
     height: 1200px;
     background-image: url('/frontbg.jpg');
     background-size: cover;
+
 }
+
+
 
 .bodyProducts{
     width: 100%;
     height: 1000px;
     background-image: url('/frontbg.jpg');
     background-size: cover;
+    @media screen and (max-width: 1920px) {
+      width: screen;
+      position: absolute;
+      top: -150px;
+      height: 120%;
+        }
+    @media screen and (max-width: 1200px) {
+      width: 210%;
+      height: 200%;
+        }
+        @media screen and (max-width: 1024px) {
+          width: 210%;
+          height: 200%;
+            }
+        @media screen and (max-width: 430px) {
+          width: 210%;
+          height: 200%;
+      }
+
+      @media screen and (max-width: 414px) {
+        width: 210%;
+        height: 200%;
+        
+      }
+      @media screen and (max-width: 375px) {
+        width: 210%;
+        height: 300%;
+        
+      }
+}
+
+.bodyProducts{
+  width: 100%;
+  height: 1000px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+  @media screen and (max-width: 1920px) {
+    width: screen;
+    position: absolute;
+    top: -150px;
+    height: 120%;
+      }
+  @media screen and (max-width: 1200px) {
+    width: 210%;
+    height: 200%;
+      }
+      @media screen and (max-width: 1024px) {
+        width: 210%;
+        height: 200%;
+          }
+      @media screen and (max-width: 430px) {
+        width: 210%;
+        height: 200%;
+    }
+
+    @media screen and (max-width: 414px) {
+      width: 210%;
+      height: 200%;
+      
+    }
+    @media screen and (max-width: 375px) {
+      width: 210%;
+      height: 300%;
+      
+    }
+}
+
+.bodyViewOrders{
+  width: 100%;
+  height: 1000px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+  @media screen and (max-width: 1920px) {
+    width: screen;
+    position: absolute;
+    top: -150px;
+    height: 130%;
+      }
+  @media screen and (max-width: 1200px) {
+    width: 210%;
+    height: 200%;
+      }
+      @media screen and (max-width: 1024px) {
+        width: 210%;
+        height: 200%;
+          }
+      @media screen and (max-width: 430px) {
+        width: 210%;
+        height: 200%;
+    }
+
+    @media screen and (max-width: 414px) {
+      width: 210%;
+      height: 200%;
+      
+    }
+    @media screen and (max-width: 375px) {
+      width: 210%;
+      height: 300%;
+      
+    }
+}
+
+.bodyAppointment{
+  width: 100%;
+  height: 1000px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+  @media screen and (max-width: 1920px) {
+    width: 100%;
+    // position: absolute;
+    // top: -150px;
+    height: 140%;
+      }
+  @media screen and (max-width: 1200px) {
+    width: 210%;
+    height: 200%;
+      }
+      @media screen and (max-width: 1024px) {
+        width: 210%;
+        height: 200%;
+          }
+      @media screen and (max-width: 430px) {
+        width: 210%;
+        height: 200%;
+    }
+
+    @media screen and (max-width: 414px) {
+      width: 210%;
+      height: 200%;
+      
+    }
+    @media screen and (max-width: 375px) {
+      width: 210%;
+      height: 300%;
+      
+    }
+}
+
+.bodyEditCustomer{
+  width: 100%;
+  height: 1100px;
+  background-image: url('/frontbg.jpg');
+  background-size: cover;
+  @media screen and (max-width: 1920px) {
+    width: 100%;
+    position: absolute;
+    top: -150px;
+    height: 140%;
+      }
+  // @media screen and (max-width: 1200px) {
+  //   width: 210%;
+  //   height: 200%;
+  //     }
+  //     @media screen and (max-width: 1024px) {
+  //       width: 210%;
+  //       height: 200%;
+  //         }
+  //     @media screen and (max-width: 430px) {
+  //       width: 210%;
+  //       height: 200%;
+  //   }
+
+  //   @media screen and (max-width: 414px) {
+  //     width: 210%;
+  //     height: 200%;
+      
+  //   }
+    @media screen and (max-width: 375px) {
+      width: 100%;
+      height: 190%;
+      
+    }
+}
+
+.links{
+  @media screen and (max-width: 375px) {
+position: absolute;
+top: 50px;
+p{
+  font-size: 30px;
+}
+    
+  }
+}
+
+.productName{
+  @media screen and (max-width: 375px) {
+    position: absolute;
+    top: 100px;
+    h2{
+      font-size: 45px;
+    }
+        
+      }
+}
+
+.productDescription{
+  @media screen and (max-width: 375px) {
+display: none;
+}
+}
+
+.productPrice{
+  @media screen and (max-width: 375px) {
+display: none;
+}
 }
 
 .header{
@@ -266,7 +511,6 @@
       border-radius: 3px;
       padding: 25px 30px;
       display: flex;
-      justify-content: space-between;
       margin-bottom: 25px;
     }
     .tableHeader {
@@ -333,13 +577,34 @@
   }
 
   .videoDocker video {
+    width: 100%;
     height: 200px;
     top: 150px;
     left: 0%;
-    @media (max-width: 375px) {
+    @media (max-width: 1920px) {
+    width: 100px;
+    }
+    @media (max-width: 430px) {
       position: absolute;
       top: 10px;
-      max-height: 250px;
+      height: 120%;
+    }
+    @media (max-width: 414px) {
+      position: absolute;
+      top: 10px;
+      height: 1100px;
+    }
+    @media (max-width: 375px) {
+      width: 100%;
+      position: absolute;
+      top: 150px;
+      height: 250px;
+    }
+    @media (max-width: 360px) {
+      width: 100%;
+      position: absolute;
+      top: 150px;
+      height: 250px;
     }
 }
 
@@ -347,15 +612,31 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 117%;
+    height: 1000px;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.75);
     z-index: 5;
-    @media (max-width: 375px) {
+    @media (max-width: 1920px) {
       position: absolute;
       top: 10px;
+      height: 1075px;
+    }
+    @media (max-width: 430px) {
+      position: absolute;
+      top: 10px;
+      height: 120%;
+    }
+    @media (max-width: 375px) {
+      position: absolute;
+      top: 150px;
       height: 670px;
+    }
+    @media (max-width: 360px) {
+      width: 100%;
+      position: absolute;
+      top: 150px;
+      height: 740px;
     }
 }
 
@@ -372,12 +653,21 @@
       width: 100%;
       margin-top: 240px;
         }
-        @media screen and (max-width: 600px) {
+        @media (max-width: 430px) {
           width: 100%;
-          
+          position: absolute;
+          margin-top: 850px;
+          max-height: 250px;
+        }
+      @media (max-width: 414px) {
+        width: 100%;
+        position: absolute;
+        margin-top: 150px;
+        max-height: 250px;
       }
       @media (max-width: 375px) {
-        position: relative;
+        position: absolute;
+        margin-top: -50px;
         max-height: 250px;
       }
 }
@@ -405,16 +695,27 @@
           width: 100%;
           
       }
+      @media (max-width: 430px) {
+        width: 100%;
+        position: absolute;
+        margin-top: 850px;
+        height: 260px;
+      }
+      @media (max-width: 414px) {
+        width: 100%;
+        position: absolute;
+        margin-top: 150px;
+        max-height: 260px;
+      }
       @media (max-width: 375px) {
         z-index: 10px;
-        position: absolute;
-        top: -280px;
-        height: 260px;
+        margin-top: -50px;
+        height: 275px;
       }
 }
 
 .videoDocker2 video {
-    height: 310px;
+    height: 100%;
     top: 0px;
     left: 0%;
     @media screen and (max-width: 1920px) {
@@ -428,11 +729,23 @@
         }
         @media screen and (max-width: 600px) {
           width: 100%;
-          
+      }
+      @media screen and (max-width: 430px) {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50px;
+      }
+      @media screen and (max-width: 414px) {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: -500px;
+
       }
       @media screen and (max-width: 375px) {
         width: 100%;
-        height: 200px;
+        height: 100%;
         position: absolute;
         top: -800px;
       }
@@ -461,7 +774,19 @@
         @media screen and (max-width: 600px) {
           width: 100%;
           height: 240px;
-          
+      }
+      @media screen and (max-width: 430px) {
+        width: 100%;
+        height: 220px;
+        position: absolute;
+        top: 50px;
+      }
+      @media screen and (max-width: 414px) {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: -500px;
+
       }
       @media screen and (max-width: 375px) {
         width: 100%;
@@ -512,9 +837,21 @@
     line-height: 35px;
     font-size: 40px;
 }
+@media screen and (max-width: 430px) {
+  font-size: 30px;
+  -webkit-text-stroke: 0px #000;
+  margin-top: 50px;
+}
+@media screen and (max-width: 414px) {
+  font-size: 30px;
+  -webkit-text-stroke: 0px #000;
+  margin-top: 150px;
+}
 @media screen and (max-width: 375px) {
   font-size: 25px;
   -webkit-text-stroke: 0px #000;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
 
 }
@@ -531,29 +868,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    @media screen and (max-width: 715px) {
-      padding: 20 20 20 20;
-
-      font-size: 80px;
-      
-  }
-  @media screen and (max-width: 600px) {
-    line-height: 35px;
-    font-size: 40px;
-    
+  @media screen and (max-width: 430px) {
+    margin-left: 0px;
+    line-height: 50px;
+    font-size: 50px;
 }
 
-@media screen and (max-width: 390px) {
-  padding: 20 20 20 20;
-
+@media screen and (max-width: 414px) {
+  margin-left: 10px;
+  margin-top: -50px;
+  width: 340px;
+  line-height: 40px;
   font-size: 40px;
   
 }
 @media screen and (max-width: 375px) {
-  padding: 20 20 20 20;
-
+  line-height: 35px;
   font-size: 40px;
-  
+  margin-left: 0px;
 }
 }
 
@@ -565,21 +897,22 @@
     align-items: center;
     justify-content: center;
     @media screen and (max-width: 715px) {
-      padding: 20 20 20 20;
+
 
       font-size: 15px;
       
   }
-  @media screen and (max-width: 600px) {
-    padding: 20 20 20 20;
-
-    font-size: 14px;
+  @media screen and (max-width: 430px) {
+    font-size: 15px;
     
 }
+@media screen and (max-width: 414px) {
+  width: 270px;
+  margin-left: 40px;
+  font-size: 15px;
+
+}
 @media screen and (max-width: 375px) {
-  padding: 20 20 20 20;
-  margin-left: 20px;
-  margin-right: 20px;
   font-size: 11px;
   
 }
@@ -592,6 +925,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 430px) {
+      position: absolute;
+      top: 1300px;
+      
+      }
+    @media screen and (max-width: 414px) {
+      position: relative;
+    top: 300px;
+    
+    }
+    @media screen and (max-width: 375px) {
+      position: absolute;
+      top: 200px;
+    }    
 }
 
 .titleText{
@@ -607,12 +954,26 @@
     font-size: 25px;
     
 }
+@media screen and (max-width: 430px) {
+  position: absolute;
+  top: -1100px;
+  line-height: 40px;
+  font-size: 30px;
+  width: 300px;
+}
+@media screen and (max-width: 414px) {
+  position: absolute;
+  top: -290px;
+  line-height: 30px;
+  font-size: 30px;
+  width: 300px;
+}
 @media screen and (max-width: 375px) {
   position: absolute;
-  top: -150px;
-  line-height: 40px;
+  top: -100px;
+  line-height: 30px;
   font-size: 20px;
-  width: 400px;
+  width: 300px;
   
 }
 }
@@ -631,11 +992,25 @@
     font-size: 16px;
     
 }
+@media screen and (max-width: 430px) {
+  position: absolute;
+  top: -1050px;
+  font-size: 15px;
+  max-width: 340px;
+}
+@media screen and (max-width: 414px) {
+
+  position: absolute;
+  width: 350px;
+  top: -200px;
+  font-size: 15px;
+  
+}
 @media screen and (max-width: 375px) {
 
   position: absolute;
-  max-width: 350px;
-  top: -100px;
+  max-width: 300px;
+  top: -90px;
   font-size: 15px;
   
 }
@@ -646,7 +1021,7 @@
 
 .section3{
     width: 100%;
-    height: 90%;
+    height: 100%;
     @media screen and (max-width: 1920px) {
       max-width: 100%;
       position: absolute;
@@ -665,8 +1040,22 @@
     top: -20px;
     
 }
+@media screen and (max-width: 430px) {
+width: 100%;
+  position: absolute;
+  top: 50px;
+  
+}
+
+@media screen and (max-width: 414px) {
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  
+}
+
 @media screen and (max-width: 375px) {
-  max-width: 100%;
+  width: 100%;
   position: absolute;
   top: -100px;
   
@@ -700,12 +1089,38 @@
       position: absolute;
       top: -175px;
 }
+@media screen and (max-width: 430px) {
+  width: 85%;
+  height: 100%;
+  position: absolute;
+  top: -100px;
+  left: 34px;
+  
+}
+
+@media screen and (max-width: 414px) {
+  width: 80%;
+  height: 50%;
+  position: absolute;
+  left: 0px;
+  top: -50px;
+  margin-left: 40px;
+  
+}
 @media screen and (max-width: 375px) {
   width: 85%;
   height: 50%;
   position: absolute;
   top: -295px;
-  left: 30px;
+  left: 0px;
+  
+}
+@media screen and (max-width: 360px) {
+  width: 85%;
+  height: 50%;
+  position: absolute;
+  top: -295px;
+  left: -10px;
   
 }
 
@@ -740,8 +1155,15 @@ display: none;
    border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
    background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
    box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
-  @media (min-width: 1280) {
-    padding: 0 1rem; // Equivalent to sm:px-8 in Tailwind
+  @media (min-width: 1920px) {
+    position: relative;
+  top: -100px;
+  left: -5px;
+  width: 1510px;
+  height: 830px;
+   border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
+   background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
+   box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
   }
   @media (min-width: 1024) {
     padding: 0 1.5rem; // Equivalent to sm:px-8 in Tailwind
@@ -749,26 +1171,54 @@ display: none;
   @media (min-width: 640px) {
     padding: 0 2rem; // Equivalent to sm:px-8 in Tailwind
   }
-  @media (min-width: 768px) {
-    padding: 0 4rem; // Equivalent to md:px-16 in Tailwind
+  @media (max-width: 430px) {
+    position: absolute;
+    top: 600px;
+    width: 380px;
+    height: 1200px;
+  }
+  @media (max-width: 414px) {
+    position: absolute;
+    top: -100px;
+    width: 350px;
+    height: 1150px;
   }
   @media (max-width: 375px) {
     position: relative;
     top: -320px;
-    width: 380px;
+    width: 350px;
     height: 1425px;
+  }
+  @media (max-width: 375px) {
+    position: relative;
+    top: -320px;
+    width: 350px;
+    height: 1425px;
+
   }
 }
 
 .headerP {
   position: absolute;
   top: 50px;
-  left: 530px;
+  left: 650px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: 35px;
+  font-size: 55px;
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 430px) {
+    position: absolute;
+    top: 30px;
+    left: 105px;
+    font-size: 35px;
+  }
+  @media (max-width: 414px) {
+    position: absolute;
+    top: 30px;
+    left: 95px;
+    font-size: 28px;
+  }
      @media (max-width: 375px) {
         position: absolute;
         top: 30px;
@@ -780,12 +1230,26 @@ display: none;
 
 .h2 {
   position: absolute;
-  top: 110px;
-  left: 430px;
+  top: 130px;
+  left: 585px;
   font-family: 'Poppins', sans-serif;
   font-size: 20px; /* Equivalent to text-2xl in Tailwind CSS */
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 430px) {
+    width: 240px;
+    position: absolute;
+    top: 90px;
+    left: 70px;
+    font-size: 18px;
+  }
+  @media (max-width: 414px) {
+    width: 220px;
+    position: absolute;
+    top: 90px;
+    left: 55px;
+    font-size: 18px;
+  }
   @media (max-width: 375px) {
     width: 240px;
     position: absolute;
@@ -801,17 +1265,40 @@ display: none;
   left: 10px;
   width: 300px;
   height: 420px;
-  transform: scale(1.05);
   overflow: hidden;
   border-radius: 1rem;
   background-color: #FFBD59; // Adjust as needed
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  @media (max-width: 375px) {
+  @media (max-width: 1920px) {
+    position: relative;
+    top: 200px;
+    left: 90px;
+    transform: scale(1.15);
+    }
+  @media (max-width: 430px) {
     height: 270px;
     position: relative;
     top: 120px;
     left: 40px;
+    transform: scale(1);
+    }
+  @media (max-width: 414px) {
+    width: 300px;
+    height: 270px;
+    position: relative;
+    top: 100px;
+    left: 25px;
+    margin-top: 10px;
+    transform: scale(1);
+    }
+  @media (max-width: 375px) {
+    height: 270px;
+    position: relative;
+    top: 120px;
+    left: 25px;
+    margin-top: 0px;
+    transform: scale(1);
     }
   &:hover {
     transform: scale(1.1);
@@ -831,23 +1318,50 @@ display: none;
   position: absolute;
   top: 560px;
   left: 440px;
+  @media (max-width: 1920px) {
+    position: absolute;
+    font-size: .8rem;
+    top: 680px;
+    left: 590px;
+    }
+  @media (max-width: 430px) {
+    position: absolute;
+    font-size: .8rem;
+    top: 1000px;
+    left: 20px;
+
+    }
+
+  @media (max-width: 414px) {
+    position: absolute;
+    font-size: 10px;
+    top: 1000px;
+    left: 10px;
+    }
 
   @media (max-width: 375px) {
     position: relative;
     font-size: .8rem;
     top: 100px;
     left: -50px;
+
     }
 }
 
 .servicesSection{
   position: relative;
   top: 80px;
-  max-width: 1380px;
-  max-height: 800px;
+  width: 1380px;
+  height: 800px;
    border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
    background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
    box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
+   @media (max-width: 1920px) {
+    position: absolute;
+    top: 700px;
+    width: 1480px;
+    height: 850px;
+  }
   @media (min-width: 1280) {
     padding: 0 1rem; // Equivalent to sm:px-8 in Tailwind
   }
@@ -860,11 +1374,24 @@ display: none;
   @media (min-width: 768px) {
     padding: 0 4rem; // Equivalent to md:px-16 in Tailwind
   }
+  @media (max-width: 430px) {
+    position: absolute;
+    top: 1400px;
+    width: 380px;
+    height: 1100px;
+  }
+  @media (max-width: 414px) {
+    position: absolute;
+    top: 800px;
+    width: 350px;
+    height:1050px;
+  }
+
   @media (max-width: 375px) {
     position: relative;
-    top: -200px;
-    min-width: 180px;
-    max-height: 1425px;
+    top: 750px;
+    width: 350px;
+    height: 1125px;
   }
 }
 
@@ -875,9 +1402,29 @@ display: none;
   margin-top: 200px;
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
-  @media (min-width: 375px) {
+  @media (max-width: 1920px) {
+    position: relative;
+    top: -130px;
+    left: 20px;
+    font-size: 55px;
+  }
+  @media (max-width: 430px) {
+    position: relative;
+    top: -160px;
+    left: 10px;
+    font-size: 45px;
+  }
+  @media (max-width: 414px) {
+    position: relative;
+    top: -150px;
+    left: 0px;
+    font-size: 28px;
+  }
+  @media (max-width: 375px) {
   position: relative;
   top: -160px;
+  left: 5px;
+  font-size: 45px;
   }
 }
 
@@ -888,16 +1435,31 @@ display: none;
   font-size: 20px; /* Equivalent to text-2xl in Tailwind CSS */
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 430px) {
+    position: relative;
+    top: -170px;
+    left: 5px;
+    font-size: 18px;
+  }
+  @media (max-width: 414px) {
+    position: relative;
+    top: -150px;
+    left: 0px;
+    font-size: 18px;
+  }
   @media (max-width: 375px) {
-  position: relative;
-  top: -170px;
-  width: 11px;
-  padding: 10px 15px 10px 15px;
+    
+    width: 240px;
+    position: absolute;
+    top: 110px;
+    left: 70px;
+    font-size: 18px;
   }
 }
 
 .sCard {
   position: relative;
+  top: -150px;
   left: 0px;
   max-width: 1200px;
   height: 100%;
@@ -907,15 +1469,38 @@ display: none;
   background-color: #FFBD59; // Adjust as needed
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width: 430px) {
+    width: 325px;
+    height: 250px;
+    position: relative;
+    top: -170px;
+    left: 30px;
+
+    }
+  @media (max-width: 414px) {
+    width: 300px;
+    height: 240px;
+    position: relative;
+    top: -180px;
+    left: 30px;
+    margin-top: 10px;
+
+    }
+  @media (max-width: 375px) {
+    width: 300px;
+    height: 240px;
+    position: relative;
+    top: -100px;
+    left: 40px;
+    margin-top: 0px;
+
+    }
 
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
-  @media (min-width: 375px) {
-    position: relative;
-    top: -140px;
-    }
+
 }
 
 .pName{
@@ -927,11 +1512,29 @@ display: none;
 
 .sButton{
   position: relative;
-  @media (min-width: 375px) {
+  top: -100px;
+  margin-top: -50px;
+  margin-left: -20px;
+  @media (max-width: 430px) {
+    position: absolute;
+    font-size: .8rem;
+    top: 1000px;
+    left: 60px;
+    z-index: 150px;
+    }
+  @media (max-width: 414px) {
+    position: absolute;
+    font-size: 10px;
+    top: 970px;
+    left: 45px;
+    }
+  @media (max-width: 375px) {
     position: relative;
     font-size: .8rem;
-    top: -170px;
+    top: -90px;
     left: -30px;
+    margin-left: 0px;
+
     }
 }
 
@@ -942,4 +1545,100 @@ display: none;
 .categoryIcons{
     width: 100px;
     height: 100px;
+}
+
+.footerXR{
+  @media (max-width: 1920px) {
+    width: 100%;
+    position: relative;
+    font-size: .8rem;
+    top: 1000px;
+    transform: scale(1);
+    p{
+      line-height: 30px;
+      font-size: 26px;
+      display: inline;
+      align-items: center;
+      padding: 20 0 20 0;
+    }
+    span{
+      font-size: 20px;
+    }
+    }
+    @media (max-width: 430px) {
+      width: 50%;
+      position: relative;
+      font-size: .8rem;
+      top: 5800px;
+      left: -300px;
+      margin-left: 600px;
+      transform: scale(2);
+      p{
+        line-height: 30px;
+        font-size: 28px;
+        display: inline;
+        align-items: center;
+        padding: 20 0 20 0;
+      }
+      span{
+        font-size: 23px;
+      }
+      }
+  @media (max-width: 414px) {
+    width: 50%;
+    position: relative;
+    font-size: .8rem;
+    top: 5800px;
+    left: -300px;
+    margin-left: 600px;
+    transform: scale(2);
+    p{
+      line-height: 30px;
+      font-size: 26px;
+      display: inline;
+      align-items: center;
+      padding: 20 0 20 0;
+    }
+    span{
+      font-size: 20px;
+    }
+    }
+    @media (max-width: 390px) {
+      width: 800px;
+      position: relative;
+      font-size: .8rem;
+      top: 5500px;
+      left: -300px;
+      margin-left: 600px;
+      transform: scale(1.5);
+      p{
+        line-height: 30px;
+        font-size: 26px;
+        display: inline;
+        align-items: center;
+        padding: 20 0 20 0;
+      }
+      span{
+        font-size: 20px;
+      }
+    }
+    @media (max-width: 375px) {
+      width: 100%;
+      position: relative;
+      font-size: .8rem;
+      top: 40px;
+      left: -300px;
+      margin-left: 600px;
+      transform: scale(1);
+      p{
+        line-height: 30px;
+        font-size: 20px;
+        display: inline;
+        align-items: center;
+        padding: 20 0 20 0;
+      }
+      span{
+        font-size: 16px;
+      }
+      }
 }

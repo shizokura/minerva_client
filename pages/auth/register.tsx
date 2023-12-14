@@ -164,8 +164,8 @@ export default function Register() {
         <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
       </div>
-      <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-        <form onSubmit={onHandleRegister} className="bg-white">
+      <div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
+        <form onSubmit={onHandleRegister}>
           <h1 className="text-gray-800 font-bold text-2xl mb-1">Welcome!</h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Create an account in <span className='font-medium text-[#FFBD59]'>Minerva Sales Corporation</span></p>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -193,7 +193,7 @@ export default function Register() {
               <input
                 className="pl-2 outline-none border-none"
                 type="text"
-                name=""
+                name="lastname"
                 id=""
                 placeholder="Last Name"
                 pattern="^[A-Za-z\s-]+$"

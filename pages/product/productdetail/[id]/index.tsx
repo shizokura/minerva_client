@@ -147,185 +147,122 @@ const ProductDetails: FC = () => {
 
 
   return (
-    <div className={styles.bodyProducts}>
-      <Toaster richColors />
-      <section className="absolute top-20" id="productdetail">
-        <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 ">
-          <div className="flex flex-col lg:flex-row gap-8">
+    <>
+      <Toaster richColors  />
+      
+      <section className="mt-[100px] lg:mt-[200px] py-10 font-poppins">
+              <div className="max-w-6xl px-4 mx-auto">
+              <div className="flex flex-wrap mb-24 -mx-4">
+              <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
+              <div className="sticky top-0 overflow-hidden ">
+              <div className="relative mb-6 lg:mb-10 lg:h-96">
+             
 
-            {/* Product Details Div */}
-            <div className="w-full lg:w-6/12 items-center mt-8 lg:mt-0">
-
-              {/* ... (your existing code for Product Details) */}
-              {/* <!-- Description Div --> */}
-              <div className="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
-                <div className='lg:absolute top-[150px] left-[200px]'>
-                  <p className="mb-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 font-normal text-base leading-4 text-white">
-                    <Link href="/"> <span>Home </span> </Link> /<Link href="/products"> <span>Products</span> </Link> / <span> {products.name}</span>
-                  </p>
-                  <h2 className="font-bold lg:text-5xl text-3xl lg:leading-9 leading-7 text-white mt-4">
-                    {products.name}
-                  </h2>
-
-                  <p className="w-[750px] font-normal text-base leading-6 text-white mt-7">{products.description}</p>
-                  <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-white mt-6 ">{FormattedPrice(parseInt(products.price))}</p>
-
-                  <div className="lg:mt-11 mt-10">
-                    <div className="flex flex-row justify-between">
-                      <p className="font-medium text-base leading-4 text-white">Select quantity</p>
-                      <div className="flex">
-                        <span onClick={minusCount} className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-r-0 w-7 h-7 flex items-center justify-center pb-1 text-white">
-                          -
-                        </span>
-                        <input id="counter" aria-label="input" className="border border-gray-300 h-full text-center w-14 pb-1" type="text" value={count} onChange={(e) => e.target.value} />
-                        <span onClick={addCount} className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-l-0 w-7 h-7 flex items-center justify-center pb-1 text-white">
-                          +
-                        </span>
-                      </div>
-                    </div>
-
-                    <hr className="bg-white w-full my-2" />
-                    <div className=" flex flex-row justify-between items-center mt-4">
-                      <p className="font-medium text-base leading-4 text-white">{products.stock}</p>
-                      <div className="flex">
-
-
-                        <div id="quantity" aria-label="quantity" className="bg-white border border-gray-300 h-full text-center w-14 pb-1 rounded">
-                          {products.quantity}
-                        </div>
-
-                      </div>
-                    </div>
-                    <hr className="bg-white w-full mt-4" />
-                  </div>
-
-                  <button onClick={onHandleCartItems}
-                    className="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-white-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6" >Add to Cart</button>
-                </div>
-              </div>
-            </div>
-
-            <div className='lg:relative top-[30px] left-[700px]'>
-              {/* Carousel and Images Div */}
-              <div className="w-full lg:w-6/12 flex flex-col lg:gap-8 sm:gap-6 gap-4">
-                {/* Preview Images Carousel */}
-                <div className="carousel-container" style={{ maxWidth: "500px" }}> {/* Adjust the maxWidth to your preference */}
-                  <Slider {...carouselSettings}>
-                    <div>
-                      {products.image.length > 0 && (
-                        <Image src={products.image[ 2 ]} alt={products.name} height={120} width={520} />
-                      )}
-                    </div>
-                    <div>
-                      {products.image.length > 0 && (
-                        <Image src={products.image[ 1 ]} alt={products.name} height={120} width={520} />
-                      )}
-                    </div>
-                    <div>
-                      {products.image.length > 0 ?
-                        <Image src={products.image[ 0 ]} alt={products.name} height={120} width={520} /> : null
-
-                      }
-                    </div>
-                    {/* Add more image items as needed */}
-                  </Slider>
-                </div>
-
-
-                {/* ... (remaining existing code) */}
-
-                {/* Images below Carousel */}
-                <div className="w-full grid grid-cols-3 gap-4">
-                  {products.image.length > 0 && (
-                    <Image src={products.image[ 2 ]} alt={products.name} height={120} width={520} />
+              {products.image.length > 0 && (
+                    <Image src={products.image[2]} alt={products.name} height={220} width={550} />
                   )}
-                  {products.image.length > 0 && (
-                    <Image src={products.image[ 1 ]} alt={products.name} height={120} width={520} />
-                  )}
-                  {products.image.length > 0 && (
-                    <Image src={products.image[ 0 ]} alt={products.name} height={120} width={520} />
-                  )}
-                </div>
-              </div>
-              <div className="w-full lg:w-4/12 grid lg:grid-cols-1 sm:grid-cols-4 grid-cols-2 gap-6">
-                {/* ... (your existing code for additional images) */}
-              </div>
-            </div>
 
-          </div>
-        </div>
-      </section>
 
-      <section className="absolute w-full top-[900px] flex flex-col items-center justify-center text-center text-white ">
-        <footer className="h-62 bg-gradient-to-r w-full from-gray-100 via-[#FFBD59] to-gray-100">
-          <div className="max-w-screen-xl mt-2 px-2 py-8 mx-auto sm:px-6 lg:px-8">
-            <div className="relative top-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div>
-                <img src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
-                <p className="max-w-xs mt-4 text-sm text-gray-600">
-                  Let us make your trips more comfortable and safe. Leave the worries behind and let{"'"}s begin our journey!
-                </p>
-                <div className="flex mt-8 space-x-6 text-gray-600">
-                  <Link href="https://www.facebook.com/MinervaSalesCorp" className="hover:opacity-75" target="_blank" rel="noreferrer">
-                    <span className="sr-only"> Facebook </span>
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
               </div>
-              <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-1 lg:grid-cols-4">
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/products" className="hover:opacity-75">Products</Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Tires </Link>
-                    <Link href="" className="hover:opacity-75"> Car Battery </Link>
-                    <Link href="" className="hover:opacity-75"> Oils </Link>
-                    <Link href="" className="hover:opacity-75"> Tire Mags </Link>
-                    <Link href="" className="hover:opacity-75"> Car Filters </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/services" className="hover:opacity-75 "> Services </Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Oil Change </Link>
-                    <Link href="" className="hover:opacity-75"> Change Tire </Link>
-                    <Link href="" className="hover:opacity-75"> Alignment </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Helpful Links
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Contact </Link>
-                    <Link href="" className="hover:opacity-75"> About </Link>
-                    <Link href="" className="hover:opacity-75"> Live Chat </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Legal
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75" > Privacy Policy </Link>
-                    <Link href="" className="hover:opacity-75" > Terms &amp; Conditions </Link>
-                    <Link href="" className="hover:opacity-75" > Returns Policy </Link>
-                  </nav>
-                </div>
+              <div className="mt-40 flex-wrap hidden -mx-2 md:flex">
+
+              <div className="w-1/2 p-2 sm:w-1/3">
+              <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
+              {products.image.length > 0 && (
+                    <Image src={products.image[2]} alt={products.name} height={220} width={520} />
+                  )}
+              </a>
               </div>
-            </div>
-            <p className="mt-9 text-xs text-gray-800">
-              © 2023 Minerva Sales Corporation
-            </p>
-          </div>
-        </footer>
-      </section>
-    </div>
+              <div className="w-1/2 p-2 sm:w-1/3">
+              <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
+              {products.image.length > 0 && (
+                    <Image src={products.image[1]} alt={products.name} height={220} width={520} />
+                  )}              
+                </a>
+              </div>
+              <div className="w-1/2 p-2 sm:w-1/3">
+              <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
+              {products.image.length > 0 && (
+                    <Image src={products.image[0]} alt={products.name} height={220} width={520} />
+                  )}               
+                  </a>
+              </div>
+             
+
+              </div>
+              </div>
+              </div>
+              <div className="w-full px-4 md:w-1/2">
+              <div className="lg:pl-20">
+              <div className="mb-6">
+            
+              <h2 className="max-w-xl mt-20 mb-6 text-xl font-bold leading-loose tracking-wide text-gray-800 md:text-4xl dark:text-gray-700">
+              {products.name}
+              </h2>
+
+              <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-700">
+              <span>{FormattedPrice(parseInt(products.price))}</span>
+              </p>
+              </div>
+              <div className="mb-6">
+              <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">Product Description:</h2>
+              <h2 className=" w-[300px] sm:w-[200px] break-all mb-2 text-lg font-bold text-gray-700 dark:text-gray-700">
+                {products.description}
+              </h2>
+              </div>
+              <div className="py-6 mb-6 border-t border-b border-gray-200 dark:border-gray-700">
+              <span className="text-base text-gray-600 dark:text-gray-700">{products.stock} : {products.quantity}</span>
+
+
+              </div>
+              <div className="mb-6 "></div>
+              <div className="flex flex-wrap items-center mb-6">
+              <div className="mb-4 mr-4 lg:mb-0">
+              <div className="w-28">
+              <div className="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
+              <button className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
+              <span onClick={minusCount} className="m-auto text-2xl font-thin">-</span>
+              </button>
+              <input id="counter" value={count} type="number" onChange={(e) => parseInt(e.target.value) > 0 ? e.target.value : 1} className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black" placeholder="1"/>
+              <button  className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
+              <span onClick={addCount} className="m-auto text-2xl font-thin">+</span>
+              </button>
+              </div>
+              </div>
+              </div>
+              
+
+              </div>
+              <div className="flex gap-4 mb-6">
+              <button onClick={onHandleCartItems} className="w-full px-4 py-3 text-center text-gray-200 bg-[#FFBD59] border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-black hover:bg-[#FFBD59] dark:text-gray-800 dark:bg-[#FFBD59] dark:hover:bg-gray-900 rounded-xl">
+              Add to cart</button>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+</section>
+
+<footer className="py-10 -mt-20 w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
+
+  <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+      <Link className="text-black hover:text-gray-500" href="#">Home</Link>
+      <Link className="text-black hover:text-gray-500" href="#">Products</Link>
+      <Link className="text-black hover:text-gray-500" href="#">Services</Link>
+      <Link className="text-black hover:text-gray-500" href="#">About</Link>
+      <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+  </nav>
+
+  <div className="flex justify-center space-x-5">
+      <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+     </Link>
+    
+  </div>
+  <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+</footer> 
+
+</>
 
   );
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@react-hookz/web": "^23.1.0",
     "@react-pdf/renderer": "^3.1.14",
     "@tailwindcss/typography": "^0.5.10",

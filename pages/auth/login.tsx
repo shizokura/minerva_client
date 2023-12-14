@@ -95,7 +95,7 @@ export default function Login() {
 				const { role, userID }: any = jwtDecode(cookies)
 				if (role === "admin") {
 					usersD.set(userID)
-					router.push("/minerva/admin/customer")
+					router.push("/admin/customer")
 				} else {
 					usersD.set(userID)
 					router.push('/')
@@ -129,7 +129,7 @@ export default function Login() {
 				<div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
 				<div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
 			</div>
-			<div className="flex md:w-1/2 justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
+			<div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
 				<form onSubmit={onHandleSubmitForm}>
 					<h1 className="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
 					<p className="text-sm font-normal text-gray-600 mb-7">Welcome Back to Minerva Sales Corporation</p>

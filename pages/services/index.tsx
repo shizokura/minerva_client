@@ -38,124 +38,73 @@ const Services: FC = () => {
 
   return (
     <>
-      <div className={styles.bodyServices}>
-        <section className="relative mt-4 h-screen pb-12 mb-16 flex flex-col items-center justify-center ">
-          <div className="relative top-40 mb-12 grid gap-16 lg:grid-cols-3 p-8 mx-8 gap-y-18	">
 
-            {services?.slice(0, 3).map(({ servicesID, image, services, description, userID, price }: any) => (
-              <div key={servicesID} onClick={() => handleClick(servicesID)}>
-                <div className="relative w-full h-[750px] lg:max-w-sm bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
-                  <div>
-                    <Image src={image} alt={services} height={350} width={450} />
+<section id="Projects" className="mt-40 lg:ml-[180px] w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mb-5">
+
+  {services?.slice (0, 3).map(({ servicesID, image, services, description, userID, price }: any) => (
+        <div key={servicesID} onClick={() => handleClick(servicesID)}>
+              <div className="w-[260px] xl:w-[500px] bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                        {image.length > 0 && (
+              <Image src={image} alt={services} height={350} width={500} />
+            )}
+                      <div className="px-4 py-3 w-[260px] xl:w-[500px] leading normal">
+                      <span className="text-gray-400 mr-3 uppercase text-xs">{description}</span>
+                          <p className="max-w-[200px] break-normal leading-tight text-lg font-bold text-black truncate block capitalize">{services}</p>
+                          <div className="flex items-center">
+                              <p className="text-lg font-semibold text-black cursor-auto my-3">{FormattedPrice(price)}</p>
+                              <div className="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                      fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
+                                      <path fill-rule="evenodd"
+                                          d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+                                      <path
+                                          d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                  </svg></div>
+                          </div>
+                      </div>
                   </div>
-                  <div className="block px-10 py-10 p-4">
-                    <h4 className="pb-4 text-xl font-semibold text-black-600 text-center">
-                      {services}
-                    </h4>
-                    <p className="pb-10 mb-2 leading-normal text-center">
-                      {description}
-                    </p>
-                    <p className="absolute bottom-10 left-10 mr-2 text-lg font-bold text-black dark:text-black">
-                      {FormattedPrice(price)}
-                    </p>
-                    <button className="absolute bottom-10 left-10 ml-64 px-4 py-1 transition ease-in duration-200 uppercase rounded-full text-black font-bold hover:bg-black hover:text-white border-2 border-gray-900 focus:outline-none"><FaUserClock size="18px" />
-                    </button>
-                  </div>
-                </div>
               </div>
-            ))}
+  ))} 
+          </section>
+          <div className="flex justify-center">
+ <div className="flex w-20 mt-12 mb-10 -ml-24 lg:-ml-12">
+ <button
+      disabled={page === 0}
+      className="bg-[#FFBD59] hover:bg-blue-700 text-white font-bold mx-4 py-2 px-4 rounded"
+      onClick={() => setPage(() => page - 1)}
+    >
+      Prev
+    </button>
+    <button
+      className="bg-[#FFBD59] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      onClick={() => setPage(() => page + 1)}
+    >
+      Next
+    </button>
+ </div>
+ </div>
+          <section className="relative flex flex-col items-center justify-center text-center text-white ">
+          <footer className="py-10 w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
 
-          </div>
-          <div className="absolute bottom-[-220px] min-h-[80px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible flex gap-10">
+<nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <Link className="text-black hover:text-gray-500" href="#">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="#">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="#">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="#">About</Link>
+    <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+</nav>
 
-            <div className={styles.pagination}>
-              <button disabled={page === 0} className=' bg-[#FFBD59] hover:bg-blue-700 text-white font-bold mx-4 py-2 px-4 rounded' onClick={() => setPage(() => page - 1)}>Prev</button>
-              <button
-                className="bg-[#FFBD59] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => setPage(() => page + 1)}
-              >
-                Next
-              </button>
-            </div>
+<div className="flex justify-center space-x-5">
+    <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+   </Link>
+  
+</div>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+</footer>
 
-          </div>
+          </section>
 
-        </section>
-
-
-      </div>
-
-
-
-      {/*  */}
-      <section className="relative flex flex-col items-center justify-center text-center text-white ">
-        <footer className="h-62 bg-gradient-to-r w-full from-gray-100 via-[#FFBD59] to-gray-100">
-          <div className="max-w-screen-xl mt-2 px-2 py-8 mx-auto sm:px-6 lg:px-8">
-            <div className="relative top-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
-              <div>
-                <img src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
-                <p className="max-w-xs mt-4 text-sm text-gray-600">
-                  Let us make your trips more comfortable and safe. Leave the worries behind and let{"'"}s begin our journey!
-                </p>
-                <div className="flex mt-8 space-x-6 text-gray-600">
-                  <Link href="https://www.facebook.com/MinervaSalesCorp" className="hover:opacity-75" target="_blank" rel="noreferrer">
-                    <span className="sr-only"> Facebook </span>
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-1 lg:grid-cols-4">
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/products" className="hover:opacity-75">Products</Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Tires </Link>
-                    <Link href="" className="hover:opacity-75"> Car Battery </Link>
-                    <Link href="" className="hover:opacity-75"> Oils </Link>
-                    <Link href="" className="hover:opacity-75"> Tire Mags </Link>
-                    <Link href="" className="hover:opacity-75"> Car Filters </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    <Link href="/services" className="hover:opacity-75 "> Services </Link>
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Oil Change </Link>
-                    <Link href="" className="hover:opacity-75"> Change Tire </Link>
-                    <Link href="" className="hover:opacity-75"> Alignment </Link>
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Helpful Links
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75"> Contact </Link>
-                    <Link href="" className="hover:opacity-75"> About </Link>
-
-                  </nav>
-                </div>
-                <div>
-                  <p className="font-medium text-black">
-                    Legal
-                  </p>
-                  <nav className="flex flex-col mt-1 space-y-1 text-sm text-black">
-                    <Link href="" className="hover:opacity-75" > Terms &amp; Conditions </Link>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <p className="mt-9 text-xs text-gray-800">
-              © 2023 Minerva Sales Corporation
-            </p>
-          </div>
-        </footer>
-      </section>
-    </>
+            </>
   )
 }
 

@@ -15,9 +15,9 @@ const poppins = Open_Sans({
 const routes = [
   { name: "Customer Profile", url: "/minerva/admin/customer", icons: <TbUsers size={30} /> },
   { name: "Product Management", url: "/minerva/admin/product", icons: <TbFiles size={30} /> },
-  { name: "Service Management", url: "/minerva/admin/services", icons: <TbListSearch size={30} /> },
-  { name: "Orders", url: "/minerva/admin/orders", icons: <TbShoppingBag size={30} /> },
-  { name: "Appointments", url: "/minerva/admin/appointments", icons: <TbClock size={30} /> },
+  { name: "Service Management", url: "/minerva/admin/service", icons: <TbListSearch size={30} /> },
+  { name: "Orders", url: "/minerva/admin/order", icons: <TbShoppingBag size={30} /> },
+  { name: "Appointments", url: "/minerva/admin/appointment", icons: <TbClock size={30} /> },
   { name: "Inventory", url: "/minerva/admin/inventory", icons: <TbClipboard size={30} /> },
 ]
 
