@@ -6,9 +6,12 @@ import {  TbTrash, TbUsers, } from 'react-icons/tb'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import { FormattedPrice, FormattedDate } from '@/helpers/index'
+import { useRouter } from 'next/router';
 
 const CustomerPage: FC = () => {
   
+  const router = useRouter()
+
   const [ userid, setuserid ] = useState("")
   
   const [ users, setUsers ] = useState<[]>()
@@ -49,7 +52,7 @@ const CustomerPage: FC = () => {
     }
 
     fetchData();
-  }, [ users ])
+  }, [ page, users ])
 
   const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setConfirmationInput(e.target.value);
@@ -175,7 +178,7 @@ const CustomerPage: FC = () => {
                         <tbody>
                         {users?.map(({ userID, id, email, profile, createdAt }: any) => (
                           
-                            <tr>
+                            <tr key={userID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">

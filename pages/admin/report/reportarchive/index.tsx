@@ -89,7 +89,7 @@ const AuditLog: FC = () => {
                       value={name}
                       onClick={(e) => setDateFilters(e.currentTarget.value)}
                     
-                      aria-required>
+                      >
                       {name}
                     </button>
                   ))
@@ -129,7 +129,7 @@ const AuditLog: FC = () => {
           {archive?.map(({ archieveID, id, startDate, firstname, lastname, endDate, createdAt, User }: any) => (
 
                           
-                            <tr>
+                            <tr key={archieveID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
@@ -148,7 +148,7 @@ const AuditLog: FC = () => {
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">"Sales Report"</p>
+                                    <p className="text-gray-900 whitespace-no-wrap">Sales Report</p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                 <button onClick={() => router.push(`/admin/report/reportarchive/viewreportarchive/${archieveID}`)}> <TbEye className='ml-5' size={25} /> </button>

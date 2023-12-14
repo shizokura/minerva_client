@@ -154,7 +154,7 @@ const formSubmitProductQuantity = async (e: SyntheticEvent) => {
                         </thead>
                         <tbody>
                         {products?.map(({ userId, id, productID, name, category, price, stock, image, description, quantity, updatedAt}: any) => (
-                            <tr>
+                            <tr key={productID}>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">{id}</p>
                                 </td>

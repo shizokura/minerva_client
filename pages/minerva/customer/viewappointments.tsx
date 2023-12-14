@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
 import { FormattedDate } from '@/helpers'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const ViewAppointments: FC = () => {
 
@@ -76,7 +77,7 @@ const ViewAppointments: FC = () => {
                         </thead>
                         <tbody>
                         {appointment?.map(({ userID, id, date, time, name, status, User, service}: any) => (                          
-                            <tr>
+                            <tr key={userID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
@@ -140,7 +141,7 @@ const ViewAppointments: FC = () => {
 
 <div className="flex justify-center space-x-5">
     <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+        <Image src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt = ""/>
    </Link>
   
 </div>

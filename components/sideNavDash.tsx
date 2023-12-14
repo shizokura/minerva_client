@@ -112,7 +112,7 @@ function SideNavbar() {
             <div className=" my-4 border-b border-gray-100 pb-4">
               <div className="flex flex-col mb-2 items-center gap-4 pl-5">
               {routes.map(({ name, url, icons}) => (
-                <button onClick={() => router.push(`${url}`)} className="w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <button key={name} onClick={() => router.push(`${url}`)} className="w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                     <span className="text-2xl text-gray-600 group-hover:text-white "> {icons} </span>
                    <span className="text-base text-gray-800 group-hover:text-white font-semibold "> {name}</span>
                 </button>
@@ -130,7 +130,7 @@ function SideNavbar() {
                 reports ? 
               <div className='flex flex-col mb-2 items-center gap-4 pl-5'>    
                     {submenu.map(({name, url, icons}) => (
-                        <button onClick={() => router.push(url)} className="w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                        <button key={name} onClick={() => router.push(url)} className="w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                             <span className="text-2xl text-gray-600 group-hover:text-white "> {icons} </span>
                             <span className="text-base text-gray-800 group-hover:text-white font-semibold "> {name}</span>
                         </button>

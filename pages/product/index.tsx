@@ -157,7 +157,7 @@ const Products: FC = () => {
           <div className=" my-4 border-b border-gray-100 pb-4">
             <div className="flex flex-col mb-2 items-center gap-4 pl-5">
             {productCategoryLInk.map(({ name, value, icon}) => (
-              <button value={value} onClick={(e) => setCategory(e.currentTarget.value)} className=" w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <button key={name} value={value} onClick={(e) => setCategory(e.currentTarget.value)} className=" w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <span className="text-2xl text-gray-600 group-hover:text-white "> {icon} </span>
                  <span className="text-base text-gray-800 group-hover:text-white font-semibold "> {name}</span>
                  </button>
@@ -326,7 +326,7 @@ const Products: FC = () => {
 
   <div className="flex justify-center space-x-5">
       <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+          <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt="" />
      </Link>
     
   </div>

@@ -140,7 +140,7 @@ const OrderPage = () => {
             {orders?.map(({ userID, orderID, orders, total, payment, status, createdAt, User}: any) => (
                 User.map(({ profile }: any) => (
                               
-                                <tr>
+                                <tr key={orderID}>
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                         <div className="flex items-center">
                                             <div className="ml-3">

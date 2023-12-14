@@ -203,7 +203,7 @@ const ServiceDetails: FC = () => {
     
     <div className="flex justify-center space-x-5">
         <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+            <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=''/>
        </Link>
       
     </div>
@@ -268,7 +268,7 @@ const ServiceDetails: FC = () => {
       
       </form> */}
     
-    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+    <Script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></Script>
     
     {/* <section className="absolute w-full top-[1200px] flex flex-col items-center justify-center text-center text-white ">
     <footer className="py-10 w-[1800px] ml-[500px] lg:ml-0 flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
@@ -283,7 +283,7 @@ const ServiceDetails: FC = () => {
     
     <div className="flex justify-center space-x-5">
         <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+            <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" />
        </Link>
       
     </div>

@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import SideNavDash from '@/components/sideNavDash'
 import Head from 'next/head'
 import { TbEdit, TbClock,  TbHexagonPlus } from 'react-icons/tb'
-import router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Modal from '@/components/Modal'
 import {FormattedDate} from '@/helpers/index'
 import { jwtDecode } from 'jwt-decode'
@@ -13,9 +13,10 @@ import { IoMdAddCircleOutline } from 'react-icons/io'
 
 const AppointmentPage = () => {
 
+    const router = useRouter()
   const [ page, setPage] = useState(0)
   const [ isModalOpen, setIsModalOpen ] = useState(false);
-  const router = useRouter();
+
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -36,6 +37,7 @@ const AppointmentPage = () => {
     setUserId(userID)
   }, [ userId ])
 
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/schedule/?skip=${page}&orderby=desc`, {
@@ -54,7 +56,7 @@ const AppointmentPage = () => {
     }
   
     fetchData();
-  }, [ userId,  appointment])
+  }, [ page, userId,  appointment])
 
   return (
     <>
@@ -112,7 +114,7 @@ const AppointmentPage = () => {
                         <tbody>
                         {appointment?.map(({ scheduleID, service, date,  time, id, name, status, User}: any) => (
                           
-                            <tr>
+                            <tr key={scheduleID}>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">

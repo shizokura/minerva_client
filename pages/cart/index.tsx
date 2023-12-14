@@ -52,7 +52,7 @@ const Cart: FC = () => {
 {
                 products?.map(({ productID,  name, category, total, quantity, image, price}: any) => (
                   
-                  <div className=" flow-root">
+                  <div key = {productID} className=" flow-root">
                     {/* <button
                                         className="absolute top-4 -right-56 bg-red-500 text-white font-semibold py-2 px-4 rounded-2xl hover:bg-red-600 focus:outline-none focus:shadow-outline-red active:bg-red-800">
   Clear Cart
@@ -144,7 +144,7 @@ const Cart: FC = () => {
 
 <div className="flex justify-center space-x-5">
     <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+        <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt="" />
    </Link>
   
 </div>

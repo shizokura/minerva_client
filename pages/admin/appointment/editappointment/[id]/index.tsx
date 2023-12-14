@@ -1,7 +1,7 @@
 import React, { FC, FormEvent, useEffect, useState } from 'react'
 import Head from 'next/head'
 import {TbClock, TbEdit, TbTrash, TbUsers } from 'react-icons/tb'
-import router from 'next/router'
+import router, { useRouter } from 'next/router'
 import { jwtDecode } from 'jwt-decode'
 import Cookies from 'js-cookie'
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,6 +41,8 @@ const EditAppointmentPage: FC = () => {
   //     setUserId(userID)
   //   }
   // }, [ userid ])
+  
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {

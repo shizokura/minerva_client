@@ -68,7 +68,7 @@ const AuditLog: FC = () => {
                         {logs?.map(({ userID, logsID, title, createdAt, User}: any) => (
 
                           
-                            <tr>
+                            <tr key = {userID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">

@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="max-w-screen-xl mt-2 px-2 py-8 mx-auto sm:px-6 lg:px-8">
         <div className="relative top-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <img src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
+            <Image src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
             <p className="max-w-xs mt-4 text-sm text-gray-600">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
             </p>

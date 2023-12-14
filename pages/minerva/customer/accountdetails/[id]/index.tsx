@@ -8,6 +8,7 @@ import { jwtDecode } from 'jwt-decode'
 import { useRouter } from 'next/router'
 import { Toaster, toast } from 'sonner'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const AccountDetails: FC = () => {
 
@@ -221,7 +222,7 @@ const AccountDetails: FC = () => {
    
    <div className="flex justify-center space-x-5">
        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-           <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+           <Image src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt = ""/>
       </Link>
      
    </div>

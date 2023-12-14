@@ -11,7 +11,6 @@ import Cookies from 'js-cookie'
 import Link from 'next/link';
 import { FormattedPrice } from '@/helpers/index'
 import Image from 'next/image'
-import image from 'next/image'
 import { useLocalStorageValue } from '@react-hookz/web'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
@@ -255,7 +254,7 @@ const ProductDetails: FC = () => {
 
   <div className="flex justify-center space-x-5">
       <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+          <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt =""/>
      </Link>
     
   </div>

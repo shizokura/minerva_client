@@ -142,7 +142,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Maya. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <img src="/mayapayment.jpg"></img>
+                            <Image src="/mayapayment.jpg" alt=""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         
@@ -153,7 +153,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Gcash. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <img src="/gcashpayment.jpg"></img>
+                            <Image src="/gcashpayment.jpg" alt = ""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         
@@ -186,7 +186,7 @@ const Checkout: FC = () => {
                                 <div className="h-[350px] mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6 overflow-y-auto">
                                 {
                         products?.map(({ id,  name, category, total, quantity, image, price}: any) => (
-                                <div className="flex flex-col rounded-lg bg-white sm:flex-row">
+                                <div key={name} className="flex flex-col rounded-lg bg-white sm:flex-row">
                                     <div className="mt-4 h-24 w-28 rounded-md border object-cover object-center">
                                     {image.length > 0 && (
                                         <Image src={image[1]} alt={name} height={150} width={150}/>
@@ -226,7 +226,7 @@ const Checkout: FC = () => {
                                 <div className="">
                                 <form onSubmit={onHandlePlaceOrder} className="mt-5 grid gap-6">
                                                 {payments.map(({ name, value, icons } : any ) => (
-                                                    <button value={value} onChange={(e) => setPaymethod(e.currentTarget.value)} className="flex items-center justify-between w-full bg-white rounded-md border-2 border-gray-200 p-4 focus:outline-none">
+                                                    <button key={name} value={value} onChange={(e) => setPaymethod(e.currentTarget.value)} className="flex items-center justify-between w-full bg-white rounded-md border-2 border-gray-200 p-4 focus:outline-none">
                                                         <label className="flex items-center">
                                                         <input type="radio" className="form-radio h-5 w-5 text-yellow-600" name="paymentMethod" />
                                                         <span className="ml-2 text-sm text-gray-700">{name}</span>
@@ -283,7 +283,7 @@ const Checkout: FC = () => {
         
         <div className="flex justify-center space-x-5">
             <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+                <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=""/>
            </Link>
           
         </div>

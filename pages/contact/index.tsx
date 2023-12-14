@@ -3,6 +3,7 @@ import PageWithLayout from '@/layout/pagewithlayout'
 import React, { FC } from 'react'
 import styles from '@/styles/customer/customer.module.scss'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Contacts: FC = () => {
   return (
@@ -10,7 +11,7 @@ const Contacts: FC = () => {
 <>
 <section className='absolute top-20' id="about">
       <div className="relative w-screen h-[500px] overflow-hidden">
-  <img className='object-cover w-full h-full' src="/MSC-TEAM.jpeg" alt="About" />
+  <Image className='object-cover w-full h-full' src="/MSC-TEAM.jpeg" alt="About" />
   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
     <p className="text-white text-[60px] lg:text-[100px] font-bold font-poppins text-center">CONTACT US</p>
   </div>
@@ -113,7 +114,7 @@ const Contacts: FC = () => {
 
 <div className="flex justify-center space-x-5">
     <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+        <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt= "" />
    </Link>
   
 </div>

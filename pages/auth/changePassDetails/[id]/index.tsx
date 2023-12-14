@@ -128,7 +128,7 @@ export default function ChangePassword() {
 
         <section className="relative h-60 flex flex-col items-center justify-center text-center text-white ">
           <div className={styles.section3}>
-            <img src="/section-3.jpeg"></img>
+            <Image src="/section-3.jpeg" alt={''}></Image>
           </div>
         </section>
 
@@ -222,7 +222,7 @@ export default function ChangePassword() {
             <small className="font-[700]">Explore our wide range of products.</small>
             <ul className="flex items-start justify-between gap-8 mt-10 md:flex-row flex-col">
               <div className="mx-auto mt-2 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
+                <Image className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Motolite Gold</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Long lasting power for high performance vehicles.</p>
@@ -235,7 +235,7 @@ export default function ChangePassword() {
               </div>
 
               <div className="mx-auto mt-2 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
+                <Image className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Motolite Gold</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Long lasting power for high performance vehicles.</p>
@@ -249,7 +249,7 @@ export default function ChangePassword() {
               </div>
 
               <div className="mx-auto mt-2 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
+                <Image className="h-48 w-full object-cover object-center" src="https://www.motolite.com/cdn/shop/products/Gold1_750x.jpg?v=1663294903" alt="Motolite Gold" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Motolite Gold</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Long lasting power for high performance vehicles.</p>
@@ -291,7 +291,7 @@ export default function ChangePassword() {
             <small className="font-[700]">Try our service and maintenance.</small>
             <ul className="flex items-start justify-between gap-8 mt-10 md:flex-row flex-col">
               <div className="mx-auto mt-2 w-96 transform overflow-hidden rounded-lg bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
+                <Image className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Change Tire</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Requires two sets of wheels and two sets of tires.</p>
@@ -304,7 +304,7 @@ export default function ChangePassword() {
               </div>
 
               <div className="mx-auto mt-2 w-96 transform overflow-hidden rounded-lg bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
+                <Image className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Change Tire</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Requires two sets of wheels and two sets of tires.</p>
@@ -318,7 +318,7 @@ export default function ChangePassword() {
               </div>
 
               <div className="mx-auto mt-2 w-96 transform overflow-hidden rounded-lg bg-[#FFBD59] shadow-md duration-300 hover:scale-105 hover:shadow-lg">
-                <img className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
+                <Image className="h-48 w-full object-cover object-center" src="/services.png" alt="Change Tire" />
                 <div className="p-4">
                   <h2 className="mb-2 text-lg font-medium dark:text-black text-gray-900">Change Tire</h2>
                   <p className="text-sm mb-2 dark:text-black text-black">Requires two sets of wheels and two sets of tires.</p>
@@ -346,7 +346,7 @@ export default function ChangePassword() {
             <div className="max-w-screen-xl mt-2 px-2 py-8 mx-auto sm:px-6 lg:px-8">
               <div className="relative top-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
-                  <img src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
+                  <Image src="/logo.png" className="mr-5 h-6 sm:h-6" alt="logo" />
                   <p className="max-w-xs mt-4 text-sm text-gray-600">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
                   </p>

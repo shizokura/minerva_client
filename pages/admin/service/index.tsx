@@ -162,7 +162,7 @@ const ServicePage = () => {
                     {services?.map(({ userId, servicesID, id, services, description, price, status }: any) => (
 
                       
-                        <tr>
+                        <tr key={servicesID}>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                 <div className="flex items-center">
                                     <div className="ml-3">

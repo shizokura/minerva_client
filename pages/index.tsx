@@ -226,7 +226,7 @@ const Home: FC = () => {
       <section className="relative -mb-96 h-32 flex flex-col items-center justify-center text-center text-white ">
 
     <div className={styles.section3}>
-      <img src="/section-3.jpeg"></img>
+      <Image src="/section-3.jpeg" width={2000} height = {100} alt = "" />
       </div>
       </section> 
 
@@ -422,7 +422,7 @@ const Home: FC = () => {
 
 <div className="flex justify-center space-x-5">
     <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
    </Link>
   
 </div>

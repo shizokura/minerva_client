@@ -17,7 +17,7 @@ const About: FC = () => {
     <>
     <section className='absolute top-20' id="about">
     <div className="relative w-screen h-[500px] overflow-hidden">
-<img className='object-cover w-full h-full' src="/about.jpeg" alt="About" />
+<Image className='object-cover w-full h-full' src="/about.jpeg" alt="About" />
 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
   <p className="text-white text-[60px] lg:text-[100px] font-bold font-poppins text-center">ABOUT US</p>
 </div>
@@ -50,7 +50,7 @@ Our skilled technicians and mechanics provide top-notch service, utilizing the l
                       <dt>
                           <div
                               className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <img src="https://www.svgrepo.com/show/503163/api-settings.svg" > */}
+                              {/* <Image src="https://www.svgrepo.com/show/503163/api-settings.svg" > */}
                           </div>
                           <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Quality</p>
                       </dt>
@@ -64,7 +64,7 @@ and following industry best practices to ensure that vehicles are serviced or re
                       <dt>
                           <div
                               className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <img src="https://www.svgrepo.com/show/503138/webpack.svg" > */}
+                              {/* <Image src="https://www.svgrepo.com/show/503138/webpack.svg" > */}
                           </div>
                           <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Customer Satisfaction
                           </p>
@@ -78,7 +78,7 @@ and following industry best practices to ensure that vehicles are serviced or re
                       <dt>
                           <div
                               className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <img src="https://www.svgrepo.com/show/511771/dashboard-671.svg" > */}
+                              {/* <Image src="https://www.svgrepo.com/show/511771/dashboard-671.svg" > */}
 
                           </div>
                           <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Integrity and Transparency
@@ -92,7 +92,7 @@ and following industry best practices to ensure that vehicles are serviced or re
                       <dt>
                           <div
                               className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <img src="https://www.svgrepo.com/show/76267/free-commercial-label.svg" > */}
+                              {/* <Image src="https://www.svgrepo.com/show/76267/free-commercial-label.svg" > */}
 
                           </div>
                           <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">We Follow Best Practices
@@ -119,7 +119,7 @@ and following industry best practices to ensure that vehicles are serviced or re
 
 <div className="flex justify-center space-x-5">
   <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
+      <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=''/>
  </Link>
 
 </div>

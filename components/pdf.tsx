@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, View, Text, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
 import { FormattedDate, FormattedPrice } from '@/helpers/index'
-
+import Image from 'next/image';
 Font.register({
   family: 'Franklin Gothic Book',
   src: '/assets/FRABK.ttf',
@@ -20,7 +20,7 @@ const PDF = ({ generate, startDate, endDate }: any) => {
     <Document>
     <Page style={styles.body}>
       <View style={{ position: 'absolute', top: '20px', left: '270px', width: '50px', paddingBottom: '20px'}}>
-        <Image src="/logo.png"/>
+        <Image src="/logo.png" alt="logo"/>
       </View>
       <View style={{ display: 'flex', justifyContent: 'center', fontFamily: 'Franklin Gothic Book', fontSize: '11px'}}>
       <Text
@@ -117,7 +117,7 @@ const PDF = ({ generate, startDate, endDate }: any) => {
       
       <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '135px', padding: '5px', marginRight: '10px' }} >
     {Product?.map(({ name}: any) => (
-    <Text style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '135px', padding: '5px', marginRight: '10px'}}>{name}</Text>
+    <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '135px', padding: '5px', marginRight: '10px'}}>{name}</Text>
     ))}
     </Text>
     
