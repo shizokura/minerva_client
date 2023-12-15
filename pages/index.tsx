@@ -58,7 +58,7 @@ const Home: FC = () => {
 
   const handleClickServices = (servicesID: any) => {
     // Navigate to the target page when the component is clicked
-    router.push(`/service/servicedetail/${servicesID}`);
+    router.push(`/services/servicedetail/${servicesID}`);
   };
 
 
