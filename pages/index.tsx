@@ -53,12 +53,12 @@ const Home: FC = () => {
 
   const handleClickProducts = (productId: any) => {
     // Navigate to the target page when the component is clicked
-    router.push(`/products/productdetail/${productId}`);
+    router.push(`/product/productdetail/${productId}`);
   };
 
   const handleClickServices = (servicesID: any) => {
     // Navigate to the target page when the component is clicked
-    router.push(`/services/servicedetail/${servicesID}`);
+    router.push(`/service/servicedetail/${servicesID}`);
   };
 
 
@@ -331,7 +331,7 @@ const Home: FC = () => {
         <div className={styles.pCard}>
            
            {image.length > 0 && (
-    <Image src={image[0]} alt={name} height={120} width={320}/>
+    <Image src={image[0]} alt={name} height={100} width={300}/>
   )}                       
    <div className="p-4">
                           <h2 className={styles.pName}>{name}</h2>
@@ -412,14 +412,14 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 xs:mt-[1350px] sm:mt-[1260px] 12:mt-[1320px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1050px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10 xs:mt-[920px] sm:mt-[1260px] 12:mt-[1320px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1050px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-    <Link className="text-black hover:text-gray-500" href="#">Home</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Products</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Services</Link>
-    <Link className="text-black hover:text-gray-500" href="#">About</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
+    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
 </nav>
 
 <div className="flex justify-center space-x-5">

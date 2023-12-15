@@ -143,12 +143,12 @@ export default function HeaderNavbar() {
     
           {isOpen && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white opacity-100 ring-1 ring-black ring-opacity-2"
+              className="absolute left-[-50px] mt-2 w-56 rounded-md shadow-lg bg-white opacity-100 ring-1 ring-black ring-opacity-2"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="dropdown-menu"
             >
-              <div className="text-right py-1" role="none">
+              <div className="text-center py-1" role="none">
                 {dropdownItems.map((item) => (
                   <a 
                     key={item.value}
@@ -158,7 +158,10 @@ export default function HeaderNavbar() {
                   >
                     <div className='inline-flex gap-x-2 '>
                     {item.label}
-                    {item.icon}
+                    <div className='absolute right-2'>
+                      {item.icon}
+                      </div>
+                    
                     </div>
     
                   </a>
@@ -167,7 +170,12 @@ export default function HeaderNavbar() {
                   Cookies.remove("ecom_token")
                   router.push("/auth/login")
                 }} type="button"><span className='inline-flex gap-x-2 px-4 py-2 text-sm text-gray-700'>
-                  Logout<TbCircleArrowRight size="20px" /></span></button>
+                  Logout
+                  <span className='absolute right-2'>
+                  <TbCircleArrowRight size="20px" />
+                  </span>
+                  </span>
+                  </button>
 
               </div>
             </div>
@@ -175,7 +183,7 @@ export default function HeaderNavbar() {
         </div>
         </div>
                 <button className={styles.cartBtn} type="button" onClick={onHandleCartBtn}>
-                  <span className={poppins.className}>Cart (0)</span>
+                  <span className={poppins.className}>Cart</span>
                 </button>
               </>
           : <>
@@ -183,7 +191,7 @@ export default function HeaderNavbar() {
                   <span className={poppins.className}>Login</span>
               </button>
             <button className={styles.cartBtn}>
-                  <span className={poppins.className}>Cart (0)</span>
+                  <span className={poppins.className}>Cart</span>
             </button>
 
           </>}

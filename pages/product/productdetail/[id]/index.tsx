@@ -121,27 +121,16 @@ const ProductDetails: FC = () => {
     toast.success('Product added to cart succesfully')
   }
   const addCount = () => {
-    setCount((prev) => prev + 1);
+    if (count < parseInt(products.quantity)) {
+      setCount(count + 1);
+   }
   };
 
   const minusCount = () => {
-    if (count > 0) {
-      setCount((prev) => prev - 1);
+    if (count > 1) {
+       setCount(count - 1);
     }
-  };
-
-  // Settings for the react-slick carousel
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
-  if (router.isFallback) {
-    return (<p>Loading.....</p>)
-  }
+   };
 
 
 

@@ -108,10 +108,7 @@ and following industry best practices to ensure that vehicles are serviced or re
                   </div>
               </dl>
           </div>
-          <div className='hidden'>
           <FacebookMsg />
-          </div>
-
       </div>
 
       <footer className="py-10 -mt-10 lg:mt-0 w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">

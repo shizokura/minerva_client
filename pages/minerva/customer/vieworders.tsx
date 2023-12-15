@@ -52,10 +52,10 @@ const ViewOrders: FC = () => {
     <div className={styles.bodyViewOrders}>
  
 
-    <div className="container mt-40 mx-auto px-4 sm:px-8 lg:ml-[200px] ">
+    <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">
         <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">View Order Status</h2>
+                <h2 className="text-3xl font-roboto font-bold leading-tight text-white">View Your Order Status</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">

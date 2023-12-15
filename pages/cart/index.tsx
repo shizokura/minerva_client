@@ -43,10 +43,10 @@ const Cart: FC = () => {
           </div>
 
     <div className="absolute left-4 ml-4 lg:top-[190px] lg:left-[600px] mx-auto mt-8 max-w-md md:mt-12">
-      <div className="w-80 mt-2 h-[600px] sm:h-[780px] 12:h-[780px]  sm:w-[350px] lg:h-[920px] lg:w-[700px] lg:mt-20 rounded-3xl bg-white shadow-lg">
+      <div className="w-80 mt-2 h-[600px] sm:h-[700px] 12:h-[780px]  sm:w-[350px] lg:h-[920px] lg:w-[700px] lg:mt-20 rounded-3xl bg-white shadow-lg">
       
 
-        <div className="overflow-y-auto h-[570px] lg:h-[700px] px-4 py-6 sm:px-8 sm:py-10 rounded-3xl">
+        <div className="overflow-y-auto xs:h-[410px] sm:h-[420px] lg:h-[700px] px-4 py-6 sm:px-8 sm:py-10 rounded-3xl">
     
 
 {
@@ -106,7 +106,7 @@ const Cart: FC = () => {
            
           </div>
           <div className='pl-12 pr-12 pb-12'>
-          <hr className="mx-0 mt-[-120px] sm:mt-[40px] 12:mt-[40px]  lg:mt-6 mb-0 h-0 border-r-0 border-b-0 border-l-0 border-t border-solid border-gray-300" /> 
+          <hr className="mx-0 xs:mt-[50px] mt-[-120px] sm:mt-[120px] 12:mt-[40px]  lg:mt-6 mb-0 h-0 border-r-0 border-b-0 border-l-0 border-t border-solid border-gray-300" /> 
           <div className="lg:mt-6 flex items-center justify-between">
             <p className="text-sm font-medium text-gray-900">Total</p>
             <p className="text-2xl font-semibold text-gray-900">

@@ -145,7 +145,7 @@ const ViewAppointments: FC = () => {
    </Link>
   
 </div>
-<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
 </footer>
     </div>
   )

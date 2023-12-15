@@ -114,68 +114,53 @@ export default function Login() {
 	// 	}
 	// }
 
-	const onHandleSubmitForm = async (e: SyntheticEvent) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-	
-		// Validation block
-		if (!validateEmail(users.user)) {
-			setEmailError('Please enter a valid email address');
-			return;
-		}
-		setEmailError('');
-	
-		// Password validation
-		if (!validatePassword(users.password)) {
-			setPasswordError('Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers');
-			return;
-		}
-		setPasswordError('');
-	
-		// Make the login request
+	   
 		const res = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/user/login", {
-			method: "POST",
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				email: users.user,
-				password: users.password
-			})
-		})
-	
-		const data = await res.json()
-	
-		// Check the success of the login request
-		if (res.ok) {
-			const cookies = Cookies.set("ecom_token", data, {
-				expires: 60 * 60 * 24 * 7,
-				path: "/",
-				sameSite: "none",
-				secure: true
-			})
-	
-			if (cookies) {
-				const { role, userID }: any = jwtDecode(cookies)
-				if (role === "admin") {
-					usersD.set(userID)
-					router.push("/admin/customer")
-				} else {
-					usersD.set(userID)
-					router.push('/')
+				   method: "POST",
+				   headers: { 'Content-Type': 'application/json' },
+				   body: JSON.stringify({
+					   email: users.user,
+					   password: users.password
+				   })
+			   })
+		   
+			   const data = await res.json()
+		   
+			   // Check the success of the login request
+			   if (res.ok) {
+				   const cookies = Cookies.set("ecom_token", data, {
+					   expires: 60 * 60 * 24 * 7,
+					   path: "/",
+					   sameSite: "none",
+					   secure: true
+				   })
+		   
+				   if (cookies) {
+					   const { role, userID }: any = jwtDecode(cookies)
+					   if (role === "admin") {
+						   usersD.set(userID)
+						   router.push("/admin/customer")
+					   } else {
+						   usersD.set(userID)
+						   router.push('/')
+					   }
+		   
+				   }
+		   
+			   }
+			   else {
+				   // Display the error message from the server response
+				   if (data.error === "invalid_credentials") {
+					  ("Invalid credentials, please check your email and password");
+				   } else if (data.error === "password_mismatch") {
+					  alert("Passwords do not match, please try again");
+				   } else {
+					  alert("You have logged in successfully");
+				   }
 				}
-	
-			}
-	
-		}
-		else {
-			// Display the error message from the server response
-			if (data.error === "invalid_credentials") {
-			   toast.warning("Invalid credentials, please check your email and password");
-			} else if (data.error === "password_mismatch") {
-			   toast.warning("Passwords do not match, please try again");
-			} else {
-			   toast.success("You have logged in successfully");
-			}
-		 }
-}
+	   }
 
 
 
@@ -193,7 +178,7 @@ export default function Login() {
 				<div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
 			</div>
 			<div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
-				<form onSubmit={onHandleSubmitForm}>
+				<form onSubmit={handleSubmit}>
 					<h1 className="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
 					<p className="text-sm font-normal text-gray-600 mb-7">Welcome Back to Minerva Sales Corporation</p>
 					<div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
@@ -202,7 +187,7 @@ export default function Login() {
 						</svg>
 						<input pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" // Email regex pattern
 							title="Please enter a valid email address"
-							className="pl-2 outline-none border-none" type="text" name="" id=""
+							className="pl-2 outline-none border-none" type="text" name="email" id="email"
 							placeholder="Email Address"
 							onChange={(e) => setUsers({ ...users, user: e.target.value })} />
 					</div>
@@ -215,7 +200,7 @@ export default function Login() {
 
 							pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" // Password regex pattern
 							title="Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers"
-							className="pl-2 outline-none border-none" type={showPassword ? "text" : "password"} name="" id=""
+							className="pl-2 outline-none border-none" type={showPassword ? "text" : "password"} name="password" id="password"
 							placeholder="Password"
 							onChange={(e) => setUsers({ ...users, password: e.target.value })} />
 						<button type="button" onClick={togglePasswordVisibility} className="focus:outline-none ml-2">
