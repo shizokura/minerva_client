@@ -1,5 +1,4 @@
-
-
+"use client"; 
 import HomePageLayout from '@/layout/homepagelayout'
 import PageWithLayout from '@/layout/pagewithlayout'
 import Image from 'next/image'
@@ -16,6 +15,8 @@ import { IoIosEye } from "react-icons/io";
 import FacebookMsg from '@/components/FacebookMsg'
 
 const About: FC = () => {
+
+    
   return (
     <>
     <section className='absolute top-20' id="about">
