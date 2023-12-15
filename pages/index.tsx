@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { FC, FunctionComponent, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/customer/customer.module.scss'
-import React from 'react';
+import React, { Component} from 'react';
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosEye, IoMdArrowDropright } from "react-icons/io";
 import { FaUserClock } from "react-icons/fa6";
@@ -16,6 +16,8 @@ import { FormattedPrice } from '@/helpers'
 import { useRouter } from 'next/router'
 import { jwtDecode } from 'jwt-decode'
 import Cookies from 'js-cookie'
+import { FacebookProvider, CustomChat } from 'react-facebook';
+
 
 const Home: FC = () => {
 

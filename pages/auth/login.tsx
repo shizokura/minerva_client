@@ -53,23 +53,84 @@ export default function Login() {
 		setPassword(() => !password)
 	}
 
+	// const onHandleSubmitForm = async (e: SyntheticEvent) => {
+	// 	e.preventDefault();
+
+	// 	// Validation block
+	// 	if (!validateEmail(users.user)) {
+	// 		setEmailError('Please enter a valid email address');
+	// 		return;
+	// 	}
+	// 	setEmailError('');
+
+	// 	// Password validation
+	// 	if (!validatePassword(users.password)) {
+	// 		setPasswordError('Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers');
+	// 		return;
+	// 	}
+	// 	setPasswordError('');
+
+	// 	// Make the login request
+	// 	const res = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/user/login", {
+	// 		method: "POST",
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		body: JSON.stringify({
+	// 			email: users.user,
+	// 			password: users.password
+	// 		})
+	// 	})
+
+	// 	const data = await res.json()
+	// 	const promise = () => new Promise((resolve) => setTimeout(resolve, 5000));
+	// 	// Check the success of the login request
+	// 	if (res.ok) {
+	// 		const cookies = Cookies.set("ecom_token", data, {
+	// 			expires: 60 * 60 * 24 * 7,
+	// 			path: "/",
+	// 			sameSite: "none",
+	// 			secure: true
+	// 		})
+
+	// 		if (cookies) {
+	// 			const { role, userID }: any = jwtDecode(cookies)
+	// 			if (role === "admin") {
+	// 				usersD.set(userID)
+	// 				router.push("/admin/customer")
+	// 			} else {
+	// 				usersD.set(userID)
+	// 				router.push('/')
+	// 			}
+
+	// 		}
+
+	// 	}
+	// 	else {
+	// 		toast.promise(promise, {
+	// 			loading: 'Loading...',
+	// 			success: (products) => {
+	// 				return `You have logged in successfully`;
+	// 			},
+	// 		});
+	// 	}
+	// }
+
 	const onHandleSubmitForm = async (e: SyntheticEvent) => {
 		e.preventDefault();
-
+	
 		// Validation block
 		if (!validateEmail(users.user)) {
 			setEmailError('Please enter a valid email address');
 			return;
 		}
 		setEmailError('');
-
+	
 		// Password validation
 		if (!validatePassword(users.password)) {
 			setPasswordError('Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers');
 			return;
 		}
 		setPasswordError('');
-
+	
 		// Make the login request
 		const res = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/user/login", {
 			method: "POST",
@@ -79,9 +140,9 @@ export default function Login() {
 				password: users.password
 			})
 		})
-
+	
 		const data = await res.json()
-		const promise = () => new Promise((resolve) => setTimeout(resolve, 5000));
+	
 		// Check the success of the login request
 		if (res.ok) {
 			const cookies = Cookies.set("ecom_token", data, {
@@ -90,7 +151,7 @@ export default function Login() {
 				sameSite: "none",
 				secure: true
 			})
-
+	
 			if (cookies) {
 				const { role, userID }: any = jwtDecode(cookies)
 				if (role === "admin") {
@@ -100,20 +161,22 @@ export default function Login() {
 					usersD.set(userID)
 					router.push('/')
 				}
-
+	
 			}
-
+	
 		}
 		else {
-			toast.promise(promise, {
-				loading: 'Loading...',
-				success: (products) => {
-					return `You have logged in successfully`;
-				},
-				error: 'Error',
-			});
-		}
-	}
+			// Display the error message from the server response
+			if (data.error === "invalid_credentials") {
+			   toast.warning("Invalid credentials, please check your email and password");
+			} else if (data.error === "password_mismatch") {
+			   toast.warning("Passwords do not match, please try again");
+			} else {
+			   toast.success("You have logged in successfully");
+			}
+		 }
+}
+
 
 
 	return (
@@ -180,5 +243,6 @@ export default function Login() {
 
 	)
 }
+
 
 

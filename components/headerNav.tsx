@@ -143,7 +143,7 @@ export default function HeaderNavbar() {
     
           {isOpen && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white opacity-75 ring-1 ring-black ring-opacity-2"
+              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white opacity-100 ring-1 ring-black ring-opacity-2"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="dropdown-menu"
@@ -226,7 +226,7 @@ export default function HeaderNavbar() {
     
           {isOpen && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white opacity-75 ring-1 ring-black ring-opacity-2"
+              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white opacity-100 ring-1 ring-black ring-opacity-2"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="dropdown-menu"

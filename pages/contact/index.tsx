@@ -11,7 +11,7 @@ const Contacts: FC = () => {
 <>
 <section className='absolute top-20' id="about">
       <div className="relative w-screen h-[500px] overflow-hidden">
-  <Image className='object-cover w-full h-full' src="/MSC-TEAM.jpeg" alt="About" />
+  <Image className='object-cover w-full h-full' src="/MSC-TEAM.jpeg" width={2048} height={1536} alt="About" />
   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
     <p className="text-white text-[60px] lg:text-[100px] font-bold font-poppins text-center">CONTACT US</p>
   </div>

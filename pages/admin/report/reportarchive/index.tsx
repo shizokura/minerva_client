@@ -46,6 +46,8 @@ const AuditLog: FC = () => {
       fetchData()
     }, [ archive ])
 
+    console.log(archive)
+
   return (
     <>
 
@@ -130,7 +132,7 @@ const AuditLog: FC = () => {
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {archieveID}
+                                            {id}
                                             </p>
                                         </div>
                                     </div>

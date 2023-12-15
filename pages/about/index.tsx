@@ -1,3 +1,5 @@
+
+
 import HomePageLayout from '@/layout/homepagelayout'
 import PageWithLayout from '@/layout/pagewithlayout'
 import Image from 'next/image'
@@ -11,13 +13,14 @@ import { PiSmileyFill } from "react-icons/pi";
 import { FaHandshake } from "react-icons/fa6";
 import { BsBullseye } from "react-icons/bs";
 import { IoIosEye } from "react-icons/io";
+import FacebookMsg from '@/components/FacebookMsg'
 
 const About: FC = () => {
   return (
     <>
     <section className='absolute top-20' id="about">
     <div className="relative w-screen h-[500px] overflow-hidden">
-<Image className='object-cover w-full h-full' src="/about.jpeg" alt="About" />
+<Image className='object-cover w-full h-full' src="/about.jpeg" width={2048} height={1536} alt="About" />
 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
   <p className="text-white text-[60px] lg:text-[100px] font-bold font-poppins text-center">ABOUT US</p>
 </div>
@@ -104,7 +107,7 @@ and following industry best practices to ensure that vehicles are serviced or re
                   </div>
               </dl>
           </div>
-
+<FacebookMsg/>
       </div>
 
       <footer className="py-10 -mt-10 lg:mt-0 w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
@@ -119,7 +122,7 @@ and following industry best practices to ensure that vehicles are serviced or re
 
 <div className="flex justify-center space-x-5">
   <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-      <Image src="https://Image.icons8.com/fluent/30/000000/facebook-new.png" alt=''/>
+      <Image src="/fblogo.webp" width={20} height={20} alt=''/>
  </Link>
 
 </div>
