@@ -134,7 +134,7 @@ const ViewAppointments: FC = () => {
         <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
     <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
-    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/services">Services</Link>
     <Link className="text-black hover:text-gray-500" href="/about">About</Link>
     <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
 </nav>

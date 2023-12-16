@@ -422,12 +422,12 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 dg:mt-[1440px] fr:mt-[2040px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10  dg:mt-[1440px] fr:mt-[2040px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1070px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
     <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
-    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/services">Services</Link>
     <Link className="text-black hover:text-gray-500" href="/about">About</Link>
     <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
 </nav>
