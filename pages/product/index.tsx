@@ -142,20 +142,20 @@ const Products: FC = () => {
 
 
 
-    <div className='fixed lg:absolute lg:w-2 top-[110px] w-screen h-[60px] bg-black'>
-    <Disclosure as="nav">
-<Disclosure.Button className="absolute top-3 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-white hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
+    <div className='absolute lg:absolute lg:w-2 top-[110px] w-screen h-[60px] bg-black'>
+    {/* <Disclosure as="nav">
+<Disclosure.Button className="absolute sm:hidden top-3 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-white hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
         <GiHamburgerMenu
-          className="block lg:hidden h-6 w-6"
+          className="block sm:hidden lg:hidden h-6 w-6"
           aria-hidden="true"
         />
-      </Disclosure.Button>
-      <div className="pt-[110px] lg:pt-[80px] pl-10 w-[300px] h-[600px] lg:w-[350px] lg:h-[100px] z-60 absolute bg-white top-0 -left-96  lg:left-0 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+      </Disclosure.Button> */}
+      <div className="xs:absolute xs:mt-20 xs:w-[375px] xs:h-40 sm:absolute sm:mt-20 sm:w-[414px] sm:h-40 pt-[110px] lg:pt-[80px] pl-10 h-[600px] lg:w-[350px] lg:h-[550px] lg:left-[10px] z-60 absolute lg:bg-white bg-gray-100 shadow-md top-0 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
         <div className="flex flex-col justify-start item-center">
           
           
-          <div className=" my-4 border-b border-gray-100 pb-4">
-            <div className="flex flex-col mb-2 items-center gap-4 pl-5">
+          <div className="xs:absolute xs:top-2 xs:left-4 sm:absolute sm:top-2 sm:left-4 lg:absolute lg:top-20 lg:left-20 my-0 border-b border-gray-100 pb-4">
+            <div className="xs:grid xs:grid-cols-3 sm:grid-cols-3 px-2 lg:flex lg:flex-col mb-2 items-center gap-2 pl-0">
             {productCategoryLInk.map(({ name, value, icon}) => (
               <button key={name} value={value} onClick={(e) => setCategory(e.currentTarget.value)} className=" w-full flex gap-2 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <span className="text-2xl text-gray-600 group-hover:text-white "> {icon} </span>
@@ -170,7 +170,7 @@ const Products: FC = () => {
           
         </div>
       </div>
-    </Disclosure>
+    {/* </Disclosure> */}
                           <div className='absolute top-[10px] lg:top-[10px] left-[185px] lg:left-[280px] z-40'>
                                     <button type="button" className="inline-flex justify-center w-20 lg:w-[150px] rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-xs lg:text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
 
@@ -223,7 +223,7 @@ const Products: FC = () => {
           </div>
         </div> 
         </div>
-<section id="Projects" className="ml-16 mt-48 lg:mt-40 sm:ml-[85px] lg:ml-[500px] w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mb-5">
+<section id="Projects" className="ml-16 xs:mt-96 lg:mt-40 sm:mt-96 sm:ml-[85px] lg:ml-[500px] w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mb-5">
 
 
        { search  ? productSearch?.map(({ productID, name, category, price, stock, image, description, quantity } :any) => (
