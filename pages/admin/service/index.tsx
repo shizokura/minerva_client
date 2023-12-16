@@ -126,7 +126,7 @@ console.log(servicesId)
     <div className="py-12">
     <div className='w-full flex gap-12 xl:gap-[1170px]'>
                 <h2 className="text-2xl font-roboto font-bold leading-tight">Service Management</h2>
-                <button onClick={() => router.push("/admin/service/addservice")} className="rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
+                <button onClick={() => router.push("/admin/service/addservice")} className="fr:absolute fr:right-14  lt:absolute lt:right-14 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
                 <IoMdAddCircleOutline size={15}/>
                 </button>
             </div> 

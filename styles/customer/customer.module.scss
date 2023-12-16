@@ -1374,23 +1374,28 @@ display: none;
     position: relative;
     top: 200px;
     left: 90px;
-    transform: scale(1.15);
     }
-  @media (max-width: 430px) {
-    height: 270px;
-    position: relative;
-    top: 120px;
-    left: 40px;
-    transform: scale(1);
-    }
+  // @media (max-width: 430px) {
+  //   height: 270px;
+  //   position: relative;
+  //   top: 120px;
+  //   left: 40px;
+  //   transform: scale(1);
+  //   }
+    @media (max-width: 428px) {
+      height: 270px;
+      position: relative;
+      top: 120px;
+      left: 40px;
+
+      }
   @media (max-width: 414px) {
     width: 300px;
     height: 270px;
     position: relative;
     top: 100px;
     left: 25px;
-    margin-top: 10px;
-    transform: scale(1);
+
     }
   @media (max-width: 375px) {
     height: 270px;
@@ -1398,7 +1403,7 @@ display: none;
     top: 100px;
     left: 11px;
     margin-top: -10px;
-    transform: scale(0.9);
+
     }
   &:hover {
     transform: scale(1.1);

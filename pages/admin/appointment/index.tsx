@@ -75,7 +75,7 @@ const AppointmentPage = () => {
         <div className="py-12">
         <div className='w-full flex gap-[1180px]'>
                 <h2 className="text-3xl font-roboto font-bold leading-tight">Appointment</h2>
-                <button onClick={() => router.push("/admin/appointment/addappointment")} className="rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
+                <button onClick={() => router.push("/admin/appointment/addappointment")} className="s8:absolute s8:right-14 fr:absolute fr:right-14 lt:absolute lt:right-14 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
                 <IoMdAddCircleOutline size={15}/>
                 </button>
             </div> 

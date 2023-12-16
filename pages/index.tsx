@@ -325,14 +325,14 @@ const Home: FC = () => {
       </section>  
  
  <section className="relative mb-28 top-20 h-[1200px] flex flex-col items-center justify-center text-center text-black ">
-    <div className="absolute -top-40 lg:w-2/3 w-full h-80 -z-10">
+    <div className="lg:absolute lg:-top-40 lg:w-2/3 w-full h-80 -z-10">
     </div>
 
     <div
         className={styles.productSection}>        
         <h1 className={styles.headerP}>Products</h1>
          <small className={styles.h2}>Explore our wide range of products.</small>
-        <ul className="flex items-start justify-start gap-8 lg:gap-[170px] mt-10 md:flex-row flex-col">
+        <ul className="flex items-start justify-start sm:gap-8 gap-8 lg:gap-[170px] mt-10 md:flex-row flex-col">
         
         { products?.slice(0, 3).map(({ userId, id, productID, name, category, price, stock, image, description, quantity }: any) => (
   
@@ -348,7 +348,7 @@ const Home: FC = () => {
                           <p className="text-sm mb-2 dark:text-black text-black">{category}</p>
                               <div className="flex items-center">
                                 <p className="mr-2 text-lg font-bold flex text-black dark:text-black">{FormattedPrice(price)} </p>
-                                <button
+                                <button onClick={() => router.push(`/product/productdetail/${productID}`)}
                
                className="absolute bottom-0 right-0 mx-2 my-2 px-4 py-2 transition ease-in duration-200 uppercase rounded-full text-black font-bold hover:bg-black hover:text-white border-2 border-gray-900 focus:outline-none"><IoIosEye size="18px"/></button>
                               </div>
@@ -359,7 +359,7 @@ const Home: FC = () => {
            ))}   
         </ul>
         <div className={styles.pButton}>
-           <button onClick={() => router.push("/products")} className="group relative top-8 left-[53px] mt-12 -mb-16 h-12 w-60 overflow-hidden rounded-lg bg-white text-lg shadow">
+           <button onClick={() => router.push("/product")} className="group relative top-8 left-[53px] mt-12 -mb-16 h-12 w-60 overflow-hidden rounded-lg bg-white text-lg shadow">
     <div className="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
     <span className="relative text-black group-hover:text-white">View More Products </span>
     </button>  
@@ -422,7 +422,7 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 fr:mt-[1940px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10 fr:mt-[2040px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
