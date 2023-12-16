@@ -217,8 +217,8 @@ export default function Register() {
               <input
                 className="pl-2 outline-none border-none"
                 type="text"
-                name=""
-                id=""
+                name="email"
+                id="email"
                 placeholder="Email Address"
                 pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 title="Please enter a valid email address"

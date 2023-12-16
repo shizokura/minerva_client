@@ -201,23 +201,23 @@ const ServiceDetails: FC = () => {
     
     
       
-            <footer className="py-10 w-[420px] lg:w-[1920px] lg:ml-[0px] lg:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
+            <footer className="py-10 w-[420px] fr:w-[428px] lg:w-[1920px] lg:ml-[0px] lg:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
     
-    <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-        <Link className="text-black hover:text-gray-500" href="#">Home</Link>
-        <Link className="text-black hover:text-gray-500" href="#">Products</Link>
-        <Link className="text-black hover:text-gray-500" href="#">Services</Link>
-        <Link className="text-black hover:text-gray-500" href="#">About</Link>
-        <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
-    </nav>
-    
-    <div className="flex justify-center space-x-5">
-        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <Image src="/fblogo.webp" width={20} height={20} alt=""/>
-       </Link>
-      
-    </div>
-    <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+            <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
+    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
+</nav>
+
+<div className="flex justify-center space-x-5">
+    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
+        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
+   </Link>
+  
+</div>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
     </footer>
     {/* <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
     

@@ -43,10 +43,10 @@ const Cart: FC = () => {
           </div>
 
     <div className="absolute left-4 ml-4 lg:top-[190px] lg:left-[600px] mx-auto mt-8 max-w-md md:mt-12">
-      <div className="w-80 mt-2 h-[600px] sm:h-[700px] 12:h-[780px]  sm:w-[350px] lg:h-[920px] lg:w-[700px] lg:mt-20 rounded-3xl bg-white shadow-lg">
+      <div className="w-80 mt-2 h-[600px] sm:h-[700px] 12:h-[680px]  sm:w-[350px] lg:h-[920px] lg:w-[700px] lg:mt-20 rounded-3xl bg-white shadow-lg">
       
 
-        <div className="overflow-y-auto xs:h-[410px] sm:h-[420px] lg:h-[700px] px-4 py-6 sm:px-8 sm:py-10 rounded-3xl">
+        <div className="overflow-y-auto xs:h-[410px]  12:h-[500px] sm:h-[420px] lg:h-[700px] px-4 py-6 sm:px-8 sm:py-10 rounded-3xl">
     
 
 {
@@ -134,21 +134,21 @@ const Cart: FC = () => {
        
     <footer className="py-10 mt-80 lg:mt-[404px] w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
 
-<nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-    <Link className="text-black hover:text-gray-500" href="#">Home</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Products</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Services</Link>
-    <Link className="text-black hover:text-gray-500" href="#">About</Link>
-    <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
+    <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
+    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
 </nav>
 
 <div className="flex justify-center space-x-5">
     <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
-    <Image src="/fblogo.webp" width={20} height={20} alt=""/>
+        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
    </Link>
   
 </div>
-<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
 </footer>
       </div>
 

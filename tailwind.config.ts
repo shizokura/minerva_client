@@ -18,7 +18,10 @@ const config: Config = {
       },
       screens: {
 
+        
         's8': '360px',
+        // => @media (min-width: 375px) { ... }
+        'fr': '428px',
         // => @media (min-width: 375px) { ... }
         '14': '430px',
         // => @media (min-width: 375px) { ... }

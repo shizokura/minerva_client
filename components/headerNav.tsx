@@ -190,7 +190,7 @@ export default function HeaderNavbar() {
           <button className={styles.loginBtn} type="button"onClick={onHandleLoginBtn}>
                   <span className={poppins.className}>Login</span>
               </button>
-            <button className={styles.cartBtn}>
+            <button className={styles.cartBtn} type="button" onClick={onHandleCartBtn}>
                   <span className={poppins.className}>Cart</span>
             </button>
 

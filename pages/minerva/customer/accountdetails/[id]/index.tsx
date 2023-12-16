@@ -210,23 +210,23 @@ const AccountDetails: FC = () => {
                        </div>
                        </div>
                        <section className="relative w-full mt-10 flex flex-col items-center justify-center text-center text-white ">
-             <footer className="py-10 w-full flex flex-col space-y-10 justify-center bg-gradient-to-r from-gray-100 via-[#FFBD59] to-gray-100">
+             <footer className="py-10 w-full flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
    
-   <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-       <Link className="text-black hover:text-gray-500" href="#">Home</Link>
-       <Link className="text-black hover:text-gray-500" href="#">Products</Link>
-       <Link className="text-black hover:text-gray-500" href="#">Services</Link>
-       <Link className="text-black hover:text-gray-500" href="#">About</Link>
-       <Link className="text-black hover:text-gray-500" href="#">Contact</Link>
-   </nav>
-   
-   <div className="flex justify-center space-x-5">
-       <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-           <Image src="/fblogo.webp" width={20} height={20} alt = ""/>
-      </Link>
-     
-   </div>
-   <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+             <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="/service">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
+    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
+</nav>
+
+<div className="flex justify-center space-x-5">
+    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
+        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
+   </Link>
+  
+</div>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
    </footer>
    
              </section>

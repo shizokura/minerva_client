@@ -187,6 +187,16 @@ const Home: FC = () => {
     return res.json();
   }
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+ useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      videoRef.current.addEventListener('ended', () => {
+        videoRef.current!.play();
+      });
+    }
+ }, []);
 
   return (
 <div className={styles.bodyHome}>
@@ -195,8 +205,8 @@ const Home: FC = () => {
 <section className="relative w-full h-screen flex flex-col items-center justify-center text-center text-white">
   
           <div className={styles.videoDocker}>
-              <video 
-              autoPlay muted loop className="min-w-full min-h-full absolute object-cover"> 
+              <video
+              ref={videoRef} muted loop className="min-w-full min-h-full absolute object-cover">
               <source src="/landingvid.MOV" 
               type="video/mp4"/></video>
           </div>
@@ -308,7 +318,7 @@ const Home: FC = () => {
          <section className="relative h-60 top-96 mb-28 flex flex-col items-center justify-center text-center text-white ">
 <div className={styles.videoDocker2}>
               <video 
-              autoPlay muted loop className="max-w-full max-h-full  absolute object-cover"> 
+              ref={videoRef} muted loop className="max-w-full max-h-full  absolute object-cover"> 
               <source src="/productvid.mp4" 
               type="video/mp4"/></video>
           </div>
@@ -362,7 +372,7 @@ const Home: FC = () => {
          <section className="relative -top-12 h-60  mb-2 flex flex-col items-center justify-center text-center text-white ">
       <div className={styles.videoDocker1}>
                     <video 
-                    autoPlay muted loop className="max-w-full max-h-full  absolute object-cover"> 
+                    ref={videoRef} muted loop className="max-w-full max-h-full  absolute object-cover"> 
                     <source src="/services.MOV" 
                     type="video/mp4"/></video>
                 </div>
@@ -412,7 +422,7 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 xs:mt-[920px] sm:mt-[1260px] 12:mt-[1320px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1050px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10 fr:mt-[1940px] xs:mt-[920px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
@@ -423,12 +433,12 @@ const Home: FC = () => {
 </nav>
 
 <div className="flex justify-center space-x-5">
-    <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
         <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
    </Link>
   
 </div>
-<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reservered.</p>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
 </footer> 
     
     </div> 
