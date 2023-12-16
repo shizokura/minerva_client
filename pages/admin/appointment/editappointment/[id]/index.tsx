@@ -222,17 +222,17 @@ const EditAppointmentPage: FC = () => {
     
                                                 <div>
                           <label htmlFor="lastName" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">Appointment Status </label>
-                          <button name="status"type="button" className="inline-flex justify-center w-[180px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                          <button name="status"type="button" className="inline-flex justify-center w-[220px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                             onClick={toggleDropdown}
                           >
-                           {appointmentStatus === "" ? "Select Product Status" : appointmentStatus}
+                           {appointmentStatus === "" ? "Select Appointment Status" : appointmentStatus}
     
                             <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 11.586l3.293-3.293a1 1 0 011.414 0 1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                           </button>
                         </div>
-                        <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[182px] absolute z-20' : 'hidden'}`}>
+                        <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[219px] absolute z-20' : 'hidden'}`}>
       {isOpen ? (
         appointmentStatusB.map((name) => (
           <button

@@ -325,18 +325,18 @@ const Home: FC = () => {
       </section>  
  
  <section className="relative mb-28 top-20 h-[1200px] flex flex-col items-center justify-center text-center text-black ">
-    <div className="lg:absolute lg:-top-40 lg:w-2/3 w-full h-80 -z-10">
+    <div className="lg:absolute lg:-top-40 lg:w-2/3 w-full h-80 z-10">
     </div>
 
     <div
         className={styles.productSection}>        
         <h1 className={styles.headerP}>Products</h1>
          <small className={styles.h2}>Explore our wide range of products.</small>
-        <ul className="flex items-start justify-start sm:gap-8 gap-8 lg:gap-[170px] mt-10 md:flex-row flex-col">
+        <ul className="flex items-start justify-between gap-8 mt-10 md:flex-row flex-col">
         
         { products?.slice(0, 3).map(({ userId, id, productID, name, category, price, stock, image, description, quantity }: any) => (
   
-  <div key={productID} onClick={() => handleClickProducts(productID)}>
+  <div key={productID} onClick={() => handleClickProducts(productID)} className='z-20'>
        
         <div className={styles.pCard}>
            
@@ -422,7 +422,7 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 fr:mt-[2040px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10 dg:mt-[1440px] fr:mt-[2040px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
