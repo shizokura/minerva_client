@@ -206,7 +206,7 @@ const Home: FC = () => {
   
           <div className={styles.videoDocker}>
               <video
-              ref={videoRef} muted loop className="min-w-full min-h-full absolute object-cover">
+              autoPlay muted loop className="min-w-full min-h-full absolute object-cover">
               <source src="/landingvid.MOV" 
               type="video/mp4"/></video>
           </div>
@@ -318,7 +318,7 @@ const Home: FC = () => {
          <section className="relative h-60 top-96 mb-28 flex flex-col items-center justify-center text-center text-white ">
 <div className={styles.videoDocker2}>
               <video 
-              ref={videoRef} muted loop className="max-w-full max-h-full  absolute object-cover"> 
+              autoPlay muted loop className="max-w-full max-h-full  absolute object-cover"> 
               <source src="/productvid.mp4" 
               type="video/mp4"/></video>
           </div>
@@ -372,7 +372,7 @@ const Home: FC = () => {
          <section className="relative -top-12 h-60  mb-2 flex flex-col items-center justify-center text-center text-white ">
       <div className={styles.videoDocker1}>
                     <video 
-                    ref={videoRef} muted loop className="max-w-full max-h-full  absolute object-cover"> 
+                    autoPlay muted loop className="max-w-full max-h-full  absolute object-cover"> 
                     <source src="/services.MOV" 
                     type="video/mp4"/></video>
                 </div>
@@ -422,7 +422,7 @@ const Home: FC = () => {
 </section>  
 
 {/*  */}
- <footer className="py-10 fr:mt-[1940px] xs:mt-[920px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
+ <footer className="py-10 fr:mt-[1940px] xs:mt-[940px] sm:mt-[1260px] 12:mt-[910px] 14:mt-[1870px] s8:mt-[1270px] lg:mt-[1070px] lg:w-[100%] flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-200 to-[#FFBD59]">
 
 <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
