@@ -1364,6 +1364,13 @@ margin-top: 370px;
     left: 125px;
     font-size: 28px;
   }
+  @media (max-width: 390px) {
+    position: absolute;
+    top: 30px;
+    left: 115px;
+    font-size: 28px;
+
+}
      @media (max-width: 375px) {
         position: absolute;
         top: 30px;
@@ -1402,6 +1409,14 @@ margin-top: 370px;
     left: 35px;
     font-size: 18px;
   }
+  @media (max-width: 390px) {
+    width: 280px;
+    position: absolute;
+    top: 70px;
+    left: 45px;
+    font-size: 18px;
+  }
+
   @media (max-width: 375px) {
     width: 280px;
     position: absolute;
