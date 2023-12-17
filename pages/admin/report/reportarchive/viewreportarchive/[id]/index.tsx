@@ -36,14 +36,15 @@ const View: FC = () => {
         <div className="h-screen bg-gray-200">
         <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
         <div>
-        <div className='text-3xl font-roboto font-bold leading-tight lg:ml-[400px] lg:mt-10'>Viewing Report Archive {archive?.id}</div>
+        <div className='text-3xl font-roboto font-bold leading-tight lg:ml-[400px] lt:mt-6 lt:ml-80 lg:mt-10'>Viewing Report Archive {archive?.id}</div>
         <div ></div>
 
         <div>
 
-          <div className='flex justify-center'>
+          <div className='flex justify-center lg:ml-80 lg:mt-10 lt:ml-20 lt:mt-2'>
+<ArchivePDF generate={archive}/> 
 
-      <ArchivePDF generate={archive} /> 
+     
 
 </div>
         </div>

@@ -70,7 +70,7 @@ const AuditLog: FC = () => {
                 <div className="absolute top-6 right-6 mb-6">
                                 <div className="relative inline-block text-left">
                                   <div>
-                                    <button type="button" className="flex gap-4 justify-center w-[220px] rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                                    <button type="button" className="flex mt-8 gap-4 justify-center w-[220px] rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                                       onClick={toggleDropdown}
                                     >
                                     {dateFilters === "" ? "Filters" : dateFilters}

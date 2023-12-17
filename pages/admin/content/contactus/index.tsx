@@ -1,27 +1,41 @@
-import HomePageLayout from '@/layout/homepagelayout'
-import PageWithLayout from '@/layout/pagewithlayout'
 import React, { FC, useState, useEffect } from 'react'
-import styles from '@/styles/customer/customer.module.scss'
-import Head from 'next/head'
-import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight } from 'react-icons/tb'
-import router from 'next/router'
-import Cookies from 'js-cookie'
-import { jwtDecode } from 'jwt-decode'
-import { FormattedDate, FormattedPrice } from '@/helpers/index'
-import Link from 'next/link'
-import Image from 'next/image'
+import  SideNavDash  from '@/components/sideNavDash'
+import { TbEdit, TbUser } from 'react-icons/tb'
+import Modal from '@/components/Modal';
+import {  TbTrash, TbUsers, } from 'react-icons/tb'
+import 'react-toastify/dist/ReactToastify.css';
+import { Toaster, toast } from 'sonner'
+import { FormattedPrice, FormattedDate } from '@/helpers/index'
+import { useRouter } from 'next/router';
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import { jwtDecode } from 'jwt-decode';
+import Cookies from 'js-cookie';
 
-const ViewOrders: FC = () => {
+const ContactUs: FC = () => {
+  
+  const router = useRouter()
 
+  const [ userid, setuserid ] = useState("")
+  
+  const [ contactUs, setContactUs ] = useState<[]>()
+  const [ userId, setUserId] = useState("")
   const [ page, setPage ] = useState(0)
-  const [ orders, setOrders ] = useState<any>(null)
+  const [ isModalOpen, setIsModalOpen ] = useState(false);
 
+  const [confirmationInput, setConfirmationInput] = useState('');
+  const correctInputValue = 'delete';
 
-  const [ userId, setUserId ] = useState("")
-
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+  const handleCloseModal = () => {
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 2000);
+  }
 
   useEffect(() => {
-    const cookies = Cookies.get("ecom_token");
+    const cookies = Cookies.get("ecom_token")
     if (cookies) {
       const { userID }: any = jwtDecode(cookies)
       setUserId(userID)
@@ -29,33 +43,76 @@ const ViewOrders: FC = () => {
   }, [])
 
   useEffect(() => {
-
-    if (!userId) return
     const fetchData = async () => {
-      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/getAllMyOrders/${userId}/?skip=${page}`, {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/contact/getAllContact/`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
-        cache: "no-cache"
+        cache: "default"
       })
 
-      if (!response.ok) throw new Error("There is something wrong while fetching")
+
+      if (!response.ok) {
+        throw new Error("There something wrong while fetching data")
+      }
 
       const result = await response.json();
-      setOrders(result)
+
+      setContactUs(result)
+
     }
 
     fetchData();
-  }, [ userId, orders ])
+  }, [ contactUs ])
+
+  const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+    setConfirmationInput(e.target.value);
+  };
+
+  const onFormDelete =  async () => {
+    
+    const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/user/deleteUser/${userId}`, {
+      method: "DELETE",
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    if(!res.ok) {
+      alert("There something is eror while updating")
+    } else {
+      toast.warning(`Customer account has been deleted`)
+    }
+    if (confirmationInput.toLowerCase() === correctInputValue) {
+      // Proceed with the delete operation
+      // ...
+      console.log('Deleting...');
+      handleCloseModal();
+    } else {
+      // Display an error message or take other appropriate actions
+      console.log('Incorrect confirmation input. Deletion aborted.');
+    }
+
+    return res.json()
+  }
+
+  console.log(contactUs)
+
 
   return (
+    
+    <>
+        <title>Customer Management</title>
 
-    <div className={styles.bodyViewOrders}>
- 
 
-    <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">
+    <SideNavDash/>
+
+    <button onClick={() => router.push("/admin/content/contactus/addcontactus")} className=" lt:top-14 s8:absolute s8:right-14 fr:absolute fr:right-14 lt:absolute lt:right-14 lg:absolute lg:right-14 lg:top-12 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
+    <IoMdAddCircleOutline size={15}/>
+    </button>
+
+     <div className="antialiased font-sans bg-gray-200">
+    <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
         <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight text-white">View Your Order Status</h2>
+                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">Contact Us Management</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">
@@ -64,60 +121,53 @@ const ViewOrders: FC = () => {
                             <tr>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    ORDER ID
+                                    Content ID
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    DATE ORDERED
+                                    title
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    AMOUNT
+                                    description
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    PAYMENT METHOD
+                                    ACTION
                                 </th>
-                                <th
-                                    className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    ORDER STATUS
-                                </th>
-                               
 
                             </tr>
                         </thead>
                         <tbody>
-                        {orders?.map(({ orders, createdAt, total, payment, status}: any) => (
+                        {contactUs?.map(({ userID, id, contactsID, title, description }: any) => (
                           
-                            <tr key={orders}>
+                            <tr key={contactsID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {orders}
+                                            {id}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">{FormattedDate(createdAt)}</p>
-                                </td>
+                                
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {FormattedPrice(total)}
+                                    {title}
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {payment}
+                                    {description}
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">
-                                    <span>{status}</span>
-                                    </p>
+                                <span
+                                        className="relative inline-block px-3 py-1 font-bold text-black leading-tight">
+                                                            <button onClick={() => router.push(`/admin/content/contactus/editcontactus/${contactsID}`)}> <TbEdit size={25} /> </button>
+                          </span>
                                 </td>
-
                             </tr>
                              ))}
                              <tr>
@@ -129,7 +179,7 @@ const ViewOrders: FC = () => {
                     </table>
                     
                     <div
-                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center">
+                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center          ">
                         <div className="inline-flex mt-2 xs:mt-0 gap-4">
                             <button disabled={page === 0 }
                                 className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onClick={() => setPage(()=> page - 1)}>
@@ -146,28 +196,12 @@ const ViewOrders: FC = () => {
                 </div>
             </div>
         </div>
-        <footer className="py-10 mt-2 lg:mt-0 w-screen flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
-
-        <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
-    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
-    <Link className="text-black hover:text-gray-500" href="/services">Services</Link>
-    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
-    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
-</nav>
-
-<div className="flex justify-center space-x-5">
-    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
-        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
-   </Link>
-  
-</div>
-<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
-</footer>
-
     </div>
+
+
+  </>
   )
 }
 
-(ViewOrders as PageWithLayout).layout = HomePageLayout
-export default ViewOrders
+
+export default ContactUs

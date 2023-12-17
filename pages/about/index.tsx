@@ -4,7 +4,6 @@ import PageWithLayout from '@/layout/pagewithlayout'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { motion } from "framer-motion"
-import { FC, useRef, useState } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/customer/customer.module.scss'
 import { FaCar } from "react-icons/fa6";
@@ -13,10 +12,34 @@ import { FaHandshake } from "react-icons/fa6";
 import { BsBullseye } from "react-icons/bs";
 import { IoIosEye } from "react-icons/io";
 import FacebookMsg from '@/components/FacebookMsg'
+import React, { FC, FormEvent, useEffect, useState } from 'react'
 
 const About: FC = () => {
+    const [ aboutUs, setAboutUs] = useState<[]>()
 
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/about/getAllAbout/`, {
+            method: "GET",
+            headers: { 'Content-Type': 'application/json' },
+            cache: "default"
+          })
     
+    
+          if (!response.ok) {
+            throw new Error("There something wrong while fetching data")
+          }
+    
+          const result = await response.json();
+    
+          setAboutUs(result)
+    
+        }
+    
+        fetchData();
+      }, [ aboutUs ])
+
+
   return (
     <>
     <section className='absolute top-20' id="about">
@@ -50,62 +73,21 @@ Our skilled technicians and mechanics provide top-notch service, utilizing the l
 
           <div className="mt-10">
               <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-                  <div className="relative">
+              {aboutUs?.slice(0, 4).map(({ aboutID, userID, id, title, description }: any) => ( 
+                  <div className="relative" key={aboutID}>
                       <dt>
                           <div
                               className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
                               {/* <Image src="https://www.svgrepo.com/show/503163/api-settings.svg" > */}
                           </div>
-                          <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Quality</p>
+                          <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">{title}</p>
                       </dt>
                       <dd className="mt-2 ml-0 lg:ml-16 text-base text-gray-500">
-                      We value quality workmanship and strive for excellence in every service we provide. We prioritize using high-quality parts, employing skilled technicians,
-and following industry best practices to ensure that vehicles are serviced or repaired to the highest standards.
+                      {description}
 
                       </dd>
                   </div>
-                  <div className="relative">
-                      <dt>
-                          <div
-                              className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <Image src="https://www.svgrepo.com/show/503138/webpack.svg" > */}
-                          </div>
-                          <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Customer Satisfaction
-                          </p>
-                      </dt>
-                      <dd className="mt-2 ml-0 lg:ml-16 text-base text-gray-500"> We prioritize building strong relationships 
-                      with our clients and customers by delivering exceptional service, listening 
-                      to their needs, and addressing their concerns.
-                      </dd>
-                  </div>
-                  <div className="relative">
-                      <dt>
-                          <div
-                              className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <Image src="https://www.svgrepo.com/show/511771/dashboard-671.svg" > */}
-
-                          </div>
-                          <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">Integrity and Transparency
-                          </p>
-                      </dt>
-                      <dd className="mt-2 ml-0 lg:ml-16 text-base text-gray-500"> We place a high emphasis on integrity and transparency. We are honest 
-                      and upfront about the services, products, pricing, and any potential issues discovered during inspections.
-                      </dd>
-                  </div>
-                  <div className="relative">
-                      <dt>
-                          <div
-                              className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                              {/* <Image src="https://www.svgrepo.com/show/76267/free-commercial-label.svg" > */}
-
-                          </div>
-                          <p className="font-heading ml-0 lg:ml-16 text-lg leading-6 font-bold text-gray-700">We Follow Best Practices
-                          </p>
-                      </dt>
-                      <dd className="mt-2 ml-0 lg:ml-16 text-base text-gray-500"> By following these best practices, we provide 
-                      superior service, enhance customer satisfaction, and build a reputation for excellence in the industry.
-                      </dd>
-                  </div>
+                 ))}
               </dl>
           </div>
           <FacebookMsg />

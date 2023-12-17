@@ -1,11 +1,41 @@
 import HomePageLayout from '@/layout/homepagelayout'
 import PageWithLayout from '@/layout/pagewithlayout'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styles from '@/styles/customer/customer.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 const Contacts: FC = () => {
+    const [ userId, setUserId] = useState("")
+    const router = useRouter()
+    const [ contactUs, setContactUs ] = useState<[]>()
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/contact/getAllContact/`, {
+            method: "GET",
+            headers: { 'Content-Type': 'application/json' },
+            cache: "default"
+          })
+    
+    
+          if (!response.ok) {
+            throw new Error("There something wrong while fetching data")
+          }
+    
+          const result = await response.json();
+    
+          setContactUs(result)
+    
+        }
+    
+        fetchData();
+      }, [ contactUs ])
+
+
+
   return (
 
 <>
@@ -49,12 +79,13 @@ const Contacts: FC = () => {
                                     </path>
                                 </svg>
                             </div>
+                            {contactUs?.slice(0, 1).map(({ userID, id, contactsID, title, description }: any) => (
                             <div className="ml-4 mb-4">
-                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">Our Address
+                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">{title}
                                 </h3>
-                                <p className="text-gray-600 ">General Malvar Street Barangay Tubigan</p>
-                                <p className="text-gray-600 ">Binan City, Laguna</p>
+                                <p className="text-gray-600 w-60">{description}</p>
                             </div>
+                            ))}
                         </li>
                         <li className="flex">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-[#FFBD59] text-gray-50">
@@ -68,12 +99,14 @@ const Contacts: FC = () => {
                                     <path d="M15 3a6 6 0 0 1 6 6"></path>
                                 </svg>
                             </div>
+                            {contactUs?.slice(2, 3).map(({ userID, id, contactsID, title, description }: any) => (
                             <div className="ml-4 mb-4">
-                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">Contact
+                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">{title}
                                 </h3>
-                                <p className="text-gray-600 ">Mobile: 09178657346 </p>
-                                <p className="text-gray-600 ">Mail: minervasalesweb@gmail.com</p>
+                                <p className="text-gray-600 w-[260px] break-all">{description} </p>
+
                             </div>
+                            ))}
                         </li>
                         <li className="flex">
                             <div className="flex h-10 w-10 items-center justify-center rounded bg-[#FFBD59] text-gray-50">
@@ -84,12 +117,13 @@ const Contacts: FC = () => {
                                     <path d="M12 7v5l3 3"></path>
                                 </svg>
                             </div>
+                            {contactUs?.slice(1, 2).map(({ userID, id, contactsID, title, description }: any) => (
                             <div className="ml-4 mb-4">
-                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">Working
-                                    hours</h3>
-                                <p className="text-gray-600 ">Monday - Friday: 08:00 - 17:00</p>
-                                <p className="text-gray-600 ">Saturday &amp; Sunday: 08:00 - 12:00</p>
+                                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">{title}</h3>
+                                <p className="text-gray-600 w-[170px] break-all">{description}</p>
+
                             </div>
+                            ))}
                         </li>
                     </ul>
                 </div>

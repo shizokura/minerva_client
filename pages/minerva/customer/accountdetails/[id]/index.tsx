@@ -112,7 +112,7 @@ const AccountDetails: FC = () => {
     <Toaster richColors  />
     <div className='lg:pl-[555px] pt-80'>
     <div className="flex mx-10 lg:w-[800px] h-[750px] lg:h-[800px] bg-gradient-to-r rounded-3xl from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-               <div className="pt-14 md:pl-0 md:pt-[80px]">
+               <div className="pt-14 md:pl-0 md:pt-[80px] lt:pt-12">
                <h1 className="text-black text-center font-bold pb-8 text-2xl md:text-5xl lg:text-4xl">Update Profile Settings</h1>
    
                        <div className="p-4 md:p-8">

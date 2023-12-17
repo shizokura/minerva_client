@@ -1,48 +1,83 @@
-import React, { FC, useState, useEffect } from 'react'
+import styles from '@/styles/admin/content.module.scss'
+import AdminPageLayout from '@/layout/adminpagelayout'
+import PageWithLayout from '@/layout/pagewithlayout'
+import React, { FC, FormEvent, useEffect, useState } from 'react'
 import Head from 'next/head'
-import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight } from 'react-icons/tb'
+import { TbClock, TbEdit, TbTrash, TbUsers } from 'react-icons/tb'
 import router from 'next/router'
-import { FormattedDate } from '@/helpers'
+import Cookies from 'js-cookie'
+import { jwtDecode } from 'jwt-decode'
+import 'react-toastify/dist/ReactToastify.css';
+import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import { IoMdAddCircleOutline } from 'react-icons/io'
 
-const AuditLog: FC = () => {
+const EditAboutUsPage: FC = () => {
 
-  const [ page, setPage] = useState(0)
-  const [ logs, setLogs ] = useState<[]>()
+  const [ isOpen, setIsOpen ] = useState(false);
+  const [ page, setPage ] = useState(0)
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const [ appointmentStatus, setAppointmentStatus ] = useState("");
+  const appointmentStatusB =["Pending", "Completed", "Cancelled"];
+  const [ userid, setUserId ] = useState("")
+
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token")
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [])
+
+  const [ aboutusId, setAboutUsId] = useState("")
+  const [ aboutus, setaboutUs ] = useState("")
+  const [ aboutUs, setAboutUs] = useState<[]>()
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/logs/?skip=${page}&orderby=desc`, {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/about/getAllAbout/`, {
         method: "GET",
-        cache: "default",
         headers: { 'Content-Type': 'application/json' },
+        cache: "default"
       })
 
-      const result = await res.json();
-      setLogs(result)
+
+      if (!response.ok) {
+        throw new Error("There something wrong while fetching data")
+      }
+
+      const result = await response.json();
+
+      setAboutUs(result)
+
     }
 
     fetchData();
-  }, [ logs ])
+  }, [ aboutUs ])
 
-  console.log(logs)
+
+console.log(aboutUs)
 
   return (
+
     <>
-
-
-        <title>Audit Logs</title>
+        <title>Content Management</title>
 
 
     <SideNavDash/>
 
-    
+    <button onClick={() => router.push("/admin/content/aboutus/addaboutus")} className="s8:absolute s8:right-14 fr:absolute fr:right-14 lt:absolute lt:right-14 lt:top-14 lg:absolute lg:right-14 lg:top-12 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
+    <IoMdAddCircleOutline size={15}/>
+    </button>
 
     <div className="antialiased font-sans bg-gray-200">
     <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
         <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">Audit Logs</h2>
+                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">About Us Management</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">
@@ -51,40 +86,52 @@ const AuditLog: FC = () => {
                             <tr>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Name
+                                    Content ID
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Date Created
+                                    title
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                   Action
+                                    description
+                                </th>
+                                <th
+                                    className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
+                                    ACTION
                                 </th>
 
                             </tr>
                         </thead>
                         <tbody>
-                        {logs?.map(({ userID, logsID, title, createdAt, User}: any) => (
-
+                        {aboutUs?.map(({ aboutID, userID, id, title, description }: any) => (
                           
-                            <tr key = {userID}>
+                            <tr key={aboutID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {User.profile.firstname} {User.profile.lastname}
+                                            {id}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
-                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">{FormattedDate(createdAt)}</p>
-                                </td>
+                                
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
                                     {title}
                                     </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    {description}
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                <span
+                                        className="relative inline-block px-3 py-1 font-bold text-black leading-tight">
+                                                            <button onClick={() => router.push(`/admin/content/aboutus/editaboutus/${aboutID}`)}> <TbEdit size={25} /> </button>
+                          </span>
                                 </td>
                             </tr>
                              ))}
@@ -118,12 +165,8 @@ const AuditLog: FC = () => {
 
 
   </>
-
-
     
-
   )
 }
 
-
-export default AuditLog
+export default EditAboutUsPage

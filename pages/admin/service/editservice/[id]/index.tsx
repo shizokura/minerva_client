@@ -119,7 +119,7 @@ const EditServicesPage: FC = () => {
 
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Update Service Details</h1>
                             <form encType='multipart/form-data' onSubmit={EditServicesForm} className="flex flex-col items-center">
@@ -150,7 +150,8 @@ const EditServicesPage: FC = () => {
                                                 <input id="price" type="text" name="price"
                                                     className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
                                                     placeholder="ex. 1000"
-                                                    onChange={(e) => setServices({...services, price: e.target.value})} defaultValue={services.price} required/>
+                                                    onChange={(e) => setServices({...services, price: e.target.value})} 
+                                                    defaultValue={services.price} required/>
 
                                            
                                             </div>

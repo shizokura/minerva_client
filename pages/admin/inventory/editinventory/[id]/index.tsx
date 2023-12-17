@@ -10,6 +10,7 @@ import Cookies from 'js-cookie'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import Cookie from 'js-cookie'
 
 const EditInventoryPage = () => {
 
@@ -40,13 +41,13 @@ const EditInventoryPage = () => {
 
   const [ userId, setUserId ] = useState("")
 
-  // useEffect(() => {
-  //   const cookies = Cookie.get("ecom_token");
-  //   if (cookies) {
-  //     const { userID }: any = jwtDecode(cookies)
-  //     setUserId(userID)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const cookies = Cookie.get("ecom_token");
+    if (cookies) {
+      const { userID }: any = jwtDecode(cookies)
+      setUserId(userID)
+    }
+  }, [])
 
   const [products, setProducts] = useState({
     name: '',
@@ -142,6 +143,7 @@ const EditInventoryPage = () => {
     })
   }, [productsD])
 
+  console.log(userId)
   return (
 
     <>
@@ -149,7 +151,7 @@ const EditInventoryPage = () => {
 
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 md:pt-[46px] lt:pl-20 lg:pl-96">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl"> Inventory Details</h1>
                             <form encType='multipart/form-data' onSubmit={EditInventoryForm} className="flex flex-col items-center">
@@ -170,7 +172,7 @@ const EditInventoryPage = () => {
                                            
                                             </div>
 
-                                            <div className="my-4 flex flex-row md:gap-[620px]">
+                                            <div className="my-4 flex flex-row md:gap-[620px] lg:gap-[740px] lt:gap-[450px]">
                                                 
 
                                                 <div>

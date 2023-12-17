@@ -187,7 +187,7 @@ const PDFView = ({ generate }: any) => {
 
   return(
   client ?  
-  <PDFViewer style={{width: '200%', height: '850px'}}>
+  <PDFViewer style={{width: '40%', height: '750px'}}>
     <ArchivePDF  generate={generate} />
   </PDFViewer>: null
   )

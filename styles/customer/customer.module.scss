@@ -11,6 +11,12 @@
       top: -150px;
       height: 620%;
         }
+        @media screen and (max-width: 1366px) {
+          width: 100%;
+          position: absolute;
+          top: -150px;
+          height: 850%;
+            }
         @media screen and (max-width: 430px) {
           width: 100%;
           height: 685%;
@@ -18,7 +24,7 @@
 
       @media screen and (max-width: 428px) {
         width: 100%;
-        height: 6295px;
+        height: 5995px;
     }
 
       @media screen and (max-width: 414px) {
@@ -202,6 +208,10 @@
     top: -150px;
     height: 130%;
       }
+      @media screen and (max-width: 1366px) {
+        width: 100%;
+        height: 200%;
+          }
   @media screen and (max-width: 1200px) {
     width: 210%;
     height: 200%;
@@ -274,6 +284,12 @@
     top: -150px;
     height: 140%;
       }
+      @media screen and (max-width: 1366px) {
+        width: 100%;
+        position: absolute;
+        top: -150px;
+        height: 180%;
+          }
   // @media screen and (max-width: 1200px) {
   //   width: 210%;
   //   height: 200%;
@@ -591,6 +607,10 @@ display: none;
     @media (max-width: 1920px) {
     width: 100px;
     }
+    @media (max-width: 1366px) {
+      width: 100px;
+      height: 101%;
+      }
     @media (max-width: 430px) {
       position: absolute;
       top: 10px;
@@ -641,6 +661,10 @@ display: none;
       top: 10px;
       height: 1075px;
     }
+    @media (max-width: 1366px) {
+      width: 100%;
+      height: 124%;
+      }
     @media (max-width: 430px) {
       position: absolute;
       top: 10px;
@@ -1165,6 +1189,14 @@ width: 100%;
     left: 40px;
     border-radius: 40px;
 
+    @media screen and (max-width: 1366px) {
+      width: 90%;
+      height: 50%;
+      margin-top: -170px;
+      margin-left: 30px;
+      
+  }
+
     @media screen and (max-width: 1200px) {
       width: 93%;
       height: 30%;
@@ -1179,10 +1211,10 @@ width: 100%;
 }
 @media screen and (max-width: 430px) {
   width: 85%;
-  height: 100%;
+  height: 50%;
   position: absolute;
   top: -100px;
-  left: 34px;
+  left: 4px;
   
 }
 
@@ -1229,7 +1261,9 @@ width: 100%;
     top: -20px;
     left: 690px;
     margin: 0 0 0 0;
-
+    @media screen and (max-width: 1366px) {
+      display: none;
+        }
     @media screen and (max-width: 1200px) {
 display: none;
   }
@@ -1244,19 +1278,28 @@ display: none;
 }
 
 .productSection{
-  position: relative;
-  top: -100px;
-  width: 1200px;
-  height: 720px;
+  // position: relative;
+
+  // width: 1600px;
+  // height: 720px;
+  //  border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
+  //  background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
+  //  box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
+  @media (max-width: 1920px) {
+    position: absolute;
+margin-top: 370px;
+  min-width: 1610px;
+  height: 800px;
    border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
    background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
    box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
-  @media (min-width: 1920px) {
+  }
+  @media (min-width: 1366px) {
     position: relative;
-  top: -100px;
+  top: -250px;
   left: -5px;
-  width: 1510px;
-  height: 830px;
+  min-width: 1260px;
+  min-height: 800px;
    border-radius: 1rem; // Equivalent to rounded-xl in Tailwind
    background-image: linear-gradient(to right, #FFBD59, rgb(199, 199, 199) 50%, #FFBD59); // Equivalent to bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59] in Tailwind
    box-shadow: 0px 14px 28px -5px rgba(0, 0, 0, 0.5);
@@ -1267,17 +1310,17 @@ display: none;
   @media (min-width: 640px) {
     padding: 0 2rem; // Equivalent to sm:px-8 in Tailwind
   }
-  @media (max-width: 430px) {
+  @media (max-width: 428px) {
     position: absolute;
-    top: 600px;
-    width: 380px;
+    top: -400px;
+    min-width: 360px;
     height: 1200px;
   }
   @media (max-width: 414px) {
     position: absolute;
-    top: -100px;
-    width: 350px;
-    height: 1150px;
+    top: -500px;
+    min-width: 350px;
+    height: 1250px;
   }
   @media (max-width: 390px) {
     position: relative;
@@ -1287,15 +1330,9 @@ display: none;
   }
   @media (max-width: 375px) {
     position: relative;
-    top: -320px;
-    width: 350px;
-    height: 1425px;
-  }
-  @media (max-width: 375px) {
-    position: relative;
     top: -450px;
     width: 320px;
-    height: 1100px;
+    height: 14250px;
 
   }
 }
@@ -1309,6 +1346,12 @@ display: none;
   font-size: 55px;
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 1366px) {
+    position: absolute;
+    top: 30px;
+    left: 520px;
+    font-size: 45px;
+  }
   @media (max-width: 430px) {
     position: absolute;
     top: 30px;
@@ -1318,7 +1361,7 @@ display: none;
   @media (max-width: 414px) {
     position: absolute;
     top: 30px;
-    left: 105px;
+    left: 125px;
     font-size: 28px;
   }
      @media (max-width: 375px) {
@@ -1338,6 +1381,13 @@ display: none;
   font-size: 20px; /* Equivalent to text-2xl in Tailwind CSS */
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em; /* Adjust the value for tracking-wider effect */
+  @media (max-width: 1366px) {
+    width: 480px;
+    position: absolute;
+    top: 110px;
+    left: 390px;
+    font-size: 23px;
+  }
   @media (max-width: 430px) {
     width: 240px;
     position: absolute;
@@ -1349,7 +1399,7 @@ display: none;
     width: 320px;
     position: absolute;
     top: 85px;
-    left: 15px;
+    left: 35px;
     font-size: 18px;
   }
   @media (max-width: 375px) {
@@ -1374,26 +1424,34 @@ display: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   @media (max-width: 1920px) {
     position: relative;
-    top: 200px;
-    left: 90px;
+    top: 150px;
+    left: 10px;
     width: 300px;
     height: 440px;
+    transform: scale(1.1);
     }
-    @media (max-width: 428px) {
-      width: 300px;
-      height: 270px;
+    @media (max-width: 1366px) {
       position: relative;
-      top: 100px;
-      left: 25px;
+      top: 160px;
+      left: 50px;
+      width: 300px;
+      height: 440px;
+      }
+    @media (max-width: 428px) {
+      width: 250px;
+      height: 240px;
+      position: relative;
+      top: 140px;
+      left: 55px;
 
       }
   @media (max-width: 414px) {
     width: 300px;
     height: 270px;
     position: relative;
-    top: 100px;
+    top: 150px;
     left: 25px;
-
+    transform: scale(1);
     }
   @media (max-width: 375px) {
     height: 270px;
@@ -1421,25 +1479,31 @@ display: none;
   position: absolute;
   top: 560px;
   left: 440px;
-  @media (max-width: 1920px) {
-    position: absolute;
-    font-size: .8rem;
-    top: 680px;
-    left: 590px;
-    }
+    @media (max-width: 1920px) {
+      position: absolute;
+      font-size: .8rem;
+      top: 610px;
+      left: 595px;
+      }
+      @media (max-width: 1366px) {
+        position: absolute;
+        font-size: .8rem;
+        top: 610px;
+        left: 455px;
+        }
   @media (max-width: 430px) {
     position: absolute;
     font-size: .8rem;
     top: 1000px;
-    left: 20px;
+    left: 10px;
 
     }
 
   @media (max-width: 414px) {
     position: absolute;
     font-size: 10px;
-    top: 1000px;
-    left: 10px;
+    top: 1080px;
+    left: 0px;
     }
 
   @media (max-width: 375px) {
@@ -1465,6 +1529,12 @@ display: none;
     width: 1480px;
     height: 850px;
   }
+  @media (max-width: 1366px) {
+    position: absolute;
+    top: 650px;
+    width: 1250px;
+    height: 850px;
+  }
   @media (min-width: 1280) {
     padding: 0 1rem; // Equivalent to sm:px-8 in Tailwind
   }
@@ -1479,7 +1549,7 @@ display: none;
   }
   @media (max-width: 430px) {
     position: absolute;
-    top: 1400px;
+    top: 900px;
     width: 380px;
     height: 1100px;
   }
@@ -1514,6 +1584,12 @@ display: none;
   @media (max-width: 1920px) {
     position: relative;
     top: -130px;
+    left: 20px;
+    font-size: 55px;
+  }
+  @media (max-width: 1366px) {
+    position: relative;
+    top: -140px;
     left: 20px;
     font-size: 55px;
   }
@@ -1578,6 +1654,14 @@ display: none;
   background-color: #FFBD59; // Adjust as needed
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @media (max-width: 1366px) {
+    width: 350px;
+    height: 430px;
+    position: relative;
+    top: -120px;
+    left: -10px;
+
+    }
   @media (max-width: 430px) {
     width: 325px;
     height: 250px;
@@ -1633,6 +1717,13 @@ display: none;
   top: -100px;
   margin-top: -50px;
   margin-left: -20px;
+  @media (max-width: 1366px) {
+    position: absolute;
+    font-size: .8rem;
+    top: 720px;
+    left: 480px;
+    z-index: 150px;
+    }
   @media (max-width: 430px) {
     position: absolute;
     font-size: .8rem;

@@ -6,6 +6,8 @@ import { Open_Sans } from 'next/font/google'
 import { TbListSearch, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight, TbSettings } from 'react-icons/tb'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
+import { FaQuestionCircle } from "react-icons/fa";
+import { FaPhoneSquare } from "react-icons/fa";
 
 const poppins = Open_Sans({
   weight: '500',
@@ -28,6 +30,11 @@ const submenu = [
   { name: "Report Archive", url: "/minerva/admin/reports/reportarchive", icons: <TbArchive size={30} /> }
 ]
 
+const submenu2 = [
+  { name: "About Us", url: "/minerva/admin/content/aboutus", icons: <FaQuestionCircle size={30} /> },
+  { name: "Contact Us", url: "/minerva/admin/content/contactus", icons: <FaPhoneSquare size={30} /> },
+]
+
 export default function Sidebar() {
 
   const router = useRouter();
@@ -35,6 +42,7 @@ export default function Sidebar() {
 
 
   const [ reports, setReports ] = useState(false)
+  const [ content, setContent ] = useState(false)
 
   const onLogoutBtn = () => {
     Cookies.remove("ecom_token")
@@ -65,6 +73,25 @@ export default function Sidebar() {
         {
           reports ?
             <div className={styles.submenu}>
+              {submenu.map(({ name, url, icons }) => (
+                <button key={name} onClick={() => router.push(url)}>
+                  {icons}
+                  <span>{name}</span>
+                </button>
+              ))}
+            </div> : null
+        }
+
+    <button onClick={() => setReports(() => !content)}>
+          <div className={styles.reports}>
+            <TbGraph size={30} />
+            <span>Content Management</span>
+          </div>
+          <TbChevronRight size={30} />
+        </button>
+        {
+          content ?
+            <div className={styles.submenu2}>
               {submenu.map(({ name, url, icons }) => (
                 <button key={name} onClick={() => router.push(url)}>
                   {icons}

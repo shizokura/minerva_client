@@ -114,52 +114,63 @@ export default function Login() {
 	// 	}
 	// }
 
+	const [ errorMessage, setErrorMessage ] = useState("")
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-	   
-		const res = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/user/login", {
-				   method: "POST",
-				   headers: { 'Content-Type': 'application/json' },
-				   body: JSON.stringify({
-					   email: users.user,
-					   password: users.password
-				   })
-			   })
-		   
-			   const data = await res.json()
 		   
 			   // Check the success of the login request
-			   if (res.ok) {
-				   const cookies = Cookies.set("ecom_token", data, {
-					   expires: 60 * 60 * 24 * 7,
-					   path: "/",
-					   sameSite: "none",
-					   secure: true
-				   })
-		   
-				   if (cookies) {
-					   const { role, userID }: any = jwtDecode(cookies)
-					   if (role === "admin") {
-						   usersD.set(userID)
-						   router.push("/admin/customer")
-					   } else {
-						   usersD.set(userID)
-						   router.push('/')
-					   }
-		   
-				   }
-		   
-			   }
-			   else {
-				   // Display the error message from the server response
-				   if (data.error === "invalid_credentials") {
-					  ("Invalid credentials, please check your email and password");
-				   } else if (data.error === "password_mismatch") {
-					  alert("Passwords do not match, please try again");
-				   } else {
-					  alert("You have logged in successfully");
-				   }
+			   try {
+				const res = await fetch('https://minervasales-23b0919d60c1.herokuapp.com/user/login', {
+				  method: "POST",
+				  headers: {
+					'Content-Type': 'application/json',
+					
+				  },
+				  body: JSON.stringify({
+					email: users.user,
+					password: users.password
+				  })
+				  
+				})
+				
+				const promise = () => new Promise((resolve) => setTimeout(resolve, 5000));
+				// Check the success of the login request
+
+				if (!res.ok) {
+				  const htmlContent = await res.text();
+		  
+				  setErrorMessage(htmlContent)
+				  toast.warning(htmlContent)
 				}
+
+
+				const data = await res.json()
+				
+				const cookies = Cookies.set("ecom_token", data, {
+					expires: 60 * 60 * 24 * 7,
+					path: "/",
+					sameSite: "none",
+					secure: true
+				})
+	
+				if (cookies) {
+					const { role, userID }: any = jwtDecode(cookies)
+					if (role === "admin") {
+						usersD.set(userID)
+						router.push("/admin/customer")
+					} else {
+						usersD.set(userID)
+						router.push('/')
+					}
+	
+				}
+		  
+				return data
+		  
+			  } catch (error) {
+				console.log(error)
+			  }
 	   }
 
 
@@ -167,6 +178,7 @@ export default function Login() {
 	return (
 
 		<div className="h-screen md:flex">
+			
 			<div
 				className="relative overflow-hidden md:flex w-1/2 i justify-around items-center hidden ">
 				<div>

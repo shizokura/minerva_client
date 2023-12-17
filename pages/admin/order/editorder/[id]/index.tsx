@@ -136,7 +136,7 @@ const EditOrdersPage: FC = ({}) => {
 
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Order</h1>
                             <form encType='multipart/form-data' onSubmit={orderEditForm} className="flex flex-col items-center">
@@ -154,7 +154,7 @@ const EditOrdersPage: FC = ({}) => {
                                                     placeholder="Input product name"
                                                     defaultValue={orders.orders} name="orders" disabled/>
 
-                                                <label htmlFor="price" className="text-lg absolute md:ml-[560px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
+                                                <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[560px] md:ml-[560px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
                                                    Customer Name
                                                 </label>
                                                 
@@ -179,7 +179,7 @@ const EditOrdersPage: FC = ({}) => {
                                                     defaultValue={orders.createdAt ? format(new Date(orders.createdAt), 'dd MMM yyyy') : ''}
                                                     disabled/>
 
-                                                <label htmlFor="price" className="text-lg absolute mt-1.5 md:ml-[560px]  text-black font-bold px-1 rounded">
+                                                <label htmlFor="price" className="text-lg absolute mt-1.5 lt:ml-[420px] lg:ml-[560px] md:ml-[560px]  text-black font-bold px-1 rounded">
                                                 Payment Method
                                                 </label>
                                                 

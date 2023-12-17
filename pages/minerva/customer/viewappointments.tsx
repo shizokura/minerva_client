@@ -45,10 +45,10 @@ const ViewAppointments: FC = () => {
 
     <div className={styles.bodyViewOrders}>
 
-          <div className="container mt-40 mx-auto px-4 sm:px-8 lg:ml-[200px] ">        
+          <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">        
           <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">View Appointment Records</h2>
+                <h2 className=" text-white text-3xl font-roboto font-bold leading-tight sm:">View Appointment Records</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">
@@ -112,7 +112,7 @@ const ViewAppointments: FC = () => {
                     </table>
                     
                     <div
-                        className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center">
                         <div className="inline-flex mt-2 xs:mt-0 gap-4">
                             <button disabled={page === 0 }
                                 className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onClick={() => setPage(()=> page - 1)}>

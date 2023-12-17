@@ -147,7 +147,7 @@ const ProductDetails: FC = () => {
              
 
               {products.image.length > 0 && (
-                    <Image src={products.image[2]} alt={products.name} height={220} width={550} />
+                    <Image src={products.image[1]} alt={products.name} height={220} width={550} />
                   )}
 
 
@@ -194,12 +194,12 @@ const ProductDetails: FC = () => {
               </div>
               <div className="mb-6">
               <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">Product Description:</h2>
-              <h2 className=" w-[300px] sm:w-[200px] break-all mb-2 text-lg font-bold text-gray-700 dark:text-gray-700">
+              <h2 className=" w-[300px] sm:w-[370px]  lg:w-[450px] break-normal mb-2 text-lg font-bold text-gray-700 dark:text-gray-700">
                 {products.description}
               </h2>
               </div>
               <div className="py-6 mb-6 border-t border-b border-gray-200 dark:border-gray-700">
-              <span className="text-base text-gray-600 dark:text-gray-700">{products.stock} : {products.quantity}</span>
+              <span className="text-base text-gray-600 dark:text-gray-700">{parseInt(products.quantity) <= 0 ? "Out of Stock" : "In Stock" } : {products.quantity}</span>
 
 
               </div>

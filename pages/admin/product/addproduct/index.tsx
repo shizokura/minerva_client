@@ -124,7 +124,7 @@ const AddProductPage = () => {
 <Toaster richColors/>
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1080px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Add New Product</h1>
                             <form encType='multipart/form-data' onSubmit={AddProductForm} className="flex flex-col items-center">
@@ -160,7 +160,7 @@ const AddProductPage = () => {
                                            
                                             </div>
 
-                                            <div className="flex flex-col md:flex-row">
+                                            {/* <div className="flex flex-col md:flex-row">
                                                 
 
                                                 <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
@@ -174,9 +174,9 @@ const AddProductPage = () => {
                                                     />
 
                                            
-                                            </div>
+                                            </div> */}
 
-                                            <div className="my-4 flex flex-row xs:gap-[10px] md:gap-[590px]">
+                                            <div className="my-4 flex flex-row md:gap-[730px] lt:gap-[250px] lg:gap-[600px]">
                                                 
 
                                             <div>

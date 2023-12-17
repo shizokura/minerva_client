@@ -128,7 +128,7 @@ const ServiceDetails: FC = () => {
   return (
     <>
     <Toaster richColors/>
-    <div className="max-w-screen-xl ml-2 lg:ml-80 mx-auto px-6 14:-px-6 md:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 lg:pb-12">
+    <div className="max-w-screen-xl ml-2 lt:ml-14 lg:ml-80 mx-auto px-6 14:-px-6 md:px-8 lg:px-12 pt-32 lg:pt-40 pb-6 lg:pb-12">
         <div className="bg-yellow-100  14:-ml-12 py-8 lg:py-12 px-6 relative text-center">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                 Book A Service
@@ -139,7 +139,7 @@ const ServiceDetails: FC = () => {
     </div>
     <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
     
-    <div className=" w-96 mb-12 ml-4 lg:ml-[770px] bg-white border mt-4 border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
+    <div className=" w-96 mb-12 ml-4 lt:ml-[470px] lg:ml-[770px] bg-white border mt-4 border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
     
                 <div className="w-96  bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
     
@@ -201,7 +201,7 @@ const ServiceDetails: FC = () => {
     
     
       
-            <footer className="py-10 w-[420px] fr:w-[428px] lg:w-[1920px] lg:ml-[0px] lg:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
+            <footer className="py-10 w-[420px] lt:w-[1366px] fr:w-[428px] lg:w-[1920px] lg:ml-[0px] lg:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
     
             <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
