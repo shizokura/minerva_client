@@ -94,10 +94,6 @@ export default function ChangePassword() {
   const onChangePassword = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const [ errorMessages, setErrorMessages ] = useState({
-      password: '',
-      confirmPassword: '',
-    });
 
 
 

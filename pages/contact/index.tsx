@@ -80,7 +80,7 @@ const Contacts: FC = () => {
                                 </svg>
                             </div>
                             {contactUs?.slice(0, 1).map(({ userID, id, contactsID, title, description }: any) => (
-                            <div className="ml-4 mb-4">
+                            <div className="ml-4 mb-4" key={contactsID}>
                                 <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900">{title}
                                 </h3>
                                 <p className="text-gray-600 w-60">{description}</p>
@@ -100,7 +100,7 @@ const Contacts: FC = () => {
                                 </svg>
                             </div>
                             {contactUs?.slice(2, 3).map(({ userID, id, contactsID, title, description }: any) => (
-                            <div className="ml-4 mb-4">
+                            <div className="ml-4 mb-4" key={contactsID}>
                                 <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">{title}
                                 </h3>
                                 <p className="text-gray-600 w-[260px] break-all">{description} </p>
@@ -118,7 +118,7 @@ const Contacts: FC = () => {
                                 </svg>
                             </div>
                             {contactUs?.slice(1, 2).map(({ userID, id, contactsID, title, description }: any) => (
-                            <div className="ml-4 mb-4">
+                            <div className="ml-4 mb-4" key={contactsID}>
                                 <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">{title}</h3>
                                 <p className="text-gray-600 w-[170px] break-all">{description}</p>
 
