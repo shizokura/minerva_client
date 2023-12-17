@@ -1324,9 +1324,9 @@ margin-top: 370px;
   }
   @media (max-width: 390px) {
     position: relative;
-    top: -420px;
+    top: -600px;
     width: 350px;
-    height: 1425px;
+    min-height: 1200px;
   }
   @media (max-width: 375px) {
     position: relative;
@@ -1505,7 +1505,13 @@ margin-top: 370px;
     top: 1080px;
     left: 0px;
     }
-
+    @media (max-width: 390px) {
+      position: relative;
+      font-size: .8rem;
+      top: 100px;
+      left: -50px;
+  
+      }
   @media (max-width: 375px) {
     position: relative;
     font-size: .8rem;

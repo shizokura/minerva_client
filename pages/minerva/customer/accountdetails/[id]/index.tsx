@@ -210,7 +210,7 @@ const AccountDetails: FC = () => {
                        </div>
                        </div>
                        <section className="relative w-full mt-10 flex flex-col items-center justify-center text-center text-white ">
-             <footer className="py-10 w-full flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
+             <footer className="py-10 w-full 12:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
    
              <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
     <Link className="text-black hover:text-gray-500" href="/">Home</Link>
