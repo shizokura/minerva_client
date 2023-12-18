@@ -40,6 +40,7 @@ const routes = [
 ]
 
 
+
 const submenu = [
     { name: "Generate Reports", url :"/admin/report/generatereport", icons: <TbFileAnalytics size={30}/>},
     { name: "Audit Logs", url: "/admin/report/auditlog", icons: <TbList size={30}/>},
@@ -96,8 +97,20 @@ function SideNavbar() {
 
   const onLogoutBtn = () => {
     Cookies.remove("ecom_token")
-    router.push("/")
   }
+
+  useEffect(() => {
+    if (router.route === '/') {
+      onLogoutBtn();
+    }
+ }, [router.route]);
+ 
+  const routes2 =[
+    { name: "Settings" , url: `/admin/settings/${userId}`, icons: <MdOutlineSettings size={30} />}, 
+    { name: "Logout", url: "/", icons: <MdOutlineLogout size={30} />},
+  ]  
+
+
 
   return (
     <div>
@@ -170,15 +183,17 @@ function SideNavbar() {
             </div>
             {/* setting  */}
             <div className=" my-4 border-b border-gray-100 pb-4">
-              <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <span><MdOutlineSettings className="text-2xl text-gray-600 group-hover:text-white sm:-ml-2" size={30} /></span>
-                <button onClick={() => router.push(`/admin/settings/${userId}`)} className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  <span className="lg:flex sm:hidden">Settings</span>
+            {routes2.map(({ name, url, icons}) => (
+              <div key={name} className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <span className="text-2xl text-gray-600 group-hover:text-white sm:-ml-2">{icons}</span>
+                <button  onClick={() => router.push(url)} className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                  <span className="lg:flex sm:hidden">{name}</span>
                 </button>
               </div>
+              ))}
             </div>
             {/* logout */}
-            <div className=" my-4">
+            {/* <div className=" my-4">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <span><MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white sm:-ml-2" size={30} /></span>
                 <button onClick={onLogoutBtn}
@@ -186,7 +201,7 @@ function SideNavbar() {
                   <span className="lg:flex sm:hidden">Logout</span>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Disclosure>

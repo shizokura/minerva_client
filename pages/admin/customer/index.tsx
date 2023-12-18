@@ -222,7 +222,7 @@ const CustomerPage: FC = () => {
                     
                     <div
                         className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center          ">
-                        <div className="inline-flex mt-2 xs:mt-0 gap-4">
+                        <div className="inline-flex mb-20 xs:mt-0 gap-4">
                             <button disabled={page === 0 }
                                 className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onClick={() => setPage(()=> page - 1)}>
                                 Prev

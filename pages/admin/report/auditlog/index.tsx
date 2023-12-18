@@ -1,14 +1,25 @@
 import React, { FC, useState, useEffect } from 'react'
 import Head from 'next/head'
 import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight } from 'react-icons/tb'
-import router from 'next/router'
+import router, { useRouter } from 'next/router'
 import { FormattedDate } from '@/helpers'
 import SideNavDash from '@/components/sideNavDash'
+import { jwtDecode } from 'jwt-decode'
+import Cookies from 'js-cookie'
 
 const AuditLog: FC = () => {
-
+    
+    const router = useRouter()
   const [ page, setPage] = useState(0)
   const [ logs, setLogs ] = useState<[]>()
+  const [ userId, setUserId] = useState("") 
+
+  useEffect(() => {
+    const cookies = Cookies.get("ecom_token") as any
+    const { userID }: any = jwtDecode(cookies) as any
+    setUserId(userID)
+  }, [ userId ])
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +34,9 @@ const AuditLog: FC = () => {
     }
 
     fetchData();
-  }, [ logs ])
+  }, [ page, logs ])
 
-  console.log(logs)
+  console.log(page)
 
   return (
     <>
@@ -68,7 +79,7 @@ const AuditLog: FC = () => {
                         {logs?.map(({ userID, logsID, title, createdAt, User}: any) => (
 
                           
-                            <tr key = {userID}>
+                            <tr key = {logsID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
@@ -97,7 +108,7 @@ const AuditLog: FC = () => {
                     </table>
                     
                     <div
-                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center          ">
+                        className="px-5 py-5 bg-white border-t  flex items-center justify-center xs:flex-row xs:justify-center">
                         <div className="inline-flex mt-2 xs:mt-0 gap-4">
                             <button disabled={page === 0 }
                                 className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l" onClick={() => setPage(()=> page - 1)}>
