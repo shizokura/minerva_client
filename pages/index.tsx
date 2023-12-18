@@ -17,6 +17,7 @@ import { useRouter } from 'next/router'
 import { jwtDecode } from 'jwt-decode'
 import Cookies from 'js-cookie'
 import { FacebookProvider, CustomChat } from 'react-facebook';
+import FacebookMsg from '@/components/FacebookMsg'
 
 
 const Home: FC = () => {
@@ -201,7 +202,7 @@ const Home: FC = () => {
   return (
 <div className={styles.bodyHome}>
 <Toaster richColors  />
-
+<FacebookMsg />
 <section className="relative w-full h-screen flex flex-col items-center justify-center text-center text-white">
   
           <div className={styles.videoDocker}>

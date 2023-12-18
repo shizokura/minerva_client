@@ -47,12 +47,12 @@ export default function Confirmation() {
         <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7 " >
             <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Account Verification Successful</h1>
+              <h1 className="block text-2xl font-bold text-black">Account Verification Successful</h1>
             </div>
 
             <div className="mt-5 flex flex-col justify-center items-center">
               <IoMailUnread size={60} className="text-white mb-3" />
-              <p className="text-center divide-x divide-gray-300 dark:divide-gray-700 text-white">
+              <p className="text-center divide-x divide-gray-300 dark:divide-gray-700 text-black">
                 You have successfully verified your account in Minerva Sales Corporation. We look forward to serving you.
               </p>
             </div>

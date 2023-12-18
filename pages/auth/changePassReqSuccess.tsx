@@ -31,12 +31,12 @@ export default function ChangePasswordReqSuccess() {
         <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7 " >
             <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Change Password Successful</h1>
+              <h1 className="block text-2xl font-bold text-gray-800 ">Change Password Successful</h1>
             </div>
 
             <div className="mt-5 flex flex-col justify-center items-center">
-              <IoMailUnread size={60} className="text-white mb-3" />
-              <p className="text-center divide-x divide-gray-300 dark:divide-gray-700 text-white">
+              <IoMailUnread size={60} className=" mb-3" />
+              <p className="text-center divide-x divide-gray-700 ">
                 The verification link for your forgot password request is now sent to the email you provided. Please see the email, if you cannot see an email from us, please double-check the spam folder.
               </p>
             </div>

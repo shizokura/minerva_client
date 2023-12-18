@@ -114,7 +114,7 @@ export default function ChangePassword() {
         <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7 " >
             <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Reset Your Password</h1>
+              <h1 className="block text-2xl font-bold text-gray-800">Reset Your Password</h1>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Enter the details of your old and new password
               </p>
@@ -124,7 +124,7 @@ export default function ChangePassword() {
               <form onSubmit={onChangePassword}>
                 <div className="grid gap-y-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2 dark:text-white">Old Password:</label>
+                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2">Old Password:</label>
                     <div className="relative">
                       <input type={showOPassword ? "text" : "password"} id="old-password" name="old-password" onChange={(e) => setChangepass({ ...changePass, olderPasword: e.target.value })} className="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm" required />
                       <button onClick={toggleOPasswordVisibility} className="focus:outline-none ml-2">
@@ -137,7 +137,7 @@ export default function ChangePassword() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2 dark:text-white">New Password:</label>
+                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2">New Password:</label>
                     <div className="relative">
                       <input type={showPassword ? "text" : "password"}id="new-password" name="new-password" className="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm" required aria-describedby="email-error" onChange={(e) => setChangepass({ ...changePass, password: e.target.value })} />
                       <button onClick={togglePasswordVisibility} className="focus:outline-none ml-2">
@@ -151,7 +151,7 @@ export default function ChangePassword() {
                     
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2 dark:text-white">Confirm New Password</label>
+                    <label htmlFor="email" className="block text-sm font-bold ml-1 mb-2">Confirm New Password</label>
                     <div className="relative">
                       <input type={showCPassword ? "text" : "password"} id="confirm-password" name="confirm-password" className="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm" required aria-describedby="email-error" onChange={(e) => setChangepass({ ...changePass, retypepassword: e.target.value })} />
                       <button onClick={toggleCPasswordVisibility} className="focus:outline-none ml-2">

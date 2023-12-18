@@ -150,12 +150,12 @@ export default function Register() {
         <div className=" bg-white  rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700">
           <div className="p-4 sm:p-7 " >
             <div className="text-center">
-              <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Confirm Registration</h1>
+              <h1 className="block text-2xl font-bold text-gray-800">Confirm Registration</h1>
             </div>
 
             <div className="mt-5 flex flex-col justify-center items-center">
               <IoMailUnread size={60} className="text-white mb-3" />
-              <p className="text-center divide-x divide-gray-300 dark:divide-gray-700 text-white">
+              <p className="text-center divide-x divide-gray-300 dark:divide-gray-700 text-black">
                 The verification link for the registration of your account is now sent to the email you provided. Please see the email, if you cannot see an email from us, please double-check the spam folder.
               </p>
             </div>

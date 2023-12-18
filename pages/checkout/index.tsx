@@ -241,7 +241,7 @@ const Checkout: FC = () => {
                                                 <p className="text-2xl font-semibold text-gray-900">{FormattedPrice(products?.reduce((a: any, b: any) => (a + b?.total), 0) as any)}</p>
                                             </div>
                                                 
-                                                                        <button className="mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
+                                                                        <button onClick={handleGoBack} className="mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white">Place Order</button>
                                 </form>
         
                                             </div>

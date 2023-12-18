@@ -7,6 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import { useLocalStorageValue } from '@react-hookz/web'
+import FacebookMsg from '@/components/FacebookMsg';
 
 
 export default function Login() {
@@ -178,7 +179,7 @@ export default function Login() {
 	return (
 
 		<div className="h-screen md:flex">
-			
+			<FacebookMsg />
 			<div
 				className="relative overflow-hidden md:flex w-1/2 i justify-around items-center hidden ">
 				<div>
