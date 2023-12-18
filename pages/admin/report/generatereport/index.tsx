@@ -1,4 +1,4 @@
-
+'use client'
 import React, { FC, useState, useEffect, SyntheticEvent } from 'react'
 import { TbFileAnalytics } from 'react-icons/tb'
 import Head from 'next/head'

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react'
 import { Document, Page, View, Text, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
 import { FormattedDate, FormattedPrice } from '@/helpers/index'
