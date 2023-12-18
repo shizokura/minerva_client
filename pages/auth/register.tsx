@@ -309,6 +309,7 @@ You must request a cancellation prior to your appointment and create a new appoi
                 pattern="^[A-Za-z\s-]+$"
                 title="Please enter a valid first name (letters only)"
                 onChange={(e) => setRegister({ ...register, firstname: e.target.value })}
+                required
               />
             </div>
 
@@ -326,6 +327,7 @@ You must request a cancellation prior to your appointment and create a new appoi
                 pattern="^[A-Za-z\s-]+$"
                 title="Please enter a valid last name (letters only)"
                 onChange={(e) => setRegister({ ...register, lastname: e.target.value })}
+                required
               />
               
             </div>
@@ -343,6 +345,7 @@ You must request a cancellation prior to your appointment and create a new appoi
                 pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 title="Please enter a valid email address"
                 onChange={(e) => setRegister({ ...register, email: e.target.value })}
+                required
               />
               
             </div>
@@ -362,6 +365,7 @@ You must request a cancellation prior to your appointment and create a new appoi
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
                 title="Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers"
                 onChange={(e) => setRegister({ ...register, password: e.target.value })}
+                required
               />
               <button onClick={togglePasswordVisibility} className="focus:outline-none ml-2">
                 {showPassword ? (
@@ -407,6 +411,7 @@ You must request a cancellation prior to your appointment and create a new appoi
                 id=""
                 placeholder="Shipping Address"
                 onChange={(e) => setRegister({ ...register, shipping: e.target.value })}
+                required
               />
             </div>
 
@@ -421,10 +426,11 @@ You must request a cancellation prior to your appointment and create a new appoi
                 type="tel"
                 name=""
                 id=""
-                placeholder="Phone Number"
+                placeholder="ex. 09123456789"
                 pattern="^\d{11}$"
                 title="Please enter a valid 10-digit phone number"
                 onChange={(e) => setRegister({ ...register, phone: e.target.value })}
+                required
               />
             </div>
             <div className='absolute lg:top-[675px] lg:left-[1170px] lt:top-[535px] lt:left-[750px] sm:top-[710px] sm:left-[48px] 12:top-[700px] 12:left-[38px] text-sm text-gray-500'>
@@ -434,11 +440,19 @@ You must request a cancellation prior to your appointment and create a new appoi
           </div>
           <button type="submit" className="block w-full bg-[#FFBD59] mt-4 mb-10 py-2 rounded-2xl text-black font-semibold" onClick={handleOpenModal}>Register</button>
           {/* Display error messages */}
-          {Object.values(errorMessages).map((error, index) => (
-            error && <p key={index} className="text-red-500 text-sm">{error}</p>
-          ))}
+          
           <span className="text-sm ml-2"> Already have an Account? <span onClick={() => router.push("/auth/login")} className="text-sm hover:text-blue-500 cursor-pointer">Login.</span></span>
+        <div className='absolute bottom-[110px]'>
+          {Object.values(errorMessages).map((error, index) => (
+            
+            error && 
+             <p key={index} className="text-red-500 text-sm">{error}</p>
+             
+            
+          ))}
+          </div>
         </form>
+        
       </div>
     </div>
 
