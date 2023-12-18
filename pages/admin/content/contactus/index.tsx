@@ -104,12 +104,12 @@ const ContactUs: FC = () => {
 
     <SideNavDash/>
 
-    <button onClick={() => router.push("/admin/content/contactus/addcontactus")} className=" lt:top-14 s8:absolute s8:right-14 fr:absolute fr:right-14 lt:absolute lt:right-14 lg:absolute lg:right-14 lg:top-12 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
+    <button onClick={() => router.push("/admin/content/contactus/addcontactus")} className=" sm:top-20  sm:right-4  lt:top-14 s8:absolute s8:right-14 fr:absolute fr:right-14 lt:absolute lt:right-14 lg:absolute lg:right-14 lg:top-12 rounded-xl bg-gradient-to-br from-[#f5e725] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#f5e725]/50">
     <IoMdAddCircleOutline size={15}/>
     </button>
 
      <div className="antialiased font-sans bg-gray-200">
-    <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
+    <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] sm:pl-28 ">
         <div className="py-12">
             <div>
                 <h2 className="text-3xl font-roboto font-bold leading-tight sm:">Contact Us Management</h2>

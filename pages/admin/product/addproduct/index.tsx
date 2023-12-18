@@ -124,7 +124,7 @@ const AddProductPage = () => {
 <Toaster richColors/>
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1080px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px] sm:pl-28">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Add New Product</h1>
                             <form encType='multipart/form-data' onSubmit={AddProductForm} className="flex flex-col items-center">
@@ -191,7 +191,7 @@ const AddProductPage = () => {
                         </svg>
                       </button>
                     </div>
-                    <div className={`w-full mt-[80px] ml-2 flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[190px] absolute z-20' : 'hidden'}`}>
+                    <div className={`w-full mt-[80px] ml-2 flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'xl:w-[190px] sm:w-36 sm:top-[425px] sm:left-[105px] absolute lg:left-[650px] lg:top-96 z-20' : 'hidden'}`}>
         {isOpen ? (
           productsAvailability.map((name) => (
             <button
@@ -221,7 +221,7 @@ const AddProductPage = () => {
                       </button>
                     </div>
 
-                    <div className={`w-full lg:ml-[840px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'xl:w-[190px] absolute z-20' : 'hidden'}`}>
+                    <div className={`w-full lg:ml-[840px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'xl:w-[190px] sm:w-36 sm:top-[505px] sm:left-[250px] lg:left-[670px] lg:top-96 absolute z-20' : 'hidden'}`}>
                     {isOpen1 ? (productsCategory.map((name) => (
                     <button 
                     name="category" 
@@ -258,7 +258,7 @@ const AddProductPage = () => {
                                             <div className="flex flex-col md:flex-row">
                                                 
 
-                                            <div className='flex flex-col mt-4 ml-[120px] xl:ml-[430px]'> 
+                                            <div className='flex flex-col mt-4 ml-[120px] xl:ml-[430px] sm:ml-24'> 
 <label className="text-lg absolute mt-2 text-black font-bold px-1 rounded" htmlFor="file_input">Upload photo</label>
                 <input name="file" className="mt-12 block -ml-16 w-60 text-sm text-gray-900 border border-gray-300 rounded-sm cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file" accept='image/*'  multiple onChange={onHandleImageUpload}/>
                 <p className="mt-2 ml-2 text-sm text-gray-900 dark:text-gray-800" id="file_input_help">PNG, JPG, or JPEG</p>

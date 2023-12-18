@@ -111,7 +111,7 @@ const GenerateReport: FC = () => {
     <>
     <SideNavDash/>
     <Toaster richColors/>
-        <div className="h-screen bg-gray-200">
+        <div className="h-screen bg-gray-200 sm:pl-24 lg:pl-2 ">
         <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="pt-10 md:pl-96 md:pt-[46px] lt:pl-20 lg:pl-96">
                         <div className="p-4 md:p-8">

@@ -33,10 +33,10 @@ const View: FC = () => {
     <>
     <SideNavDash/>
     
-        <div className="h-screen bg-gray-200">
+        <div className="h-screen bg-gray-200 sm:pl-20 lg:pl-2">
         <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
         <div>
-        <div className='text-3xl font-roboto font-bold leading-tight lg:ml-[400px] lt:mt-6 lt:ml-80 lg:mt-10'>Viewing Report Archive {archive?.id}</div>
+        <div className='text-3xl font-roboto font-bold leading-tight sm:ml-10 sm:mt-4 lg:ml-[400px] lt:mt-6 lt:ml-80 lg:mt-10 sm:text-[20px] sm:w-40'>Viewing Report Archive {archive?.id}</div>
         <div ></div>
 
         <div>

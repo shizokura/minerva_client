@@ -108,11 +108,11 @@ const AddServicePage: FC = () => {
 
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px] sm:pl-28">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Add New Service</h1>
                             <form encType='multipart/form-data' onSubmit={AddServicesForm} className="flex flex-col items-center">
-                                    <div className="md:w-3/4 lg:w-2/3 xl:w-1/2">
+                                    <div className="md:w-3/4 sm:w-60 lg:w-2/3 xl:w-1/2">
                                             <div className="flex flex-col md:flex-row">
                                                 
 
@@ -132,7 +132,7 @@ const AddServicePage: FC = () => {
                                             <div className="flex flex-col md:flex-row">
                                                 
 
-                                                <div className='flex flex-col mt-4 lg:ml-[60px] xl:ml-[130px] lt:ml-[70px]'> 
+                                                <div className='flex flex-col mt-4 lg:ml-[60px] xl:ml-[130px] lt:ml-[70px] sm:pl-16'> 
     <label className="text-lg absolute mt-2 text-black font-bold px-1 rounded lg:-ml-16" htmlFor="file_input">Upload photo</label>
                     <input name="file" className="mt-12 block -ml-16 w-60 text-sm text-gray-900 border border-gray-300 rounded-sm cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file" accept='image/*'  multiple onChange={onHandleImageUpload}/>
                     <p className="mt-2 ml-2 text-sm text-gray-900 dark:text-gray-800 lg:-ml-16" id="file_input_help">PNG, JPG, or JPEG</p>
@@ -172,7 +172,7 @@ const AddServicePage: FC = () => {
                                                       </svg>
                                                     </button>
                                                   </div>
-                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] absolute z-20' : 'hidden'}`}>
+                                                  <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] sm:w-36 sm:top-[495px] sm:left-[215px] absolute lg:left-[715px] lg:w-40 lg:top-[500px] z-20' : 'hidden'}`}>
                                 {isOpen ? (
                                   serviceAvailability.map((name) => (
                                     <button

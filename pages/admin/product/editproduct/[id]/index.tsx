@@ -169,13 +169,13 @@ const EditProductPage = () => {
     <>
 <SideNavDash/>
 
-    <div className="h-screen bg-gray-200">
-    <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px]">
+<div className="h-screen bg-gray-200">
+    <div className="flex w-full h-[1080px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px] sm:pl-28">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Product Details</h1>
                             <form encType='multipart/form-data' onSubmit={EditProductForm} className="flex flex-col items-center">
-                                    <div className="md:w-4/5 lg:w-3/4 xl:w-2/3">
+                                    <div className="md:w-4/5 sm:w-60 lg:w-3/4 xl:w-2/3">
                                             <div className="flex flex-col md:flex-row">
                                                 
 
@@ -208,7 +208,7 @@ const EditProductPage = () => {
                                            
                                             </div>
 
-                                            <div className="my-4 flex flex-row md:gap-[730px] lt:gap-[450px] lg:gap-[740px]">
+                                            <div className="my-4 flex lg:flex-row sm:flex-col md:gap-[730px] lt:gap-[450px] lg:gap-[740px]">
                                                 
 
                                             <div>
@@ -223,7 +223,7 @@ const EditProductPage = () => {
                         </svg>
                       </button>
                     </div>
-                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] absolute z-10' : 'hidden'}`}>
+                    <div className={`w-full mt-[80px] flex flex-col bg-gray-900 text-md font-medium text-white rounded-md shadow-lg p-4 ${isOpen ? 'w-[190px] sm:w-36 sm:top-[375px] sm:left-[180px] absolute lg:left-[620px] lg:w-40 lg:top-[380px]  z-10' : 'hidden'}`}>
                     {isOpen ? (
           productsAvailability.map((name) => (
             <button
@@ -253,7 +253,7 @@ const EditProductPage = () => {
                       </button>
                     </div>
 
-                    <div className={`w-full xl:ml-[895px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'w-[190px] absolute z-10' : 'hidden'}`}>
+                    <div className={`w-full xl:ml-[895px] flex flex-col md:ml-[190px] md:mt-[80px] text-md font-medium bg-gray-900  text-white rounded-md shadow-lg p-4 ${isOpen1 ? 'w-[190px] sm:w-36 sm:top-[540px] sm:left-[180px] absolute lg:left-[620px] lg:w-40 lg:top-[380px] z-20' : 'hidden'}`}>
                     {isOpen1 ? productsCateg.map((name) => (
                       <button name="category" className='text-left' 
                       type="button"

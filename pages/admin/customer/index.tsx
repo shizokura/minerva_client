@@ -141,11 +141,11 @@ const CustomerPage: FC = () => {
 
     
 
-    <div className="antialiased font-sans bg-gray-200">
+    <div className="antialiased font-sans bg-gray-200 sm:pl-20 lg:pl-2">
     <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
         <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight sm:">Customer Management</h2>
+                <h2 className="text-3xl font-roboto font-bold leading-tight sm:text-[20px]">Customer Management</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">

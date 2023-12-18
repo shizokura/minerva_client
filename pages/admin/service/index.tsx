@@ -121,7 +121,7 @@ console.log(servicesId)
 
 
 
-<div className="antialiased font-sans bg-gray-200">
+<div className="antialiased font-sans bg-gray-200 sm:pl-20 lg:pl-2">
 <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
     <div className="py-12">
     <div className='w-full flex gap-12 xl:gap-[1170px]'>

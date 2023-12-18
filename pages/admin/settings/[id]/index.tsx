@@ -102,7 +102,7 @@ console.log(firstName)
 
     <div className="h-screen bg-gray-200">
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-            <div className="pt-20 md:pl-96 md:pt-[80px] lt:pl-20 lg:pl-96">
+            <div className="pt-20 md:pl-96 md:pt-[80px] lt:pl-20 lg:pl-96 sm:pl-24">
                     <div className="p-4 md:p-8">
                         <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Update Profile Settings</h1>
                             <form encType='multipart/form-data' onSubmit={userEditForm} className="flex flex-col items-center">

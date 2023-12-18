@@ -59,7 +59,7 @@ const AuditLog: FC = () => {
 
     
 
-    <div className="antialiased font-sans bg-gray-200">
+    <div className="antialiased font-sans bg-gray-200 sm:pl-20 lg:pl-2">
     <div className="container mx-auto px-4 sm:px-8 2xl:ml-[360px] ">
         <div className="py-12">
             <div>
@@ -70,15 +70,16 @@ const AuditLog: FC = () => {
                 <div className="absolute top-6 right-6 mb-6">
                                 <div className="relative inline-block text-left">
                                   <div>
-                                    <button type="button" className="flex mt-8 gap-4 justify-center w-[220px] rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                                    <button type="button" className="flex mt-8 gap-4 justify-center lg:mr-6 lg:w-[220px] sm:w-10 rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                                       onClick={toggleDropdown}
                                     >
+                                      <span className='lg:flex sm:hidden'>
                                     {dateFilters === "" ? "Filters" : dateFilters}
-
+                                    </span>
                                      <span className='pt-[2px]'><TbFilter/></span>
                                     </button>
                                   </div>
-                                  <div className={`w-full flex flex-col rounded-md shadow-lg bg-primary-100 p-4 text-primary-600 ${isOpen ? 'w-[220px] absolute z-10' : 'hidden'}`}>
+                                  <div className={`w-full bg-white flex flex-col rounded-md shadow-lg bg-primary-100 p-4 text-primary-600 ${isOpen ? 'w-[220px] absolute z-10' : 'hidden'}`}>
                 {isOpen ? (
                   filters.map((name) => (
                     <button
