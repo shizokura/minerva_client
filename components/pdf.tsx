@@ -1,8 +1,9 @@
-'use client'
+import ReactDOM from 'react-dom';
 import React, { useState, useEffect } from 'react'
-import { Document, Page, View, Text, PDFViewer, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, View, Text, PDFViewer, StyleSheet, Font,  } from '@react-pdf/renderer';
 import { FormattedDate, FormattedPrice } from '@/helpers/index'
 import Image from 'next/image';
+
 Font.register({
   family: 'Franklin Gothic Book',
   src: '/assets/FRABK.ttf',
@@ -15,6 +16,8 @@ const styles = StyleSheet.create({
 })
 
 const PDF = ({ generate, startDate, endDate }: any) => {
+
+  
 
   return(
     
