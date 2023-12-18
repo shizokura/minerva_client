@@ -172,6 +172,7 @@ export default function Register() {
         <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
       </div>
+      
       <div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
         <form onSubmit={onHandleRegister}>
           <h1 className="text-gray-800 font-bold text-2xl mb-1">Welcome!</h1>
@@ -208,6 +209,7 @@ export default function Register() {
                 title="Please enter a valid last name (letters only)"
                 onChange={(e) => setRegister({ ...register, lastname: e.target.value })}
               />
+              
             </div>
             <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -219,12 +221,14 @@ export default function Register() {
                 type="text"
                 name="email"
                 id="email"
-                placeholder="Email Address"
+                placeholder="Please use your Gmail"
                 pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 title="Please enter a valid email address"
                 onChange={(e) => setRegister({ ...register, email: e.target.value })}
               />
+              
             </div>
+            
 
             <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
