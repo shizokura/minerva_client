@@ -108,7 +108,7 @@ function SideNavbar() {
             aria-hidden="true"
           />
         </Disclosure.Button>
-        <div className="p-6 lg:w-[350px] sm:w-[300px] overflow-y-auto h-screen bg-white z-20 absolute top-0 -left-96 lg:left-0 lt:mr-40 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+        <div className="p-6 lg:w-[350px] sm:w-[300px] overflow-y-auto h-screen bg-white z-20 absolute top-0 -left-96 lg:left-0 lt:mr-40 sm:left-0 peer-focus:left-0 peer:transition sm:peer-focus:left-0 sm:peer:transition ease-out delay-150 duration-200">
           <div className="flex flex-col justify-start item-center">
             <h1 className="text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
                 <div className="pl-24 pb-4">
