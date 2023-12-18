@@ -125,6 +125,20 @@ const ServiceDetails: FC = () => {
     })
   }, [ servicesD ])
 
+  const today = new Date();
+ const minDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3);
+ const minDateString = minDate.toISOString().split('T')[0];
+
+ const isTimeInPast = (time : any) => {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+  const currentMinutes = currentTime.getMinutes();
+ 
+  const [selectedHour, selectedMinutes] = time.split(':');
+ 
+  return currentHour > selectedHour || (currentHour === selectedHour && currentMinutes >= selectedMinutes);
+ };
+ 
   return (
     <>
     <Toaster richColors/>
@@ -163,7 +177,7 @@ const ServiceDetails: FC = () => {
                               id="date"
                               type="date"
                               name="date"
-                              min="2023-12-9"
+                              min={minDateString}
                               max="2030-01-31"
                               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                               onChange={(e) => setAppointment({...appointment, date: e.target.value})}
@@ -176,12 +190,12 @@ const ServiceDetails: FC = () => {
                           <select
                             id="time"
                             name="time"
-                            value={appointment.time} 
+                            value={appointment.time === "" ? "8:00" : appointment.time} 
                             onChange={(e) => setAppointment({...appointment, time: e.target.value})}
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                           >
                             {['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].map((time) => (
-                              <option key={time} value={time}>
+                              <option key={time} value={time} disabled={isTimeInPast(time)}>
                                 {time}
                               </option>
                             ))}

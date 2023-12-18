@@ -144,7 +144,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Maya. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <Image src="/mayapayment.jpg" width={20} height={20}  alt=""/>
+                            <Image src="/mayapayment.jpg" width={50} height={400}  alt=""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         
@@ -155,7 +155,7 @@ const Checkout: FC = () => {
                                 You may pay prior pickup using Gcash. Scan the QR code or enter the account number and wait for the acknowledgement receipt in your email. Kindly screenshot or keep any proof of payment that you may present for any inquiries.
                             </p>
         
-                            <Image src="/gcashpayment.jpg" width={20} height={20} alt = ""/>
+                            <Image src="/gcashpayment.jpg" width={50} height={40} alt = ""/>
         
                             <hr className="my-5 border-t border-gray-300 dark:border-gray-700" />
         

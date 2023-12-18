@@ -2,12 +2,16 @@ import React, { SyntheticEvent, useState } from 'react'
 import Image from 'next/image'
 import router, { useRouter } from 'next/router'
 import Modal from '@/components/Modal';
+import ModalTerms from '@/components/Modal';
+import TermsModal from '@/components/ModalTerms'
 import { IoCartOutline, IoMailUnread } from "react-icons/io5";
+import Link from 'next/link';
 
 export default function Register() {
 
   const router = useRouter();
   const [ isModalOpen, setIsModalOpen ] = useState(false);
+  const [ isModalOpen1, setIsModalOpen1 ] = useState(false);
   const [ email, setEmail ] = useState("")
 
   const [ register, setRegister ] = useState({
@@ -20,14 +24,19 @@ export default function Register() {
 
   })
 
-
+const handleOpenModal1 = () => {
+  setIsModalOpen1(true);
+}
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  }
+  const handleCloseModal1 = () => {
+    setIsModalOpen1(false);
+  };
+
+
+
   const [ showPassword, setShowPassword ] = useState(false);
 
   const [ showCPassword, setShowCPassword ] = useState(false);
@@ -141,6 +150,16 @@ export default function Register() {
 
 
   }
+
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
+    const handleOpenModal = () => {
+      if (register.email !== "" && register.password !== "" && register.firstname !== ""
+      && register.lastname !== "" && register.phone !== "" && register.shipping !== ""
+      && isCheckboxChecked ) {
+        setIsModalOpen(true);
+    }
+  }
   return (
 
 
@@ -162,6 +181,102 @@ export default function Register() {
           </div>
         </div>
       </Modal>
+
+      <ModalTerms isOpen={isModalOpen1} onClose={handleCloseModal1}>
+        <div className="relative w-full max-w-2xl px-4 h-full md:h-auto">
+
+            <div className="w-96 h-[700px] lt:h-[550px] sm:w-[320px] bg-white rounded-lg shadow relative dark:bg-gray-700 overflow-y-auto">
+                <div className="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 className="text-gray-900 text-xl lg:text-2xl font-semibold dark:text-white">
+                        Terms and Conditions
+                    </h3>
+                    <button onClick={handleCloseModal1}type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="default-modal">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                </div>
+
+                <div className="p-6 space-y-6">
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>1. HOW TO ORDER</span>
+                    <br></br>
+                  To place an order, customers can browse our website/catalog and add desired items to their cart.<br></br>
+                  Follow the checkout process, providing accurate and complete information.<br></br>
+                  Orders are considered confirmed and will be ready to pick up upon successful payment.<br></br>
+                  All orders are subject to be validated and can be cancelled by Minerva Sales Corporation at any time.<br></br>
+                  No deliveries will be catered in the website. Special arrangements may be made by contacting us personally.<br></br>
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>2. ORDER CANCELLATION</span><br></br>
+                    Customers can only cancel by manually messaging or contacting Minerva Sales Corporations. <br></br>
+                    STRICTLY, NO REFUND POLICY<br></br>
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>3. CHANGING OF ORDER DETAILS</span>
+                    <br></br>
+                    Contact Minerva Sales Corporation to cancel your previous order in order to make a new one<br></br>
+   Only the administrator of the system can cancel your order.<br></br>
+   You may submit a new order with the correct details again from your account.<br></br>
+<br></br>
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>4. MODES OF PAYMENT</span>
+                    <br></br>
+                    We accept the following payment methods: <br></br>
+     Pay Upon Pickup Cash <br></br>
+     Pay Upon Pickup Card <br></br>
+     GCash <br></br>
+     Maya <br></br>
+     Online banking (Chinabank) <br></br>
+    For Gcash, Maya, and Online banking mode of payments, you must provide your proof of payment via the chat function within the system, or message Minerva Sales Corporation on their facebook page. <br></br>
+
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>5. HOW TO SET APPOINTMENT</span>
+                    <br></br>
+                    You may schedule your appointments using your fully verified account.<br></br>
+Appointments can only be made 3 days in advance to your desired date.<br></br>
+All appointments are subject to be validated and can be cancelled by Minerva Sales Corporation at any time.<br></br>
+
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>6. APPOINTMENT CANCELLATION</span>
+                    <br></br>
+                    Only administrators can cancel your appointment/s<br></br>
+Message Minerva Sales Corporation on their official channels to request your cancellation<br></br>
+
+
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>7. CHANGING OF APPOINTMENT DETAILS</span>
+                    <br></br>
+                    Customers cannot manually change their appointment details.<br></br>
+You must request a cancellation prior to your appointment and create a new appointment with the right details.<br></br>
+
+
+                    </p>
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    <span className='font-bold text-gray-200'>8. DATA PRIVACY</span>
+                    <br></br>
+                    Customer information is treated with utmost confidentiality.<br></br>
+   We use secure systems to protect personal data and adhere to privacy laws.<br></br>
+
+
+                    </p>
+
+                    <p className="text-gray-500 text-base leading-relaxed dark:text-gray-400">
+                    
+                    These terms and conditions are subject to change, and any modifications will be communicated to customers through our website or other official channels. It is the responsibility of the customer to review and understand the terms and conditions before making a purchase.
+
+
+
+                    </p>
+
+                </div>
+
+                
+        </div>
+    </div>
+      </ModalTerms>
       <div
         className="relative overflow-hidden md:flex w-1/2 i justify-around items-center hidden">
         <div>
@@ -174,8 +289,8 @@ export default function Register() {
       </div>
       
       <div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
-      <div className='absolute lg:top-[445px] lg:left-[1170px] lt:top-[320px] lt:left-[750px] sm:top-[340px] sm:left-[70px] 12:top-[335px] 12:left-[60px] text-sm text-gray-500'><span>Please use a valid Gmail Account</span></div>
-      <div className='absolute lg:top-[450px] lg:left-[1450px] lt:top-[320px] lt:left-[1030px] sm:top-[415px] sm:left-[70px] 12:top-[410px] 12:left-[60px] text-xs text-gray-500'><span>Use Alphanumeric Characters. 1 uppercase and 1 lowercase.</span></div>
+      <div className='absolute lg:top-[445px] lg:left-[1170px] lt:top-[300px] lt:left-[750px] sm:top-[325px] sm:left-[70px] 12:top-[315px] 12:left-[50px] text-sm text-gray-500'><span>Please use a valid Gmail Account</span></div>
+      <div className='absolute lg:top-[450px] lg:left-[1450px] lt:top-[300px] lt:left-[1030px] sm:top-[405px] sm:left-[70px] 12:top-[390px] 12:left-[50px] text-xs text-gray-500'><span>Use Alphanumeric Characters. 1 uppercase and 1 lowercase.</span></div>
 
         <form onSubmit={onHandleRegister}>
           <h1 className="text-gray-800 font-bold text-2xl mb-1">Welcome!</h1>
@@ -312,9 +427,12 @@ export default function Register() {
                 onChange={(e) => setRegister({ ...register, phone: e.target.value })}
               />
             </div>
-
+            <div className='absolute lg:top-[675px] lg:left-[1170px] lt:top-[535px] lt:left-[750px] sm:top-[710px] sm:left-[48px] 12:top-[700px] 12:left-[38px] text-sm text-gray-500'>
+            <label>
+  <input type="checkbox" required className='text-gray-900'onClick={handleOpenModal1} onChange={(e) => setIsCheckboxChecked(e.target.checked)}/> I have read and agree to the<span className='text-blue-500'> Terms & Conditions</span>
+</label></div>
           </div>
-          <button type="submit" className="block w-full bg-[#FFBD59] mt-4 py-2 rounded-2xl text-black font-semibold mb-2" onClick={handleOpenModal}>Register</button>
+          <button type="submit" className="block w-full bg-[#FFBD59] mt-4 mb-10 py-2 rounded-2xl text-black font-semibold" onClick={handleOpenModal}>Register</button>
           {/* Display error messages */}
           {Object.values(errorMessages).map((error, index) => (
             error && <p key={index} className="text-red-500 text-sm">{error}</p>

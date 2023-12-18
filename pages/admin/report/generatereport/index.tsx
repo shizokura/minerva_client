@@ -133,9 +133,9 @@ const GenerateReport: FC = () => {
                                                     id="date"
                                                    type="date"
                                                     name="date"
-                                                    min="2023-12-6"
+                                                    min="2023-12-1"
                                                      max="2030-01-31"
-                                                    className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                    className="mt-10 py-4 px-4 rounded-md bg-white text-gray-800 w-full outline-none focus:ring-2 focus:ring-blue-600"
                                                     onChange={(e) => setDates({...dates, startDate: e.target.value})}
                                                         />
                                                
@@ -152,7 +152,7 @@ const GenerateReport: FC = () => {
                                                      name="date"
                                                      min="2023-12-6"
                                                       max="2030-01-31"
-                                                      className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                      className="mt-10 py-4 px-4 rounded-md bg-white text-gray-800 w-full outline-none focus:ring-2 focus:ring-blue-600"
                                                       onChange={(e) => setDates({...dates, endDate: e.target.value})}
                                                     />
                                                
