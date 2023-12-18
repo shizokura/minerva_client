@@ -174,6 +174,9 @@ export default function Register() {
       </div>
       
       <div className="flex md:w-1/2 h-screen lg:h-screen justify-center py-10 items-center bg-gradient-to-r  from-[#FFBD59] via-gray-50 to-[#FFBD59]">
+      <div className='absolute lg:top-[445px] lg:left-[1170px] lt:top-[320px] lt:left-[750px] sm:top-[340px] sm:left-[70px] 12:top-[335px] 12:left-[60px] text-sm text-gray-500'><span>Please use a valid Gmail Account</span></div>
+      <div className='absolute lg:top-[450px] lg:left-[1450px] lt:top-[320px] lt:left-[1030px] sm:top-[415px] sm:left-[70px] 12:top-[410px] 12:left-[60px] text-xs text-gray-500'><span>Use Alphanumeric Characters. 1 uppercase and 1 lowercase.</span></div>
+
         <form onSubmit={onHandleRegister}>
           <h1 className="text-gray-800 font-bold text-2xl mb-1">Welcome!</h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Create an account in <span className='font-medium text-[#FFBD59]'>Minerva Sales Corporation</span></p>
