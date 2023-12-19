@@ -178,7 +178,7 @@ const EditInventoryPage = () => {
                                                 <div>
                           <label htmlFor="lastName" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">Product Status </label>
                           <button name="status"type="button" className="inline-flex justify-center w-[180px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                            disabled onClick={toggleDropdown}
+                             onClick={toggleDropdown}
                           >
                            {productStock === "" ? "Select Product Status" : productStock}
     
@@ -197,7 +197,7 @@ const EditInventoryPage = () => {
             key={name}
             value={name}
             onClick={(e) => setProductStock(e.currentTarget.value)}
-            disabled
+            
           >
             {name}
           </button>

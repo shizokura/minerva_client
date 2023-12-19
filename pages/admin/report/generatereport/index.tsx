@@ -109,6 +109,7 @@ const GenerateReport: FC = () => {
   return (
 
     <>
+    <title>Generate Report</title>
     <SideNavDash/>
     <Toaster richColors/>
         <div className="h-screen bg-gray-200 sm:pl-24 lg:pl-2 ">

@@ -31,6 +31,7 @@ const View: FC = () => {
 
   return (
     <>
+    <title>View Report Archive</title>
     <SideNavDash/>
     
         <div className="h-screen bg-gray-200 sm:pl-20 lg:pl-2">

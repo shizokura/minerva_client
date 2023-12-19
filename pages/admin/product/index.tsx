@@ -182,7 +182,7 @@ const ProductPage = () => {
                                             
                                             {image.length > 0 && (
                                               <div className="flex-shrink-0 w-[70px] h-[70px]">
-                                                    <Image src={image[1]} alt={name} height={10} width={100} />
+                                                    <Image src={image[0]} alt={name} height={10} width={100} />
                                                     </div>
                                                     )}
                                             </p>
