@@ -251,8 +251,6 @@ const AddProductPage = () => {
                                                     placeholder="ex. 25"
                                                     onChange={(e) => setProducts({...products, quantity: e.target.value})}
                                                     />
-
-                                           
                                             </div>
 
                                             <div className="flex flex-col md:flex-row">

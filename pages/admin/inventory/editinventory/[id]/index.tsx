@@ -153,7 +153,7 @@ const EditInventoryPage = () => {
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="pt-10 md:pl-96 md:pt-[46px] lt:pl-20 lg:pl-96 sm:pl-28">
                     <div className="p-4 md:p-8">
-                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl"> Inventory Details</h1>
+                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl"> Update Product Quantity</h1>
                             <form encType='multipart/form-data' onSubmit={EditInventoryForm} className="flex flex-col items-center">
                                     <div className="md:w-4/5 sm:w-60 lg:w-3/4 xl:w-2/3">
                                             <div className="flex flex-col md:flex-row">
@@ -264,25 +264,17 @@ const EditInventoryPage = () => {
                                                 
                                                 <div className="flex flex-col md:flex-row">
                                                 <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
-                                                   Product Quantity
+                                                   Add Quantity
                                                 </label>
                                                 
                                                 <input id="price" type="text" name="price"
                                                     className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
                                                     placeholder="ex. 25"
-                                                    defaultValue={products.quantity} 
                                                     onChange={(e) => setProducts({...products, quantity: e.target.value})}/>
 
                                            
                                             </div>
-
-                                           
-
-                                            
-
-                                            
-
-                                            
+            
                                     </div>
                                 <button
                                     className="border-2 text-md font-bold mt-5 rounded-md py-2 px-4 bg-[#FFBD59] shadow-md shadow-black hover:bg-yellow-500 text-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900">

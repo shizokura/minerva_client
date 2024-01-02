@@ -48,7 +48,7 @@ const EditOrdersPage: FC = ({}) => {
   })
 
   const [ status, setStatus ] = useState("")
-  const orderStatus =["Preparing Order", "Order Cancelled", "Ready for Pick-Up"];
+  const orderStatus =["Preparing Order", "Order Cancelled", "Ready for Pick-Up", "Order Completed"];
 
   const [ selectedImage, setSelectedImage ] = useState<any>([])
 
@@ -138,7 +138,7 @@ const EditOrdersPage: FC = ({}) => {
     <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="pt-10 md:pl-96 lt:pl-20 lg:pl-96 md:pt-[46px] sm:pl-28">
                     <div className="p-4 md:p-8">
-                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Order</h1>
+                        <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Edit Order Status</h1>
                             <form encType='multipart/form-data' onSubmit={orderEditForm} className="flex flex-col items-center">
                                     <div className="md:w-4/5 sm:w-60 lg:w-3/4 xl:w-2/3">
                                             

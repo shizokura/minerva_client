@@ -44,18 +44,26 @@ const ServiceDetails: FC = () => {
     }
   }, [ ])
 
-  const [ appointment, setAppointment ] = useState({
-    date: "",
-    service: "",
-    time: "",
-  })
-
   const [services, setServices] = useState({
     services: '',
     status: '',
     price: '',
-    image: ''
+    image: '',
   });
+
+
+  const [ appointment, setAppointment ] = useState({
+    date: "",
+    service: services.services,
+    time: "",
+    brand: '',
+    model: '',
+    platNo: '',
+    remarks: '',
+    type: '',
+    year: '',
+  })
+
 
 
 
@@ -70,6 +78,12 @@ const ServiceDetails: FC = () => {
         date: appointment.date,
         time: appointment.time,
         service: services.services,
+        brand: appointment.brand,
+        model: appointment.model,
+        platNo: appointment.platNo,
+        remarks: appointment.remarks,
+        type: appointment.type,
+        year: appointment.year,
         userID: userid
       })
     })
@@ -111,7 +125,7 @@ const ServiceDetails: FC = () => {
 
 
 
-
+console.log(services)
 
 
   useEffect(() => {
@@ -121,6 +135,7 @@ const ServiceDetails: FC = () => {
         services: services,
         price: price,
         status: status,
+
       })
     })
   }, [ servicesD ])
@@ -138,6 +153,11 @@ const ServiceDetails: FC = () => {
  
   return currentHour > selectedHour || (currentHour === selectedHour && currentMinutes >= selectedMinutes);
  };
+
+ const maxDate = new Date();
+maxDate.setMonth(maxDate.getMonth() + 1);
+const maxDateString = maxDate.toISOString().split('T')[0];
+ console.log(appointment)
  
   return (
     <>
@@ -153,7 +173,7 @@ const ServiceDetails: FC = () => {
     </div>
     <form encType='multipart/form-data' onSubmit={AddAppointmentForm} className='grid grid-cols-1 md:grid-cols-2 gap-16'>
     
-    <div className=" w-96 mb-12 ml-4 lt:ml-[470px] lg:ml-[770px] bg-white border mt-4 border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
+    <div className=" w-96 mb-12 ml-4 lt:ml-[470px] lg:ml-[370px] bg-white border mt-4 border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
     
                 <div className="w-96  bg-white border border-gray-200 rounded-lg shadow transition-all duration-700 hover:scale-105">
     
@@ -178,7 +198,7 @@ const ServiceDetails: FC = () => {
                               type="date"
                               name="date"
                               min={minDateString}
-                              max="2030-01-31"
+                              max={maxDateString}
                               className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                               onChange={(e) => setAppointment({...appointment, date: e.target.value})}
                             />
@@ -195,22 +215,112 @@ const ServiceDetails: FC = () => {
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                           >
                             {['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].map((time) => (
-                              <option key={time} value={time} disabled={isTimeInPast(time)}>
+                              <option key={time} value={time}>
                                 {time}
                               </option>
                             ))}
                             </select>
               
-            <button
+           
+            
+      </div>
+      
+              </div>
+<div>
+              <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="name" className="text-lg absolute mt-2.5 text-black font-bold px-1 rounded ">
+                                                   Car Brand
+                                                </label>
+                                                
+                                                <input id="name" type="text" name="brand"
+                                                    className="w-60 h-10 mt-10 py-4 px-4 pb-4 rounded-md bg-gray-900 text-gray-300 outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="Input car brand"
+                                                    onChange={(e) => setAppointment({...appointment, brand: e.target.value})}
+                                                    required/>
+
+                                           
+                                            </div>
+                                            <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="name" className="text-lg absolute mt-2.5 text-black font-bold px-1 rounded ">
+                                                   Car Model
+                                                </label>
+                                                
+                                                <input id="name" type="text" name="brand"
+                                                    className="w-60 h-10 mt-10 py-4 px-4 pb-4 rounded-md bg-gray-900 text-gray-300 outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="Input car model"
+                                                    onChange={(e) => setAppointment({...appointment, model: e.target.value})}
+                                                    required/>
+
+                                           
+                                            </div>
+                                            <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="name" className="text-lg absolute mt-2.5 text-black font-bold px-1 rounded ">
+                                                   Car Plate No.
+                                                </label>
+                                                
+                                                <input id="name" type="text" name="brand"
+                                                    className="w-60 h-10 mt-10 py-4 px-4 pb-4 rounded-md bg-gray-900 text-gray-300 outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="Input car plate no."
+                                                    onChange={(e) => setAppointment({...appointment, platNo: e.target.value})}
+                                                    required/>
+
+                                           
+                                            </div>
+                                            <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="name" className="text-lg absolute mt-2.5 text-black font-bold px-1 rounded ">
+                                                   Car Type
+                                                </label>
+                                                
+                                                <input id="name" type="text" name="brand"
+                                                    className="w-60 h-10 mt-10 py-4 px-4 pb-4 rounded-md bg-gray-900 text-gray-300 outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="Input car type"
+                                                    onChange={(e) => setAppointment({...appointment, type: e.target.value})}
+                                                    required/>
+
+                                           
+                                            </div>
+
+                                            <div className="flex flex-col md:flex-row">
+                                                
+
+                                                <label htmlFor="name" className="text-lg absolute mt-2.5 text-black font-bold px-1 rounded ">
+                                                   Car Year
+                                                </label>
+                                                
+                                                <input id="name" type="text" name="brand"
+                                                    className="w-60 h-10 mt-10 py-4 px-4 pb-4 rounded-md bg-gray-900 text-gray-300 outline-none focus:ring-2 focus:ring-blue-600"
+                                                    placeholder="Input car type"
+                                                    onChange={(e) => setAppointment({...appointment, year: e.target.value})}
+                                                    required/>
+
+                                           
+                                            </div>
+                                                
+
+<div>
+
+                                            <label htmlFor="price" className=" text-lg absolute -z-8 mt-1.5 text-black font-bold px-1 rounded">
+                                                   Remarks
+                                                </label>
+                                        <textarea id="message"
+                                            className="w-96 mt-10 py-2 px-4 rounded-md bg-gray-900 text-gray-300  h-[150px] outline-none focus:ring-2 focus:ring-blue-600" name='description'
+                                            onChange={(e) => setAppointment({...appointment, remarks: e.target.value})} placeholder="Input any other remarks" required/>
+                                    </div>
+                                    </div>
+              <button
             type="submit"
-              className="mt-8 mb-8 ml-2 w-56 rounded-full border-6 border-yellow-100 bg-[#FFBD59] px-16 py-4 text-base font-bold text-white transition hover:translate-y-1"
+              className="absolute bottom-[-180px] left-[870px] mt-8 mb-8 ml-2 w-56 h-14 rounded-full border-6 border-yellow-100 bg-[#FFBD59] px-16 py-4 text-base font-bold text-white transition hover:translate-y-1"
             >
               Schedule
             </button>
-            
-      </div>
-              </div>
-    
               </form>
     
     

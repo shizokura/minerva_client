@@ -27,7 +27,13 @@ const EditAppointmentPage: FC = () => {
     service: "",
     time: "",
     name: "",
-    status: ""
+    status: "",
+    brand: '',
+    model: '',
+    platNo: '',
+    remarks: '',
+    type: '',
+    year: '',
   })
 
   const [ appointmentStatus, setAppointmentStatus ] = useState(appointment.status || "");
@@ -94,7 +100,7 @@ const EditAppointmentPage: FC = () => {
 
 
   useEffect(() => {
-    appointmentD?.map(({userID, scheduleID, date, time, name, service, status, User}: any) => {
+    appointmentD?.map(({userID, scheduleID, date, time, name, service, status, Car, User, }: any) => {
       name === null ?
       
       User.map(({ profile }: any) => (
@@ -104,7 +110,13 @@ const EditAppointmentPage: FC = () => {
           time: time,
           name: `${profile.firstname} ${profile.lastname}`,
           status: status,
-          service: service
+          service: service,
+          brand: Car[0].brand,
+          model: Car[0].model,
+          platNo: Car[0].platNo,
+          remarks: Car[0].remarks,
+          type: Car[0].type,
+          year: Car[0].year,
 
         })
       )) : setAppointment({
@@ -113,7 +125,13 @@ const EditAppointmentPage: FC = () => {
         time: time,
         name: name,
         status: status,
-        service: service
+        service: service,
+        brand: Car[0].brand,
+        model: Car[0].model,
+        platNo: Car[0].platNo,
+        remarks: Car[0].remarks,
+        type: Car[0].type,
+        year: Car[0].year,
 
       }) 
     
@@ -142,7 +160,7 @@ const EditAppointmentPage: FC = () => {
     <SideNavDash/>
     
         <div className="h-screen bg-gray-200">
-        <div className="flex w-full h-[1050px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
+        <div className="flex w-full h-[1200px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="pt-20 md:pl-96 md:pt-[80px] lt:pl-20 lg:pl-96 sm:pl-28">
                         <div className="p-4 md:p-8">
                             <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Update Appointment Status</h1>
@@ -175,6 +193,70 @@ const EditAppointmentPage: FC = () => {
                                                         onChange={(e) => setAppointment({...appointment, service: e.target.value})}
                                                         placeholder="Input service name" 
                                                         defaultValue={appointment.service} disabled required/>
+    
+                                               
+                                                </div>
+
+                                                <div className="flex flex-col md:flex-row">
+                                                    
+    
+                                                    <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                    Car Brand
+                                                    </label>
+                                                    
+                                                    <input id="price" type="text" name="price"
+                                                        className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                        onChange={(e) => setAppointment({...appointment, brand: e.target.value})}
+                                                        placeholder="Input service name" 
+                                                        defaultValue={appointment.brand} disabled required/>
+    
+                                               
+                                                </div>
+
+                                                <div className="flex flex-col md:flex-row">
+                                                    
+    
+                                                    <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                    Car Model
+                                                    </label>
+                                                    
+                                                    <input id="price" type="text" name="price"
+                                                        className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                        onChange={(e) => setAppointment({...appointment, model: e.target.value})}
+                                                        placeholder="Input service name" 
+                                                        defaultValue={appointment.model} disabled required/>
+    
+                                               
+                                                </div>
+
+                                                <div className="flex flex-col md:flex-row">
+                                                    
+    
+                                                    <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                    Car Plate No.
+                                                    </label>
+                                                    
+                                                    <input id="price" type="text" name="price"
+                                                        className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                        onChange={(e) => setAppointment({...appointment, platNo: e.target.value})}
+                                                        placeholder="Input service name" 
+                                                        defaultValue={appointment.platNo} disabled required/>
+    
+                                               
+                                                </div>
+
+                                                <div className="flex flex-col md:flex-row">
+                                                    
+    
+                                                    <label htmlFor="price" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">
+                                                    Car Year
+                                                    </label>
+                                                    
+                                                    <input id="price" type="text" name="price"
+                                                        className="mt-10 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"
+                                                        onChange={(e) => setAppointment({...appointment, year: e.target.value})}
+                                                        placeholder="Input service name" 
+                                                        defaultValue={appointment.year} disabled required/>
     
                                                
                                                 </div>
@@ -216,7 +298,7 @@ const EditAppointmentPage: FC = () => {
                                                     />
                                                
                                                 </div>
-    
+
                                                 <div className="my-4 flex flex-row md:gap-[620px]">
                                                     
     
@@ -247,9 +329,18 @@ const EditAppointmentPage: FC = () => {
           </button>
         ))
       ) : null}
+      
     </div>
     
-                                               
+    <div className='ml-[-280px]'>
+
+<label htmlFor="price" className=" text-lg absolute -z-8 mt-1.5 text-black font-bold px-1 rounded">
+       Remarks
+    </label>
+<textarea id="message"
+className="w-96 mt-10 py-2 px-4 rounded-md bg-gray-900 text-gray-300  h-[150px] outline-none focus:ring-2 focus:ring-blue-600" name='description'
+onChange={(e) => setAppointment({...appointment, remarks: e.target.value})} placeholder="Input any other remarks" disabled defaultValue={appointment.remarks} required/>
+</div>                        
                                                 </div>
     
                                                

@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent } from 'react'
+import React, { useState, SyntheticEvent, useEffect} from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { jwtDecode } from 'jwt-decode';
@@ -54,69 +54,13 @@ export default function Login() {
 		setPassword(() => !password)
 	}
 
-	// const onHandleSubmitForm = async (e: SyntheticEvent) => {
-	// 	e.preventDefault();
-
-	// 	// Validation block
-	// 	if (!validateEmail(users.user)) {
-	// 		setEmailError('Please enter a valid email address');
-	// 		return;
-	// 	}
-	// 	setEmailError('');
-
-	// 	// Password validation
-	// 	if (!validatePassword(users.password)) {
-	// 		setPasswordError('Password must be at least 8 characters long, with a mix of uppercase, lowercase, and numbers');
-	// 		return;
-	// 	}
-	// 	setPasswordError('');
-
-	// 	// Make the login request
-	// 	const res = await fetch("https://minervasales-23b0919d60c1.herokuapp.com/user/login", {
-	// 		method: "POST",
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		body: JSON.stringify({
-	// 			email: users.user,
-	// 			password: users.password
-	// 		})
-	// 	})
-
-	// 	const data = await res.json()
-	// 	const promise = () => new Promise((resolve) => setTimeout(resolve, 5000));
-	// 	// Check the success of the login request
-	// 	if (res.ok) {
-	// 		const cookies = Cookies.set("ecom_token", data, {
-	// 			expires: 60 * 60 * 24 * 7,
-	// 			path: "/",
-	// 			sameSite: "none",
-	// 			secure: true
-	// 		})
-
-	// 		if (cookies) {
-	// 			const { role, userID }: any = jwtDecode(cookies)
-	// 			if (role === "admin") {
-	// 				usersD.set(userID)
-	// 				router.push("/admin/customer")
-	// 			} else {
-	// 				usersD.set(userID)
-	// 				router.push('/')
-	// 			}
-
-	// 		}
-
-	// 	}
-	// 	else {
-	// 		toast.promise(promise, {
-	// 			loading: 'Loading...',
-	// 			success: (products) => {
-	// 				return `You have logged in successfully`;
-	// 			},
-	// 		});
-	// 	}
-	// }
+	
 
 	const [ errorMessage, setErrorMessage ] = useState("")
 
+	const [ attempt, setAttempt ] = useState(3)
+	const [ timer, setTimer ] = useState(60)
+	
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		   
@@ -139,10 +83,11 @@ export default function Login() {
 				// Check the success of the login request
 
 				if (!res.ok) {
+				  setAttempt(() => attempt - 1)
 				  const htmlContent = await res.text();
-		  
 				  setErrorMessage(htmlContent)
 				  toast.warning(htmlContent)
+
 				}
 
 
@@ -174,12 +119,23 @@ export default function Login() {
 			  }
 	   }
 
+	   useEffect(() => {
+		const interval = setInterval(() => {
+			if(attempt === 0){
+				setTimer(() => timer -1 )
+
+			}
+		}, 1000)	
+
+		return () => clearInterval(interval)
+	   }, [ timer, attempt ])
 
 
 	return (
 
 		<div className="h-screen md:flex">
 			<FacebookMsg />
+			
 			<div
 				className="relative overflow-hidden md:flex w-1/2 i justify-around items-center hidden ">
 				<div>
@@ -229,7 +185,9 @@ export default function Login() {
 						sitekey="6Lc7TSUpAAAAAI1U6gfmX3RoDuzwZXVHCi9EjqL3"
 						onChange={onChange}
 					/>
-					<button disabled={onReCaptcha === false} type="submit" className="block w-full bg-[#FFBD59] mt-4 py-2 rounded-2xl text-black font-semibold mb-2">Login</button>
+					{attempt == 0 ?
+			`Account locked. Please wait ${timer}s`: null}
+					<button disabled={onReCaptcha === false || timer < 0} type="submit" className="block w-full bg-[#FFBD59] mt-4 py-2 rounded-2xl text-black font-semibold mb-2">Login</button>
 
 					<span className="text-sm ml-2 hover:text-blue-500 cursor-pointer" onClick={() => router.push("/auth/changePassword")}>Forgot Password?</span>
 					<br></br>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Document, Page, View, Text, PDFViewer, StyleSheet, Font,  } from '@react-pdf/renderer';
 import { FormattedDate, FormattedPrice } from '@/helpers/index'
 import Image from 'next/image';
+import { useRouter } from 'next/router'
 
 Font.register({
   family: 'Franklin Gothic Book',
@@ -163,6 +164,9 @@ const PDF = ({ generate, startDate, endDate }: any) => {
 
 const PDFView = ({ generate, startDate, endDate }: any) => {
 
+
+  const router = useRouter();
+
   const [client, setClient] = useState(false)
 
   useEffect(() => {
@@ -170,6 +174,11 @@ const PDFView = ({ generate, startDate, endDate }: any) => {
     setClient(true)
 
   }, [])
+
+
+  if(router.isFallback){
+    return (<p>Loading...</p>)
+  }
 
   return(
   client ?  

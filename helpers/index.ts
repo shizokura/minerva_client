@@ -12,7 +12,7 @@ export const FormattedPrice = ( price: number) => {
 
 
 export const FormattedDate = (date: any) => {
-  return format(new Date(date), "yyyy MMM dd");
+  return format(new Date(date), "yyyy MMM dd hh:mm:ss aa");
 }
 
 

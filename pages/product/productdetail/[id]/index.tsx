@@ -78,12 +78,12 @@ const ProductDetails: FC = () => {
   }, [ router ]);
 
   useEffect(() => {
-    productsD?.map(({ productID, image, name, quantity, price, descriptions, category, userID, stock }: any) => {
+    productsD?.map(({ productID, image, name, newQuantity, price, descriptions, category, userID, stock }: any) => {
       setProducts({
         productID: productID,
         image: image,
         name: name,
-        quantity: quantity,
+        quantity: newQuantity,
         price: price,
         description: descriptions,
         category: category,

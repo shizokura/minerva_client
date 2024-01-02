@@ -2,7 +2,7 @@
 import React, { FC, useState, useEffect, SyntheticEvent } from 'react'
 import { TbFileAnalytics } from 'react-icons/tb'
 import Head from 'next/head'
-import router from 'next/router'
+import  { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import { jwtDecode} from 'jwt-decode'
 import Products from '@/pages/product'
@@ -11,6 +11,8 @@ import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
 
 const GenerateReport: FC = () => {
+
+  const router = useRouter();
 
   const [showPDF, setShowPDF] = useState(false);
 
@@ -106,6 +108,11 @@ const GenerateReport: FC = () => {
 
     return result
   }
+
+
+  if(router.isFallback){
+    return (<p>Loading...</p>)
+  }
   return (
 
     <>
@@ -169,7 +176,9 @@ const GenerateReport: FC = () => {
                                 </form>
 
                         </div>
-                        <div>    {generated ?   
+                        <div>    
+                          
+      {generated ?   
       <PDF generate={generated} startDate={dates.startDate} endDate={dates.endDate} /> : null}
       </div>
                         </div>    

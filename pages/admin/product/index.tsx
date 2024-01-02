@@ -32,10 +32,10 @@ const ProductPage = () => {
   const [ productid, setProductID ] = useState("")
   const [ userId, setUserId] = useState("")
 
-  
   const [ productId, setProductId] = useState("")
   const [ products, setProducts ] = useState<[]>()
-
+  const [ search, setSearch ] = useState("")
+  const [ productSearch, setProductSearch ] = useState<any>(null)
 
   useEffect(() => {
     const cookies = Cookies.get("ecom_token") as any
@@ -68,6 +68,17 @@ const ProductPage = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/product/getSearchProduct/?search=${search}`, {
+        method: "GET",
+        headers: { 'Content-Type': 'application/json' },
+      })
+      const result = await response.json()
+      setProductSearch(result)
+    }
+    fetchData()
+  }, [ productSearch, search ])
 
   const onFormDelete =  async () => {
     const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/product/deleteProduct/${productId}`, {
@@ -89,8 +100,8 @@ const ProductPage = () => {
     }
     return res.json()
   }
-  console.log(productId)
-  console.log(userId)
+
+  console.log(productSearch)
   return (
     <>
 
@@ -123,6 +134,23 @@ const ProductPage = () => {
         <title>Product Management</title>
 
     <SideNavDash/>
+    <div className="absolute z-20 top-[65px] right-32 flex items-center w-[140px] lg:w-[220px] mx-auto bg-white border-2 border-black rounded-md text-sm " x-data="{ search: '' }">
+          <div className="w-full">
+          
+            <input type="search" className="w-full px-4 py-1 text-gray-800 rounded-lg focus:outline-none "
+              placeholder="search" onChange={(e) => setSearch(e.target.value)}/>
+          </div>
+          
+          <div>
+            <button type="submit" className="flex items-center border-2 bg-[#FFBD59] justify-center w-12 h-12 text-white rounded-r-lg">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div> 
 
 
     <div className="antialiased font-sans bg-gray-200 sm:pl-20 lg:pl-2">
@@ -173,8 +201,59 @@ const ProductPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                        {products?.map(({ id, productID, name, category, price, stock, image, description, }: any) => (
+                        {search ? productSearch?.map(({ id, productID, name, category, price, stock, image, description, }: any) => (
                             <tr key={productID}>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <div className="flex items-center">
+                                        <div className="ml-3">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+                                            
+                                            {image.length > 0 && (
+                                              <div className="flex-shrink-0 w-[70px] h-[70px]">
+                                                    <Image src={image[0]} alt={name} height={10} width={100} />
+                                                    </div>
+                                                    )}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">{id}</p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    {name}
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    {stock}
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    {category}
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    {FormattedPrice(price)}
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <span
+                                        className="relative inline-block px-3 py-1 font-bold text-black leading-tight">
+                                                            <button onClick={() => router.push(`/admin/product/editproduct/${productID}`)}> <TbEdit size={25} /> </button>
+
+                                        <button  onClick={() => {
+                              handleOpenModal();
+                              setProductId(productID) }} > <TbTrash size={25} /> </button>
+                                    </span>
+                                </td>
+                            </tr>
+                             )):  
+                             products?.map(({ userId, id, productID, name, category, price, stock, image, description, quantity }: any) => (
+                              <tr key={productID}>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
