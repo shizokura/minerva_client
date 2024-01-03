@@ -9,6 +9,10 @@ import Products from '@/pages/product'
 import PDF from '@/components/pdf'
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import { GetServerSideProps } from 'next';
+import { Page } from '@react-pdf/renderer';
+
+import PdfDownloadLink from '@/components/PdfDownloadLink';
 
 const GenerateReport: FC = () => {
 

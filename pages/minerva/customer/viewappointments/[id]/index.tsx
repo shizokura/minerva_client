@@ -7,8 +7,12 @@ import Cookies from 'js-cookie'
 import 'react-toastify/dist/ReactToastify.css';
 import { Toaster, toast } from 'sonner'
 import SideNavDash from '@/components/sideNavDash'
+import HomePageLayout from '@/layout/homepagelayout'
+import PageWithLayout from '@/layout/pagewithlayout'
+import Link from 'next/link'
+import Image from 'next/image'
 
-const EditAppointmentPage: FC = () => {
+const ViewAppointmentsPage: FC = () => {
 
   const [ status, setStatus ] = useState("") // set niyo ung status
 
@@ -166,13 +170,13 @@ const EditAppointmentPage: FC = () => {
   return (
     
     <>
-    <SideNavDash/>
+
     
         <div className="h-screen bg-gray-200">
         <div className="flex w-full h-[1200px] bg-gradient-to-r from-amber-200 to-yellow-500 flex-col bg-white bg-clip-border text-gray-700 shadow-md">
-        <div className="pt-20 md:pl-96 md:pt-[80px] lt:pl-20 lg:pl-96 sm:pl-28">
+        <div className="pt-32 md:pl-96 lt:pl-20 lg:pl-28 sm:pl-28">
                         <div className="p-4 md:p-8">
-                            <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">Update Appointment Status</h1>
+                            <h1 className="text-black text-center font-bold pb-8 text-4xl md:text-5xl lg:text-6xl">View Appointment Status</h1>
                                 <form encType='multipart/form-data' onSubmit={EditAppointmentForm} className="flex flex-col items-center">
                                         <div className="md:w-4/5 lg:w-3/4 xl:w-2/3">
                                         <div className="flex flex-col md:flex-row gap-4">
@@ -187,7 +191,7 @@ const EditAppointmentPage: FC = () => {
                                                         placeholder="Input product name"
                                                         defaultValue={appointment.name} disabled required/>
     
-    <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[560px] md:ml-[560px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
+    <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[655px] md:ml-[655px] mt-[110px] xl:mt-0 text-black font-bold px-1 rounded">
                                                     Service Name
                                                     </label>
                                                     
@@ -210,7 +214,7 @@ const EditAppointmentPage: FC = () => {
                                                         placeholder="Input service name" 
                                                         defaultValue={appointment.brand} disabled required/>
     
-    <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[560px] md:ml-[560px] mt-[120px] xl:mt-2 text-black font-bold px-1 rounded">
+    <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[655px] md:ml-[655px] mt-[120px] xl:mt-2 text-black font-bold px-1 rounded">
                                                     Car Model
                                                     </label>
                                                     
@@ -235,7 +239,7 @@ const EditAppointmentPage: FC = () => {
                                                         placeholder="Input service name" 
                                                         defaultValue={appointment.model} disabled required/>
                                                    
-                                                   <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[560px] md:ml-[560px] mt-[120px] xl:mt-2 text-black font-bold px-1 rounded">
+                                                   <label htmlFor="price" className="text-lg absolute lt:ml-[420px] lg:ml-[655px] md:ml-[655px] mt-[120px] xl:mt-2 text-black font-bold px-1 rounded">
                                                     Car Plate No.
                                                     </label>
                                                     
@@ -255,7 +259,7 @@ const EditAppointmentPage: FC = () => {
                                                     </label>
                                                     
                                                     <input id="price" type="text" name="price"
-                                                        className="mt-10 w-[540px] py-4 px-4 rounded-md bg-gray-900 text-gray-300  outline-none focus:ring-2 focus:ring-blue-600"
+                                                        className="mt-10 w-[640px] py-4 px-4 rounded-md bg-gray-900 text-gray-300  outline-none focus:ring-2 focus:ring-blue-600"
                                                         onChange={(e) => setAppointment({...appointment, year: e.target.value})}
                                                         placeholder="Input service name" 
                                                         defaultValue={appointment.year} disabled required/>
@@ -263,7 +267,7 @@ const EditAppointmentPage: FC = () => {
     <div>
                           <label htmlFor="lastName" className="text-lg absolute mt-1.5 text-black font-bold px-1 rounded">Appointment Status </label>
                           <button name="status"type="button" className="inline-flex justify-center w-[220px] rounded-md border border-gray-700 shadow-sm mt-10 px-4 py-2 bg-gray-900 text-md font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-                            onClick={toggleDropdown}
+                           disabled  onClick={toggleDropdown}
                           >
                            {appointmentStatus === "" ? "Select Appointment Status" : appointmentStatus}
     
@@ -282,6 +286,7 @@ const EditAppointmentPage: FC = () => {
             key={name}
             value={name}
             onClick={(e) => setAppointmentStatus(name)}
+            disabled
           >
             {name}
           </button>
@@ -313,7 +318,7 @@ const EditAppointmentPage: FC = () => {
                                                     defaultValue={appointment.date}
                                                         />
 
-                                                    <label htmlFor="price" className="text-lg absolute mt-[110px] ml-[550px] xl:mt-2 text-black font-bold px-1 rounded">
+                                                    <label htmlFor="price" className="text-lg absolute mt-[110px] ml-[650px] xl:mt-2 text-black font-bold px-1 rounded">
                                                     Select Time
                                                     </label>
     
@@ -349,27 +354,49 @@ const EditAppointmentPage: FC = () => {
         </label>
     <textarea id="message"
     className="w-full mt-10 py-2 px-4 rounded-md bg-gray-900 text-gray-300  h-[150px] outline-none focus:ring-2 focus:ring-blue-600" name='description'
-    onChange={(e) => setReason(e.currentTarget.value)} defaultValue={appointment.reason} placeholder="Input cancellation reason"/>
+    disabled onChange={(e) => setReason(e.currentTarget.value)} defaultValue={appointment.reason} placeholder="Input cancellation reason"/>
     </div>
 : null }
 
     
                                     
                                         </div>
-                                    <button
+                                    {/* <button
                                         type="submit" onClick={handleGoBack} className="border-2 text-md font-bold mt-5 rounded-md py-2 px-4 bg-[#FFBD59] shadow-md shadow-black hover:bg-yellow-500 text-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-900">
                                         Update Appointment Status
-                                    </button>
+                                    </button> */}
                                 </form>
                                 
                         </div>
                         </div>    
                         </div>
     </div>
+    <section className="absolute top-[1100px] w-full mt-10 flex flex-col items-center justify-center text-center text-white ">
+             <footer className="py-10 w-full 12:mt-12 flex flex-col space-y-10 justify-center bg-gradient-to-r from-[#FFBD59] via-gray-100 to-[#FFBD59]">
+   
+             <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
+    <Link className="text-black hover:text-gray-500" href="/">Home</Link>
+    <Link className="text-black hover:text-gray-500" href="/product">Products</Link>
+    <Link className="text-black hover:text-gray-500" href="/services">Services</Link>
+    <Link className="text-black hover:text-gray-500" href="/about">About</Link>
+    <Link className="text-black hover:text-gray-500" href="/contact">Contact</Link>
+</nav>
+
+<div className="flex justify-center space-x-5">
+    <Link href="https://www.facebook.com/MinervaSalesCorp" target="_blank" rel="noopener noreferrer">
+        <Image src="/fblogo.webp" alt = "" width={20} height={10}/>
+   </Link>
+  
+</div>
+<p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
+   </footer>
+   
+             </section>
     </>
     
 
   )
 }
 
-export default EditAppointmentPage
+(ViewAppointmentsPage as PageWithLayout).layout = HomePageLayout
+export default ViewAppointmentsPage

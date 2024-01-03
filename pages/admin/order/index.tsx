@@ -2,17 +2,21 @@ import React, { FC, useState, useEffect, SyntheticEvent } from 'react'
 import Head from 'next/head'
 import SideNavDash from '@/components/sideNavDash'
 import router, { useRouter } from 'next/router'
-import { TbEdit, TbShoppingBag, } from 'react-icons/tb'
-import Modal from '@/components/Modal';
+import { TbEdit, TbEye, TbShoppingBag, } from 'react-icons/tb'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import { jwtDecode } from 'jwt-decode'
 import Cookies from 'js-cookie'
 import { FormattedPrice, FormattedDate } from '@/helpers/index'
 import { Toaster, toast } from 'sonner'
-
+import Image from 'next/image'
 
 const OrderPage = () => {
   const [ page, setPage] = useState(0)
-
+  const [showModal, setShowModal] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+ const handleShow = () => setShow(true);
   const [ isModalOpen, setIsModalOpen ] = useState(false);
 
   const handleOpenModal = () => {
@@ -55,7 +59,7 @@ const OrderPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/getAllOrders/?search=${search}`, {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/getAllOrders?search=${search}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
       })
@@ -160,13 +164,14 @@ const OrderPage = () => {
                                         className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
                                         aCTION
                                     </th>
+
     
                                 </tr>
                             </thead>
                             <tbody>
-                            
-            {orders?.map(({ userID, orderID, orders, total, payment, status, createdAt, User}: any) => (
-                User.map(({ profile }: any) => (
+
+                            { search ? orderSearch?.map(({ userID, orderID, orders, proofPayment, total, payment, status, createdAt, User}: any) => (
+                User?.map(({ profile }: any) => (
                               
                                 <tr key={orderID}>
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
@@ -201,6 +206,53 @@ const OrderPage = () => {
                                         {status}
                                         </p>
                                     </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <span
+                                            className="relative inline-block px-3 py-1 font-bold text-black leading-tight">
+                                        <button onClick={() => router.push(`/admin/order/editorder/${orderID}`)}> <TbEdit size={25} /> </button>
+                                        </span>
+                                    </td>
+                                </tr>
+                                                 ))
+                                                 )): 
+                            
+            orders?.map(({ userID, orderID, orders, total, proofPayment, payment, status, createdAt, User}: any) => (
+                User?.map(({ profile }: any) => (
+                              
+                                <tr key={orderID}>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <div className="flex items-center">
+                                            <div className="ml-3">
+                                                <p className="text-gray-900 whitespace-no-wrap">
+                                                {orders}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <p className="text-gray-900 whitespace-no-wrap">{profile.firstname} {profile.lastname}</p>
+                                    </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                        {FormattedDate(createdAt)}
+                                        </p>
+                                    </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                        {FormattedPrice(total)}
+                                        </p>
+                                    </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                        {payment}
+                                        </p>
+                                    </td>
+                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                        {status}
+                                        </p>
+                                    </td>
+                                   
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                         <span
                                             className="relative inline-block px-3 py-1 font-bold text-black leading-tight">

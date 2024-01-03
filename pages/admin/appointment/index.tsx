@@ -88,7 +88,7 @@ const AppointmentPage = () => {
           <div className="w-full">
           
             <input type="search" className="w-full px-4 py-1 text-gray-800 rounded-lg focus:outline-none "
-              placeholder="search" onChange={(e) => setSearch(e.target.value)}/>
+              placeholder="search by ID" onChange={(e) => setSearch(e.target.value)}/>
           </div>
           
           <div>

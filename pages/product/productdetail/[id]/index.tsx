@@ -146,9 +146,11 @@ const ProductDetails: FC = () => {
               <div className="relative mb-6 lg:mb-10 lg:h-96">
              
 
-              {products.image.length > 0 && (
-                    <Image src={products.image[1]} alt={products.name} height={220} width={550} />
-                  )}
+              {products.image.length > 0 ? (
+        <Image src={products.image[0]} alt={products.name} height={220} width={550} />
+      ) : (
+        <Image src="/logo.png" alt="Default logo" height={220} width={550} />
+      )}
 
 
               </div>
@@ -156,23 +158,29 @@ const ProductDetails: FC = () => {
 
               <div className="w-1/2 p-2 sm:w-1/3">
               <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
-              {products.image.length > 0 && (
-                    <Image src={products.image[2]} alt={products.name} height={220} width={520} />
-                  )}
+              {products.image.length > 2 ? (
+        <Image src={products.image[2]} alt={products.name} height={220} width={550} />
+      ) : (
+        <Image src="/logo.png" alt="Default logo" height={220} width={550} />
+      )}
               </a>
               </div>
               <div className="w-1/2 p-2 sm:w-1/3">
               <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
-              {products.image.length > 0 && (
-                    <Image src={products.image[1]} alt={products.name} height={220} width={520} />
-                  )}              
+              {products.image.length > 1 ? (
+        <Image src={products.image[1]} alt={products.name} height={220} width={550} />
+      ) : (
+        <Image src="/logo.png" alt="Default logo" height={220} width={550} />
+      )}          
                 </a>
               </div>
               <div className="w-1/2 p-2 sm:w-1/3">
               <a className="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 shadow-lg dark:hover:border-blue-300" href="#">
-              {products.image.length > 0 && (
-                    <Image src={products.image[0]} alt={products.name} height={220} width={520} />
-                  )}               
+              {products.image.length > 0 ? (
+        <Image src={products.image[0]} alt={products.name} height={220} width={550} />
+      ) : (
+        <Image src="/logo.png" alt="Default logo" height={220} width={550} />
+      )}            
                   </a>
               </div>
              

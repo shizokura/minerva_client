@@ -1,23 +1,24 @@
 import HomePageLayout from '@/layout/homepagelayout'
 import PageWithLayout from '@/layout/pagewithlayout'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import styles from '@/styles/customer/customer.module.scss'
-import router from 'next/router'
-import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight, TbHexagonPlus } from 'react-icons/tb'
 import Head from 'next/head'
+import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight, TbEye } from 'react-icons/tb'
+import router from 'next/router'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
-import { FormattedDate } from '@/helpers'
+import { FormattedDate, FormattedPrice } from '@/helpers/index'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const ViewAppointments: FC = () => {
+const ViewOrders: FC = () => {
 
   const [ page, setPage ] = useState(0)
+  const [ orders, setOrders ] = useState<any>(null)
 
-  const [ appointment, setAppointment ] = useState<any>(null)
 
   const [ userId, setUserId ] = useState("")
+
 
   useEffect(() => {
     const cookies = Cookies.get("ecom_token");
@@ -28,27 +29,33 @@ const ViewAppointments: FC = () => {
   }, [])
 
   useEffect(() => {
+
+    if (!userId) return
     const fetchData = async () => {
-      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/schedule/getAllMyAppointments/${userId}/?skip=${page}`, {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/getAllMyOrders/${userId}/?skip=${page}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
-        cache: "default"
+        cache: "no-cache"
       })
-      const result = await response.json()
-      setAppointment(result)
+
+      if (!response.ok) throw new Error("There is something wrong while fetching")
+
+      const result = await response.json();
+      setOrders(result)
     }
 
     fetchData();
-  }, [ userId, appointment ])
+  }, [ userId, orders ])
 
   return (
 
     <div className={styles.bodyViewOrders}>
+ 
 
-          <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">        
-          <div className="py-12">
+    <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">
+        <div className="py-12">
             <div>
-                <h2 className=" text-white text-3xl font-roboto font-bold leading-tight sm:">View Appointment Records</h2>
+                <h2 className="text-3xl font-roboto font-bold leading-tight text-white">View Your Order Status</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">
@@ -57,48 +64,66 @@ const ViewAppointments: FC = () => {
                             <tr>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Service ID
+                                    ORDER ID
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Service Name
+                                    DATE ORDERED
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Appointment Date
+                                    AMOUNT
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    Status
+                                    PAYMENT METHOD
+                                </th>
+                                <th
+                                    className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
+                                    ORDER STATUS
+                                </th>
+
+                                <th
+                                    className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
+                                   Action
                                 </th>
                                
 
                             </tr>
                         </thead>
                         <tbody>
-                        {appointment?.map(({ userID, id, date, time, name, status, User, service}: any) => (                          
-                            <tr key={userID}>
+                        {orders?.map(({ orders, createdAt, total, payment, status, orderID}: any) => (
+                          
+                            <tr key={orders}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {id}
+                                            {orders}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">{service}</p>
+                                    <p className="text-gray-900 whitespace-no-wrap">{FormattedDate(createdAt)}</p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {FormattedDate(date)} {time}
+                                    {FormattedPrice(total)}
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {status}
+                                    {payment}
                                     </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                    <p className="text-gray-900 whitespace-no-wrap">
+                                    <span>{status}</span>
+                                    </p>
+                                </td>
+                                <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
+                                <button onClick={() => router.push(`/minerva/customer/vieworders/${orderID}`)}> <TbEye className='ml-5' size={25} /> </button>
                                 </td>
 
                             </tr>
@@ -147,9 +172,10 @@ const ViewAppointments: FC = () => {
 </div>
 <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
 </footer>
+
     </div>
   )
 }
 
-(ViewAppointments as PageWithLayout).layout = HomePageLayout
-export default ViewAppointments
+(ViewOrders as PageWithLayout).layout = HomePageLayout
+export default ViewOrders

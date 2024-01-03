@@ -63,7 +63,7 @@ const Cart: FC = () => {
                                 <div className="shrink-0 relative">
                                   <span className="absolute top-1 left-1 flex h-6 w-6 items-center justify-center rounded-full border bg-white text-sm font-medium text-gray-500 shadow sm:-top-2 sm:-right-2">{quantity}</span>
                                   {image.length > 0 && (
-                                <Image src={image[1]} alt={name} height={120} width={120}/>
+                                <Image src={image[0]} alt={name} height={120} width={120}/>
                               )}                       
                              </div>
         

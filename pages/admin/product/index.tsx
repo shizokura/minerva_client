@@ -201,7 +201,8 @@ const ProductPage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                        {search ? productSearch?.map(({ id, productID, name, category, price, stock, image, description, }: any) => (
+                        {
+                        search ? productSearch?.map(({ id, productID, name, category, price, stock, image, description, }: any) => (
                             <tr key={productID}>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">

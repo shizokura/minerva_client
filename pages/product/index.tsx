@@ -230,7 +230,7 @@ const Products: FC = () => {
                    <div key={productID} onClick={() => handleClick(productID)}>
   <div className="w-[260px] xl:w-96 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
              {image.length > 0 && (
-   <Image src={image[2]} alt={name} height={120} width={500}/>
+   <Image src={image[0]} alt={name} height={120} width={500}/>
  )}
           <div className="px-4 py-3 w-[260px] xl:w-96">
           <span className="text-gray-400 mr-3 uppercase text-xs">{category}</span>
@@ -249,7 +249,7 @@ const Products: FC = () => {
                   <div key={productID} onClick={() => handleClick(productID)}>
                   <div className="w-[260px] xl:w-96 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                   {image.length > 0 && (
-   <Image src={image[2]} alt={name} height={120} width={500}/>
+   <Image src={image[0]} alt={name} height={120} width={500}/>
  )}
           <div className="px-4 py-3 w-[260px] xl:w-96">
               <span className="text-gray-400 mr-3 uppercase text-xs">{category}</span>
@@ -272,7 +272,7 @@ const Products: FC = () => {
          <div key={productID} onClick={() => handleClick(productID)}>
          <div className="w-[260px] xl:w-96 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
          {image.length > 0 && (
-   <Image src={image[2]} alt={name} height={120} width={500}/>
+   <Image src={image[0]} alt={name} height={120} width={500}/>
  )}
           <div className="px-4 py-3 w-[260px] xl:w-96">
           <span className="text-gray-400 mr-3 uppercase text-xs">{category}</span>

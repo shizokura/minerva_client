@@ -215,7 +215,7 @@ const maxDateString = maxDate.toISOString().split('T')[0];
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                           >
                             {['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].map((time) => (
-                              <option key={time} value={time}>
+                              <option key={time} value={time} disabled={isTimeInPast(time)}>
                                 {time}
                               </option>
                             ))}

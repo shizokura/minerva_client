@@ -1,24 +1,23 @@
 import HomePageLayout from '@/layout/homepagelayout'
 import PageWithLayout from '@/layout/pagewithlayout'
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styles from '@/styles/customer/customer.module.scss'
-import Head from 'next/head'
-import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight } from 'react-icons/tb'
 import router from 'next/router'
+import { TbEdit, TbTrash, TbUsers, TbFiles, TbCalendar, TbShoppingBag, TbClock, TbGraph, TbFileAnalytics, TbList, TbArchive, TbClipboard, TbMessage, TbSettings2, TbLogout2, TbArrowLeft, TbChevronLeft, TbChevronRight, TbHexagonPlus, TbEye } from 'react-icons/tb'
+import Head from 'next/head'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
-import { FormattedDate, FormattedPrice } from '@/helpers/index'
+import { FormattedDate } from '@/helpers'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const ViewOrders: FC = () => {
+const ViewAppointments: FC = () => {
 
   const [ page, setPage ] = useState(0)
-  const [ orders, setOrders ] = useState<any>(null)
 
+  const [ appointment, setAppointment ] = useState<any>(null)
 
   const [ userId, setUserId ] = useState("")
-
 
   useEffect(() => {
     const cookies = Cookies.get("ecom_token");
@@ -29,33 +28,27 @@ const ViewOrders: FC = () => {
   }, [])
 
   useEffect(() => {
-
-    if (!userId) return
     const fetchData = async () => {
-      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/order/getAllMyOrders/${userId}/?skip=${page}`, {
+      const response = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/schedule/getAllMyAppointments/${userId}/?skip=${page}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
-        cache: "no-cache"
+        cache: "default"
       })
-
-      if (!response.ok) throw new Error("There is something wrong while fetching")
-
-      const result = await response.json();
-      setOrders(result)
+      const result = await response.json()
+      setAppointment(result)
     }
 
     fetchData();
-  }, [ userId, orders ])
+  }, [ userId, appointment ])
 
   return (
 
     <div className={styles.bodyViewOrders}>
- 
 
-    <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">
-        <div className="py-12">
+          <div className="container mt-60 mx-auto px-4 sm:px-8 lg:ml-[200px] ">        
+          <div className="py-12">
             <div>
-                <h2 className="text-3xl font-roboto font-bold leading-tight text-white">View Your Order Status</h2>
+                <h2 className=" text-white text-3xl font-roboto font-bold leading-tight sm:">View Appointment Records</h2>
             </div> 
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden h-[790px] bg-white">
@@ -64,58 +57,59 @@ const ViewOrders: FC = () => {
                             <tr>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    ORDER ID
+                                    Service ID
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    DATE ORDERED
+                                    Service Name
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    AMOUNT
+                                    Appointment Date
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    PAYMENT METHOD
+                                    Status
                                 </th>
                                 <th
                                     className="px-5 py-3 border-b-2 border-gray-200 bg-[#FFBD59] text-left text-md font-bold text-black uppercase tracking-wider">
-                                    ORDER STATUS
+                                    Action
                                 </th>
                                
 
                             </tr>
                         </thead>
                         <tbody>
-                        {orders?.map(({ orders, createdAt, total, payment, status}: any) => (
-                          
-                            <tr key={orders}>
+                        {appointment?.map(({ userID, scheduleID, id, date, time, name, status, User, service}: any) => (                          
+                            <tr key={userID}>
                                 <td className="z-40 px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <div className="flex items-center">
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                            {orders}
+                                            {id}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">{FormattedDate(createdAt)}</p>
+                                    <p className="text-gray-900 whitespace-no-wrap">{service}</p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {FormattedPrice(total)}
+                                    {FormattedDate(date)} {time}
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                    {payment}
+                                    {status}
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-md">
-                                    <p className="text-gray-900 whitespace-no-wrap">
-                                    <span>{status}</span>
-                                    </p>
+                                    <span
+                                        className="relative inline-block px-3 py-1 font-bold text-black leading-tight">
+                                     <button onClick={() => router.push(`/minerva/customer/viewappointments/${scheduleID}`)} > <TbEye size={25} /> </button>
+
+                                    </span>
                                 </td>
 
                             </tr>
@@ -164,10 +158,9 @@ const ViewOrders: FC = () => {
 </div>
 <p className="text-center text-gray-700 font-medium">&copy; 2023 Minerva Sales Corporation. All rights reserved.</p>
 </footer>
-
     </div>
   )
 }
 
-(ViewOrders as PageWithLayout).layout = HomePageLayout
-export default ViewOrders
+(ViewAppointments as PageWithLayout).layout = HomePageLayout
+export default ViewAppointments

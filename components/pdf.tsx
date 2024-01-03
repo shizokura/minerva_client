@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 
 const PDF = ({ generate, startDate, endDate }: any) => {
 
-  
+  const createdAt = new Date().toLocaleDateString();
+ const first13Chars = createdAt.substring(0, 13);
 
   return(
     
@@ -140,7 +141,7 @@ const PDF = ({ generate, startDate, endDate }: any) => {
         {generate?.map(({ orderID, orders, Product, User, payment, quantity, status, createdAt, total }: any, index: number) => (
         <Text key={orderID} style={{ position: 'absolute', top: `${163 + index * 20}px`, left: '400px', padding: '5px', marginRight: '10px' }} >
    
-        <Text key={orderID} style={{ position: 'absolute', top: '163px', left: '400px', padding: '5px' }}>{FormattedDate(createdAt)}</Text>
+        <Text key={orderID} style={{ position: 'absolute', top: '163px', left: '400px', padding: '5px' }}>{first13Chars}</Text>
         </Text>
         ))}
 
