@@ -5,11 +5,6 @@ import { FormattedDate, FormattedPrice } from '@/helpers/index'
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 
-Font.register({
-  family: 'Franklin Gothic Book',
-  src: '/assets/FRABK.ttf',
-});
-
 const styles = StyleSheet.create({
   body: {
     paddingTop: 20,
@@ -17,6 +12,10 @@ const styles = StyleSheet.create({
 })
 
 const PDF = ({ generate, startDate, endDate }: any) => {
+  Font.register({
+    family: 'Franklin Gothic Book',
+    src: `${window.location.origin}/assets/FRABK.TTF`,
+  });
 
   const createdAt = new Date().toLocaleDateString();
  const first13Chars = createdAt.substring(0, 13);

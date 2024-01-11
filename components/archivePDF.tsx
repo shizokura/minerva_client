@@ -3,10 +3,6 @@ import { Document, Page, View, Text, Image, PDFViewer, StyleSheet, Font } from '
 import { FormattedDate, FormattedPrice, dateFunctions} from '@/helpers/index'
 import { format } from 'date-fns'
 
-Font.register({
-  family: 'Franklin Gothic Book',
-  src: '/assets/FRABK.ttf',
-});
 
 const styles = StyleSheet.create({
   body: {
@@ -17,7 +13,10 @@ const styles = StyleSheet.create({
 
 
 const ArchivePDF = ({ generate }: any) => {
-
+  Font.register({
+    family: 'Franklin Gothic Book',
+    src: `${window.location.origin}/assets/FRABK.TTF`,
+  });
 
   console.log(generate)
 
