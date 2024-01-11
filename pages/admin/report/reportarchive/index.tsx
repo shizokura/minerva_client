@@ -9,6 +9,7 @@ import SideNavDash from '@/components/sideNavDash'
 
 const AuditLog: FC = () => {
 
+  const [ orderBy, setOrderBy ] = useState("")
     const [ page, setPage] = useState(0)
       
 
@@ -45,7 +46,7 @@ const AuditLog: FC = () => {
   
     useEffect(() => {
       const fetchData = async () => {
-        const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/archive/getAllArchive/?filter=${dateFilters}&skip=${page}`, {
+        const res = await fetch(`https://minervasales-23b0919d60c1.herokuapp.com/archive/getAllArchive/?filter=${dateFilters}&skip=${page}&orderby=desc`, {
           method: "GET",
           headers: { 'Content-Type': 'application/json' },
           cache: "default"

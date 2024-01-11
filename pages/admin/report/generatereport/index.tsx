@@ -182,8 +182,8 @@ const GenerateReport: FC = () => {
                         </div>
                         <div>    
                           
-      {generated ?   
-      <PDF generate={generated} startDate={dates.startDate} endDate={dates.endDate} /> : null}
+      
+      <PDF generate={generated} startDate={dates.startDate} endDate={dates.endDate} /> 
       </div>
                         </div>    
                         </div>
